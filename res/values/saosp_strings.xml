@@ -160,7 +160,7 @@
     <string name="network_traffic_autohide_threshold">Inactivity threshold</string>
     <string name="network_traffic_hidearrow_title">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the traffic monitor activity arrows</string>
- 
+
     <!-- statusbar brightness control -->
     <string name="status_bar_toggle_brightness">Brightness control</string>
     <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar</string>
@@ -216,7 +216,10 @@
     <string name="power_menu_lockdown_title">Device lockdown</string>
     <string name="power_menu_bug_report_title">Bug report</string>
     <string name="power_menu_sound_title">Sound panel</string>
-    <string name="power_menu_bug_report_disabled">Bug reporting is disabled in development settings</string>   
+    <string name="power_menu_bug_report_disabled">Bug reporting is disabled in development settings</string>  
+    <string name="lockscreen_enable_power_menu_title">Enable or disable power menu on lock screen</string>
+    <string name="summary_lockscreen_power_menu_enabled">Power menu on lock screen is enabled</string>
+    <string name="summary_lockscreen_power_menu_disabled">Power menu on lock screen is disabled</string>
 
     <!-- LED notifications -->
     <string name="color_picker_dialog_title">Color</string>
