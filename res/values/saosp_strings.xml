@@ -46,4 +46,13 @@
     <string name="volbtn_music_controls_title">Volume rocker music controls</string>
     <string name="volbtn_music_controls_summary">When screen off, long-pressing the volume rockers will seek music tracks</string>
     <string name="volume_button_toggle_info">Volume rocker wake must be disabled</string>
+
+    <!-- Saosp Settings menus -->
+    <string name="simpleaosp_settings_title">Build Tweaks</string>
+    <string name="keywords_simpleaosp">simpleaosp</string>
+    <!-- Lock screen settings -->
+    <string name="lock_screen_title">Lock screen</string>
+    <!-- Status bar-->
+    <string name="status_bar_title">Status bar</string>
+
 </resources>

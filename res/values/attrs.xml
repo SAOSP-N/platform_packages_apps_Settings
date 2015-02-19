@@ -135,4 +135,5 @@
         <attr name="allowDividerAbove" format="boolean" />
         <attr name="allowDividerBelow" format="boolean" />
     </declare-styleable>
+
 </resources>

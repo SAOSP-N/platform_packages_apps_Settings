@@ -123,8 +123,16 @@
 
         <activity android:name=".Settings$WirelessSettings"
             android:label="@string/header_category_wireless_networks">
-            <intent-filter android:priority="4">
+            <intent-filter android:priority="5">
                 <action android:name="com.android.settings.category.wireless" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Settings$SAOSPSettings"
+            android:label="@string/keywords_simpleaosp">
+            <intent-filter android:priority="4">
+                <action android:name="com.android.settings.category.saosp" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -172,6 +180,40 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+       <!-- SAOSP Extras -->
+
+        <activity android:name="Settings$SaospSettingsActivity"
+                android:label="@string/simpleaosp_settings_title"
+                android:icon="@drawable/ic_build_tweak"
+                android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="3">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.saosp" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.saosp.ProcessStatsSummary" />
+        </activity>
+ 
+       <!-- Keep compatibility with old shortcuts. -->
+        <activity android:name="Settings$SaospSettingsActivity"
+                  android:label="@string/simpleaosp_settings_title"
+            android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.simpleaosp.AdditionalSettings" />
+        </activity>
+
+        <activity
+             android:name=".simpleaosp.AdditionalSettings" />
 
         <!-- Wireless Controls -->
 
