@@ -29,6 +29,9 @@
 	     android:fragment="com.android.settings.cyanogenmod.PowerMenuFragment" />
     </PreferenceCategory>
 
+    <Preference android:key="restart_systemui"
+            android:title="@string/restart_systemui" />
+
     <PreferenceScreen
             android:key="local_backup_password"
             android:title="@string/local_backup_password_title"
