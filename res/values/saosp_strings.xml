@@ -353,4 +353,7 @@
     <string name="usb_data_auto_unlock_summary">Allow unlocked data access to your phone\'s storage through USB (MTP, PTP)</string>
     <string name="usb_data_auto_unlock_warning_summary">Your device will establish unprotected connections, everytime you connect it to a PC. Secured lockscreens disable this option automatically.\n\nThis is still an experimental feature, use with caution.</string>
 
+    <!--Navigation bar category -->
+    <string name="navigation_bar_title">Navigation bar</string>
+
 </resources>
