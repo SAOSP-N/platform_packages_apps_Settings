@@ -368,4 +368,7 @@
     <string name="unlock_quick_unlock_control_title">Quick unlock</string>
     <string name="unlock_quick_unlock_control_summary">Unlock automatically when the correct PIN is entered\nNote: will only work for 4 digit PIN !</string>
 
+    <!--Navigation bar category -->
+    <string name="navigation_bar_title">Navigation bar</string>
+
 </resources>
