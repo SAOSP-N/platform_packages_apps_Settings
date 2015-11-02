@@ -164,5 +164,9 @@
     <string name="network_traffic_autohide_threshold">Inactivity threshold</string>
     <string name="network_traffic_hidearrow_title">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the traffic monitor activity arrows</string>
+ 
+    <!-- statusbar brightness control -->
+    <string name="status_bar_toggle_brightness">Brightness control</string>
+    <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar</string>  
 
 </resources>
