@@ -18,6 +18,12 @@
             android:defaultValue="true"
             android:dependency="volume_rocker_wake"/>
 
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="volume_keys_control_media_stream"
+            android:title="@string/volume_keys_control_media_stream_title"
+            android:summary="@string/volume_keys_control_media_stream_summary"
+            android:defaultValue="false" />
+
         <ListPreference
 	    android:dialogTitle="@string/volume_key_cursor_control_title"
 	    android:entries="@array/volume_key_cursor_control_entries"
