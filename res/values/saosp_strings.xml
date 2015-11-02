@@ -324,4 +324,8 @@
      <!-- volumerocker fragment -->
      <string name="volume_rocker_title">Volume rocker</string>
 
+     <!-- volumerocker media stream control -->
+    <string name="volume_keys_control_media_stream_title">Controls media volume</string>
+    <string name="volume_keys_control_media_stream_summary">Force the volume keys to always control media stream</string>
+
 </resources>
