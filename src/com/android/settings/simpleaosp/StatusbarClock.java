@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 Slimroms Project
+ * Copyright (C) 2013-2016 Slimroms Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,28 +25,26 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
+import android.support.v7.preference.ListPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.PreferenceScreen;
+import android.support.v14.preference.PreferenceFragment;
+import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.text.format.DateFormat;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.widget.EditText;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.internal.logging.MetricsLogger;
+import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.Utils;
 
 import java.util.Date;
 
-public class StatusbarClock extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class StatusbarClock extends SettingsPreferenceFragment
+        implements OnPreferenceChangeListener {
 
     private static final String TAG = "StatusbarClock";
 
@@ -78,7 +76,7 @@ public class StatusbarClock extends SettingsPreferenceFragment implements OnPref
 
     private PreferenceScreen createCustomView() {
         mCheckPreferences = false;
-        final PreferenceScreen prefSet = getPreferenceScreen();
+        PreferenceScreen prefSet = getPreferenceScreen();
         if (prefSet != null) {
             prefSet.removeAll();
         }
