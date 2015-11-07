@@ -19,7 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.android.settings.simpleaosp.StatusBarSettings;
-//import com.android.settings.simpleaosp.NavigationBarSettings;
+import com.android.settings.simpleaosp.NavigationBarSettings;
 import com.android.settings.simpleaosp.LockScreenSettings;
 import com.android.settings.simpleaosp.NotificationDrawerSettings;
 import com.android.settings.simpleaosp.VolumeRockerSettings;
@@ -85,10 +85,10 @@ public class AdditionalSettings extends SettingsPreferenceFragment {
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
 	    frags[0] = new StatusBarSettings();
-            //frags[1] = new NavigationBarSettings();
-	    frags[1] = new NotificationDrawerSettings(); 
-            frags[2] = new LockScreenSettings();
-            frags[3] = new VolumeRockerSettings(); 
+            frags[1] = new NavigationBarSettings();
+	    frags[2] = new NotificationDrawerSettings(); 
+            frags[3] = new LockScreenSettings();
+            frags[4] = new VolumeRockerSettings(); 
         }
 
         @Override
@@ -111,7 +111,7 @@ public class AdditionalSettings extends SettingsPreferenceFragment {
         String titleString[];
         titleString = new String[]{
 		    getString(R.string.status_bar_title),
-                    //getString(R.string.navigation_bar_title),
+                    getString(R.string.navigation_bar_title),
                     getString(R.string.notification_drawer_title),
 		    getString(R.string.lock_screen_title),
                     getString(R.string.volume_rocker_title)};
