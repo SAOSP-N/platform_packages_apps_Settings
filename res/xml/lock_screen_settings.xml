@@ -16,5 +16,13 @@
             android:summary="@string/keyguard_torch_summary"
             android:defaultValue="false" />
 
+        <PreferenceScreen
+            android:title="@string/lockscreen_targets_message"
+            android:summary="@string/lockscreen_targets_summary">
+            <intent
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.cm.LockscreenShortcutsActivity" />
+        </PreferenceScreen>
+
 </PreferenceScreen>
 
