@@ -31,7 +31,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.Spinner;
+
+import com.nispok.snackbar.Snackbar;
 
 import com.android.ims.ImsManager;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
@@ -39,6 +41,8 @@ import com.android.internal.telephony.PhoneConstants;
 import com.android.settingslib.RestrictedLockUtils;
 
 import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
+
+import com.android.settings.Utils;
 
 /**
  * Confirm and execute a reset of the network settings to a clean "just out of the box"
@@ -105,8 +109,10 @@ public class ResetNetworkConfirm extends OptionsMenuFragment {
 
             ImsManager.factoryReset(context);
 
-            Toast.makeText(context, R.string.reset_network_complete_toast, Toast.LENGTH_SHORT)
-                    .show();
+            final String message = context.getString(
+                    R.string.reset_network_complete_toast);
+            Utils.showSnackbar(message, Snackbar.SnackbarDuration.LENGTH_SHORT,
+                    null, null, context);
         }
     };
 

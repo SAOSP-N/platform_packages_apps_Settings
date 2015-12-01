@@ -129,6 +129,7 @@ import com.android.settingslib.drawer.SettingsDrawerActivity;
 import com.android.settingslib.drawer.Tile;
 
 import com.android.settings.simpleaosp.AdditionalSettings;
+import com.nispok.snackbar.SnackbarManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -834,6 +835,7 @@ public class SettingsActivity extends SettingsDrawerActivity
         unregisterReceiver(mBatteryInfoReceiver);
         unregisterReceiver(mUserAddRemoveReceiver);
         mDynamicIndexableContentMonitor.unregister();
+        SnackbarManager.dismiss();
     }
 
     @Override
