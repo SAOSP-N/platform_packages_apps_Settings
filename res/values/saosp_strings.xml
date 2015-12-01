@@ -291,4 +291,7 @@
     <string name="keyguard_torch_title">Lockscreen torch</string>
     <string name="keyguard_torch_summary">Longpress power button with screen off turns on torch</string>
 
+    <!-- Snackbar action button -->
+    <string name="dev_settings_action_button">Settings</string>
+
 </resources>
