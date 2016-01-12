@@ -331,4 +331,8 @@
     <string name="volume_keys_control_media_stream_title">Controls media volume</string>
     <string name="volume_keys_control_media_stream_summary">Force the volume keys to always control media stream</string>
 
+    <!-- Disable OS on lockscreen -->
+    <string name="block_on_secure_keyguard_title">Disable quick settings on lock screen</string>
+    <string name="block_on_secure_keyguard_summary">Disables quick settings on secure lockscreen</string>  
+
 </resources>
