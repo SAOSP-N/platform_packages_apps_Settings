@@ -108,8 +108,6 @@ public class ExpandedDesktopPreferenceFragment extends SettingsPreferenceFragmen
         }
         mAllPackagesAdapter = new AllPackagesAdapter(getActivity());
 
-        mAllPackagesAdapter.notifyDataSetChanged();
-
         setHasOptionsMenu(true);
     }
 
@@ -262,7 +260,7 @@ public class ExpandedDesktopPreferenceFragment extends SettingsPreferenceFragmen
 
     @Override
     public void onRebuildComplete(ArrayList<ApplicationsState.AppEntry> entries) {
-        handleAppEntries(entries);
+        rebuild();
     }
 
     @Override
@@ -284,7 +282,7 @@ public class ExpandedDesktopPreferenceFragment extends SettingsPreferenceFragmen
 
     @Override
     public void onLoadEntriesCompleted() {
-
+        rebuild();
     }
 
     private void handleAppEntries(List<ApplicationsState.AppEntry> entries) {
@@ -337,6 +335,7 @@ public class ExpandedDesktopPreferenceFragment extends SettingsPreferenceFragmen
                 mActivityFilter, ApplicationsState.ALPHA_COMPARATOR);
         if (newEntries != null) {
             handleAppEntries(newEntries);
+            mAllPackagesAdapter.notifyDataSetChanged();
         }
     }
 
