@@ -14,11 +14,13 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
- <!-- SimpleAOSP build date-->
+   <!-- SimpleAOSP build date-->
    <string name="build_date">SimpleAOSP-N build date</string>
-   <string name="build_date_default">2014-01-01-0000</string>
-    <!-- Vendor version -->
-    <string name="vendor_version">Vendor version</string>
-    <string name="vendor_version_default">Unknown</string>
+   <string name="build_date_default">2014-01-01-0000</string> 
+   <!-- Vendor version -->
+   <string name="vendor_version">Vendor version</string>
+   <string name="vendor_version_default">Unknown</string>
+   <!-- Local (desktop) backup password menu title [CHAR LIMIT=25] -->
+   <string name="local_backup_password_title">Desktop backup password</string>
 
 </resources>
