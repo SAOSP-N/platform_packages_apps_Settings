@@ -419,12 +419,6 @@ public class NotificationLightDialog extends AlertDialog implements
         builder.setLights(color, speedOn, speedOff);
         builder.setExtras(b);
 
-        // Set a notification
-        builder.setSmallIcon(R.drawable.ic_settings_leds);
-        builder.setContentTitle(getContext().getString(R.string.led_notification_title));
-        builder.setContentText(getContext().getString(R.string.led_notification_text));
-        builder.setOngoing(true);
-
         mNotificationManager.notify(1, builder.build());
     }
 
