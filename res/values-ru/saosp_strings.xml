@@ -11,13 +11,104 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-   <!-- SimpleAOSP build date-->
-   <string name="build_date">Дата сборки SimpleAOSP-N</string>
-   <string name="build_date_default">2014-01-01-0000</string> 
-   <!-- Vendor version -->
-   <string name="vendor_version">Версия поставщика</string>
-   <string name="vendor_version_default">Неизвестно</string>
-   <!-- Local (desktop) backup password menu title [CHAR LIMIT=25] -->
-   <string name="local_backup_password_title">Запасной пароль рабочего стола</string>
+    <!-- SimpleAOSP build date-->
+    <string name="build_date">Дата сборки SimpleAOSP-N</string>
+    <string name="build_date_default">2014-01-01-0000</string> 
+    <!-- Vendor version -->
+    <string name="vendor_version">Версия поставщика</string>
+    <string name="vendor_version_default">Неизвестно</string>
+    <!-- Local (desktop) backup password menu title [CHAR LIMIT=25] -->
+    <string name="local_backup_password_title">Запасной пароль рабочего стола</string>
+
+    <!--- Volume key cursor control -->
+    <string name="volume_rocker_screen_title">Качелька громкости</string>
+    <string name="volume_key_cursor_control_title">Перемещение курсора</string>
+    <string name="volume_key_cursor_control_off">Выключено</string>
+    <string name="volume_key_cursor_control_on">Кнопка «+» двигает курсор влево, «-» — вправо</string>
+    <string name="volume_key_cursor_control_on_reverse">Кнопка «+» двигает курсор вправо, «-» — влево</string>
+
+    <!-- Wakeup options -->
+    <string name="display_category_wakeup_options_title">Параметры пробуждения</string>
+    <string name="pref_volume_wake_title">Пробуждение устройства</string>
+    <string name="pref_volume_wake_summary">Нажатие на кнопки громкости будет пробуждать устройство</string>
+    <string name="wakeup_when_plugged_unplugged_title">Пробуждаться при зарядке</string>
+    <string name="wakeup_when_plugged_unplugged_summary">Включать экран при подключении и отключении зарядного устройства</string>
+
+    <!-- Advanced sound category -->
+    <string name="advanced_sound_category">Дополнительные настройки</string>
+
+    <!-- Volume rocker music seek options -->
+    <string name="volbtn_music_controls_title">Управление плеером</string>
+    <string name="volbtn_music_controls_summary">Переключать треки долгим нажатием кнопок громкости при выключенном экране</string>
+    <string name="volume_button_toggle_info">Пробуждение кнопкой громкости должно быть отключено</string>
+
+    <!-- Saosp Settings menus -->
+    <string name="simpleaosp_settings_title">Персонализация</string>
+    <string name="keywords_simpleaosp">simpleaosp</string>
+    <!-- Lock screen settings -->
+    <string name="lock_screen_title">Экран блокировки</string>
+    <!-- Status bar-->
+    <string name="status_bar_title">Строка состояния</string>
+
+    <!-- Status bar - Clock -->
+    <string name="status_bar_clock_title">Стиль часов и даты</string>
+    <string name="status_bar_clock">Часы и дата</string>
+    <string name="status_bar_clock_summary">Изменить параметры часов и даты</string> 
+    <string name="status_bar_clock_style_title">Стиль часов</string>
+    <string name="status_bar_clock_style_right">Часы справа</string>
+    <string name="status_bar_clock_style_left">Часы слева</string>
+    <string name="status_bar_clock_style_center">Часы по центру</string>
+    <string name="status_bar_clock_style_hidden">Не показывать</string>
+
+    <string name="status_bar_am_pm_title">AM/PM</string>
+    <string name="status_bar_am_pm_info">Включен 24-часовой формат времени</string>
+    <string name="status_bar_am_pm_normal">Нормальный размер</string>
+    <string name="status_bar_am_pm_small">Маленький размер</string>
+    <string name="status_bar_am_pm_hidden">Не показывать (по умолч.)</string>
+    <string name="clock_date_display">Дата</string>
+    <string name="clock_date_display_summary">Показывать дату перед часами</string>
+    <string name="clock_date_display_none">Не показывать</string>
+    <string name="clock_date_display_small">Маленький размер</string>
+    <string name="clock_date_display_normal">Нормальный размер</string>
+    <string name="clock_date_style">Стиль даты</string>
+    <string name="clock_date_style_normal">Нормальный</string>
+    <string name="clock_date_style_lowercase">Строчный</string>
+    <string name="clock_date_style_uppercase">Прописной</string>
+    <string name="clock_date_format_custom">Пользовательский формат</string>
+    <string name="clock_date_format">Формат даты</string>
+    <string name="clock_date_string_edittext_title">Должно быть в формате даты прим. ММ/дд/гг</string>
+    <string name="clock_date_string_edittext_summary">Строка ввода</string> 
+
+    <!-- Keyboard and Input ASS methods -->
+    <string name="show_enter_key_title">Показывать клавишу «Enter»</string>
+    <string name="show_enter_key_summary">Показывать на клавиатуре «Enter» вместо клавиши смайликов</string>
+
+    <!-- Whether to display IME switcher notifcation -->
+    <string name="ime_switcher_notify">Значок выбора</string>
+    <string name="ime_switcher_notify_summary">Показывать кнопку выбора способа ввода</string>
+
+    <!-- Show notification count -->
+    <string name="status_bar_notif_count_title">Счетчик уведомлений</string>
+    <string name="status_bar_notif_count_summary">Показывать количество новых уведомлений в строке состояния</string>
+
+    <!-- Double tap-to-sleep -->
+    <string name="double_tap_to_sleep_title">Выключать экран при двойном нажатии</string>
+    <string name="double_tap_to_sleep_summary">Дважды коснитесь строки состояния, чтобы перевести устройство в спящий режим</string>
+
+    <!-- Display : Rotation -->
+    <string name="display_rotation_title">Автоповорот</string>
+    <string name="display_rotation_disabled">Выключен</string>
+    <string name="display_rotation_unit">градусов</string>
+    <string name="display_rotation_category_title">Режимы вращения</string>
+    <string name="display_rotation_0_title">0 градусов</string>
+    <string name="display_rotation_90_title">90 градусов</string>
+    <string name="display_rotation_180_title">180 градусов</string>
+    <string name="display_rotation_270_title">270 градусов</string>
+
+    <!-- Dashboard suggestions -->
+    <string name="dashboard_category">Другие опции</string>
+    <string name="dashboard_suggestions_title">Подсказки в настройках</string>
+    <string name="summary_dashboard_suggestions_enabled">Подсказки в настройках включены</string>
+    <string name="summary_dashboard_suggestions_disabled">Подсказки в настройках отключены</string>
 
 </resources>
