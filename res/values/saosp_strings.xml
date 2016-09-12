@@ -631,4 +631,9 @@
     <!-- Hotspot idle -->
     <string name="wifi_hotspot_mode_title">Keep WiFi Hotspot on</string>
 
+    <!-- Dashboard tile summaries -->
+    <string name="dashboard_tile_summaries_title">Dashboard Summaries</string>
+    <string name="dashboard_tile_summaries_summary_enabled">Dashboard summaries are enabled</string>
+    <string name="dashboard_tile_summaries_summary_disabled">Dashboard summaries are disabled</string>
+
 </resources>

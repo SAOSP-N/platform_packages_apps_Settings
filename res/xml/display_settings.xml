@@ -191,6 +191,13 @@
                 android:summaryOn="@string/summary_dashboard_suggestions_enabled"
                 android:summaryOff="@string/summary_dashboard_suggestions_disabled"
                 android:defaultValue="true" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                android:key="dashboard_tile_summary"
+                android:title="@string/dashboard_tile_summaries_title"
+                android:summaryOn="@string/dashboard_tile_summaries_summary_enabled"
+                android:summaryOff="@string/dashboard_tile_summaries_summary_disabled"
+                android:defaultValue="true" />
         </PreferenceCategory>
 
 	<PreferenceCategory
