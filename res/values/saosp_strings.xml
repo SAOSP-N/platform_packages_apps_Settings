@@ -14,14 +14,14 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-   <!-- SimpleAOSP build date-->
-   <string name="build_date">SimpleAOSP-N build date</string>
-   <string name="build_date_default">2014-01-01-0000</string> 
-   <!-- Vendor version -->
-   <string name="vendor_version">Vendor version</string>
-   <string name="vendor_version_default">Unknown</string>
-   <!-- Local (desktop) backup password menu title [CHAR LIMIT=25] -->
-   <string name="local_backup_password_title">Desktop backup password</string>
+    <!-- SimpleAOSP build date-->
+    <string name="build_date">SimpleAOSP-N build date</string>
+    <string name="build_date_default">2014-01-01-0000</string> 
+    <!-- Vendor version -->
+    <string name="vendor_version">Vendor version</string>
+    <string name="vendor_version_default">Unknown</string>
+    <!-- Local (desktop) backup password menu title [CHAR LIMIT=25] -->
+    <string name="local_backup_password_title">Desktop backup password</string>
 
    <!--- Volume key cursor control -->
    <string name="volume_rocker_screen_title">Volume rocker</string>
@@ -29,4 +29,10 @@
    <string name="volume_key_cursor_control_off">Disabled</string>
    <string name="volume_key_cursor_control_on">Volume up/down moves cursor left/right</string>
    <string name="volume_key_cursor_control_on_reverse">Volume up/down moves cursor right/left</string>
+
+   <!-- Wakeup options -->
+   <string name="display_category_wakeup_options_title">Wakeup options</string>
+   <string name="wakeup_when_plugged_unplugged_title">Wake up on charge</string>
+   <string name="wakeup_when_plugged_unplugged_summary">Wake up device if charger is plugged/unplugged.</string>
+
 </resources>
