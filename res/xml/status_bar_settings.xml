@@ -22,5 +22,11 @@
         android:summary="@string/double_tap_to_sleep_summary"
         android:defaultValue="true" />
 
+    <PreferenceScreen
+       android:key="network_traffic_state"
+        android:title="@string/network_traffic_title"
+        android:summary="@string/network_traffic_summary"
+        android:fragment="com.android.settings.simpleaosp.NetworkTraffic" />
+
 </PreferenceScreen>
 
