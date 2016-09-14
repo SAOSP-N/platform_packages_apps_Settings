@@ -26,6 +26,6 @@
 
     <PreferenceCategory
         android:key="storage_external"
-        android:title="@string/storage_external_title" />
+        android:title="@string/storage_external_title" />  
 
 </PreferenceScreen>
