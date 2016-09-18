@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v14.preference.SwitchPreference;
 import android.util.Log;
@@ -24,7 +25,7 @@ import android.util.Log;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.SeekBarPreference;
+import com.android.settings.simpleaosp.CustomSeekBarPreference;
 
 public class NetworkTraffic extends SettingsPreferenceFragment
     implements Preference.OnPreferenceChangeListener {
@@ -41,7 +42,7 @@ public class NetworkTraffic extends SettingsPreferenceFragment
     private ListPreference mNetTrafficUnit;
     private ListPreference mNetTrafficPeriod;
     private SwitchPreference mNetTrafficAutohide;
-    private SeekBarPreference mNetTrafficAutohideThreshold;
+    private CustomSeekBarPreference mNetTrafficAutohideThreshold;
 
     private int mNetTrafficVal;
     private int MASK_UP;
@@ -54,28 +55,27 @@ public class NetworkTraffic extends SettingsPreferenceFragment
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.network_traffic);
-
         loadResources();
 
-	ContentResolver resolver = getActivity().getContentResolver();
+        final ContentResolver resolver = getActivity().getContentResolver();
+        final PreferenceScreen prefSet = getPreferenceScreen();
 
-        mNetTrafficState = (ListPreference) findPreference(NETWORK_TRAFFIC_STATE);
-        mNetTrafficUnit = (ListPreference) findPreference(NETWORK_TRAFFIC_UNIT);
-        mNetTrafficPeriod = (ListPreference) findPreference(NETWORK_TRAFFIC_PERIOD);
+        mNetTrafficState = (ListPreference) prefSet.findPreference(NETWORK_TRAFFIC_STATE);
+        mNetTrafficUnit = (ListPreference) prefSet.findPreference(NETWORK_TRAFFIC_UNIT);
+        mNetTrafficPeriod = (ListPreference) prefSet.findPreference(NETWORK_TRAFFIC_PERIOD);
 
         mNetTrafficAutohide =
-                (SwitchPreference) findPreference(NETWORK_TRAFFIC_AUTOHIDE);
+            (SwitchPreference) prefSet.findPreference(NETWORK_TRAFFIC_AUTOHIDE);
         mNetTrafficAutohide.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.NETWORK_TRAFFIC_AUTOHIDE, 0) == 1));
         mNetTrafficAutohide.setOnPreferenceChangeListener(this);
 
-        mNetTrafficAutohideThreshold = (SeekBarPreference) findPreference(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
+        mNetTrafficAutohideThreshold = (CustomSeekBarPreference) findPreference(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
         int netTrafficAutohideThreshold = Settings.System.getInt(resolver,
                 Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 10);
-        mNetTrafficAutohideThreshold.setProgress(netTrafficAutohideThreshold);
+        mNetTrafficAutohideThreshold.setValue(netTrafficAutohideThreshold / 1);
         mNetTrafficAutohideThreshold.setOnPreferenceChangeListener(this);
 
- 	// TrafficStats will return UNSUPPORTED if the device does not support it.
         if (TrafficStats.getTotalTxBytes() != TrafficStats.UNSUPPORTED &&
                 TrafficStats.getTotalRxBytes() != TrafficStats.UNSUPPORTED) {
             mNetTrafficVal = Settings.System.getInt(getContentResolver(),
@@ -102,21 +102,23 @@ public class NetworkTraffic extends SettingsPreferenceFragment
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.SAOSP_TWEAKS;
-    }
+       return MetricsEvent.SAOSP_TWEAKS;
+   }
 
     private void updateNetworkTrafficState(int mIndex) {
         if (mIndex <= 0) {
             mNetTrafficUnit.setEnabled(false);
             mNetTrafficPeriod.setEnabled(false);
             mNetTrafficAutohide.setEnabled(false);
+            mNetTrafficAutohideThreshold.setEnabled(false);
         } else {
             mNetTrafficUnit.setEnabled(true);
             mNetTrafficPeriod.setEnabled(true);
             mNetTrafficAutohide.setEnabled(true);
+            mNetTrafficAutohideThreshold.setEnabled(true);
         }
     }
-   
+
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mNetTrafficState) {
             int intState = Integer.valueOf((String)newValue);
