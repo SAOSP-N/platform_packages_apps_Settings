@@ -53,4 +53,7 @@
     <color name="linear_color_bar_middle">@*android:color/material_deep_teal_500</color>
     <color name="linear_color_bar_right">#ffced7db</color>
 
+    <color name="white">#FFF</color>
+    <color name="action_picker_fab_background">@color/theme_accent</color>
+
 </resources>

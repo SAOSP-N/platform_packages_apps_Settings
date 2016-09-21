@@ -134,9 +134,12 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settingslib.drawer.DashboardCategory;
 import com.android.settingslib.drawer.SettingsDrawerActivity;
 import com.android.settingslib.drawer.Tile;
-
 import com.android.settings.simpleaosp.AdditionalSettings;
 import com.nispok.snackbar.SnackbarManager;
+import com.android.settings.du.nav.FlingSettings;
+import com.android.settings.du.nav.NavbarSettings;
+import com.android.settings.du.nav.SmartbarSettings;
+import com.android.settings.du.nav.PulseSettings;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -365,7 +368,11 @@ public class SettingsActivity extends SettingsDrawerActivity
             NightDisplaySettings.class.getName(),
             ManageDomainUrls.class.getName(),
             AutomaticStorageManagerSettings.class.getName(),
-            AdditionalSettings.class.getName()
+            AdditionalSettings.class.getName(),
+            NavbarSettings.class.getName(),
+            FlingSettings.class.getName(),
+            SmartbarSettings.class.getName(),
+            PulseSettings.class.getName()
     };
 
 
