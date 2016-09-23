@@ -182,6 +182,9 @@
 
     <!-- statusbar brightness control -->
     <string name="status_bar_toggle_brightness">Brightness control</string>
-    <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar</string>  
+    <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar</string>
+
+    <!-- Notification drawer settings -->
+    <string name="notification_drawer_title">Notification drawer</string>
 
 </resources>
