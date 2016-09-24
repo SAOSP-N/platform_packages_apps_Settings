@@ -29,8 +29,8 @@
 
     <!-- Wakeup options -->
     <string name="display_category_wakeup_options_title">Параметры пробуждения</string>
-    <string name="pref_volume_wake_title">Пробуждение устройства</string>
-    <string name="pref_volume_wake_summary">Нажатие на кнопки громкости будет пробуждать устройство</string>
+    <string name="pref_volume_wake_title">Пробуждение кнопками громкости</string>
+    <string name="pref_volume_wake_summary">Нажатие на кнопки громкости может не разбудить устройство, если управление музыкой активно и музыка играет</string>
     <string name="wakeup_when_plugged_unplugged_title">Пробуждаться при зарядке</string>
     <string name="wakeup_when_plugged_unplugged_summary">Включать экран при подключении и отключении зарядного устройства</string>
 
@@ -40,7 +40,6 @@
     <!-- Volume rocker music seek options -->
     <string name="volbtn_music_controls_title">Управление плеером</string>
     <string name="volbtn_music_controls_summary">Переключать треки долгим нажатием кнопок громкости при выключенном экране</string>
-    <string name="volume_button_toggle_info">Пробуждение кнопкой громкости должно быть отключено</string>
 
     <!-- Saosp Settings menus -->
     <string name="simpleaosp_settings_title">Персонализация</string>
@@ -153,4 +152,57 @@
     <string name="network_traffic_autohide_summary">Скрывать отображение трафика, когда нет сетевой активности</string>
     <string name="network_traffic_autohide_threshold">Порог неактивности</string>
 
+    <!-- Power menu customization -->
+    <string name="power_menu_title">Меню питания</string>
+    <string name="power_menu_title_summary">Настройки элементов в меню питания</string>
+    <string name="power_menu_reboot_title">Перезагрузка</string>
+    <string name="power_menu_screenshot_title">Скриншот</string>
+    <string name="power_menu_screenrecord_title">Запись экрана</string>
+    <string name="power_menu_torch_title">Фонарик</string>
+    <string name="power_menu_airplane_title">Режим полета</string>
+    <string name="power_menu_users_title">Переключение пользователя</string>
+    <string name="power_menu_search_title">Поиск</string>
+    <string name="power_menu_voice_title">Голосовой поиск</string>
+    <string name="power_menu_settings_title">Ярлык настроек</string>
+    <string name="power_menu_lockdown_title">Блокировка устройства</string>
+    <string name="power_menu_bug_report_title">Отчет об ошибке</string>
+    <string name="power_menu_sound_title">Звуковая панель</string>
+    <string name="power_menu_bug_report_disabled">Отчеты об ошибках отключены в настройках для разработчика</string> 
+
+    <!-- statusbar brightness control -->
+    <string name="status_bar_toggle_brightness">Управление яркостью</string>
+    <string name="status_bar_toggle_brightness_summary">Регулировать яркость экрана движением пальца по строке состояния</string>
+
+    <!-- Notification drawer settings -->
+    <string name="notification_drawer_title">Панель уведомлений</string>
+
+    <!-- Quick pull down-->
+    <string name="notification_panel_title">Панель уведомлений</string>
+    <string name="quick_pulldown_title">Быстрый доступ</string>
+    <string name="quick_pulldown_summary">%1$s край строки состояния вытягивает быстрые настройки</string>
+    <string name="quick_pulldown_summary_always">Всегда вытягивать быстрые настройки при открытии строки состояния</string>
+    <string name="quick_pulldown_off">Выключить</string>
+    <string name="quick_pulldown_left">Левый</string>
+    <string name="quick_pulldown_right">Правый</string>
+    <string name="quick_pulldown_always">Всегда</string>
+
+    <!-- Advanced data tile -->
+    <string name="quicksettings_tiles_category">Плитки быстрых настроек</string>
+    <string name="qs_advanced_data_title">Мобильные данные</string>
+    <string name="qs_advanced_data_summary">Включение или выключение мобильных данных одиночным нажатием на плитку</string>
+
+    <!-- QuickSettings haptic feedback -->
+    <string name="quick_settings_vibrate_title">Вибрация при касании</string>
+    <string name="quick_settings_vibrate_summary">Вибрировать при касании по плитке</string>
+
+    <!-- Button settings  -->
+    <string name="qs_wifi_easy_toggle_title">Переключатель WiFi</string>
+    <string name="qs_wifi_easy_toggle_summary">Включение или выключение WiFi одиночным нажатием на плитку</string>
+
+    <!-- Volume settings - Volume adjustment sound -->
+    <string name="volume_adjust_sounds_title">Звук при регулировке громкости</string>
+
+    <!-- Volume key controls media stream -->
+    <string name="volume_keys_control_media_stream_title">Управление медиа</string>
+    <string name="volume_keys_control_media_stream_summary">Кнопки громкости регулируют громкость мультимедиа</string>
 </resources>
