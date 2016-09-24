@@ -182,4 +182,9 @@
     <string name="quick_pulldown_right">Right</string>
     <string name="quick_pulldown_always">Always</string>
 
+    <!-- Advanced data tile -->
+    <string name="quicksettings_tiles_category">QS Tiles</string>
+    <string name="qs_advanced_data_title">Advanced data tile</string>
+    <string name="qs_advanced_data_summary">Enable one tap action to enable or disable data</string>
+
 </resources>
