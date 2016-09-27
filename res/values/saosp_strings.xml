@@ -212,4 +212,7 @@
 
     <string name="statusbar_items_category">Statusbar items</string>
 
+    <!-- Option to show brightness bar in quick settings -->
+    <string name="show_brightness">Show brightness slider</string>
+
 </resources>
