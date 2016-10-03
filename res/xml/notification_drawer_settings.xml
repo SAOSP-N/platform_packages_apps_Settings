@@ -50,6 +50,12 @@
         android:summary="@string/quick_settings_vibrate_summary"
         android:defaultValue="false"/>
 
+    <PreferenceScreen
+        android:key="status_bar_expanded_qs_settings"
+        android:title="@string/status_bar_expanded_qs_settings"
+        android:summary="@string/status_bar_expanded_qs_settings_summary"
+        android:fragment="com.android.settings.simpleaosp.StatusbarExpandedQSSettings" />
+
     <PreferenceCategory
         android:title="@string/notification_panel_title" />
 
