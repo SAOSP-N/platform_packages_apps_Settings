@@ -308,6 +308,8 @@
     <string name="led_notification_title">Light settings</string>
     <string name="led_notification_text">LED light enabled by settings</string>
     <string name="notification_light_no_apps_summary">To add per app control, activate \'%1$s\' and press \'\u002b\' on the menu bar</string>
+    <string name="notification_light_automagic">AutoColor</string>
+    <string name="notification_light_automagic_summary">Automatically set a proper color for the led notification if the app has no custom values</string>
     <string name="font_sample_text">11:57</string>
     <!-- Add application dialog box title -->
     <string name="profile_choose_app">Choose app</string>
