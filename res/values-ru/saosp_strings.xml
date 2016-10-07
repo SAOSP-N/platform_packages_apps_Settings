@@ -205,4 +205,10 @@
     <!-- Volume key controls media stream -->
     <string name="volume_keys_control_media_stream_title">Управление медиа</string>
     <string name="volume_keys_control_media_stream_summary">Кнопки громкости регулируют громкость мультимедиа</string>
+     
+    <!-- Name of special SystemUI debug settings -->
+    <string name="system_ui_tuner">System UI Tuner</string>
+
+    <!-- Option to show brightness bar in quick settings -->
+    <string name="show_brightness">Cлайдер яркости</string>
 </resources>
