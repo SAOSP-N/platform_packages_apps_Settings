@@ -141,7 +141,7 @@ public class BatterySettings extends SettingsPreferenceFragment
         mPercentInside.setEnabled(mShowBattery != 0 && mBatteryStyleValue < 3 && mShowPercent != 0);
         mShowBolt.setEnabled(mBatteryStyleValue < 3);
         mBatteryStyle.setEnabled(mShowBattery != 0);
-        mBatteryPercent.setEnabled(mShowBattery != 0);
+        mBatteryPercent.setEnabled(mShowBattery != 0 && mBatteryStyleValue != 3);
         mChargingShow.setEnabled(mShowBattery != 0);
         //mChargingCategory.setEnabled(mShowBattery != 0);
     }
