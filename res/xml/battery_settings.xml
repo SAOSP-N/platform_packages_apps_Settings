@@ -4,7 +4,7 @@
         android:title="@string/status_bar_battery_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
- <ListPreference
+        <ListPreference
             android:key="statusbar_battery_enable"
             android:title="@string/battery_enable_title"
             android:entries="@array/entries_battery_percent"
@@ -26,31 +26,18 @@
             android:entries="@array/entries_battery_percent"
             android:entryValues="@array/values_battery_percent"
             android:persistent="false"
-            android:defaultValue="2"/>
+            android:defaultValue="0"/>
 
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="statusbar_battery_percent_inside"
             android:title="@string/statusbar_percent_inside_title"
             android:summary="@string/statusbar_percent_inside_summary"
             android:defaultValue="false"/>
 
-        <SwitchPreference
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="statusbar_battery_charging_image"
             android:title="@string/statusbar_charging_image_title"
             android:summary="@string/statusbar_charging_image_summary"
             android:defaultValue="true"/>
-
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="statusbar_battery_charging_color_enable"
-            android:title="@string/statusbar_battery_charging_color_enable_title"
-            android:summary="@string/statusbar_battery_charging_color_enable_summary"
-            android:defaultValue="true"/>
-
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="statusbar_battery_charging_color"
-            android:title="@string/statusbar_battery_charging_color_title"
-            android:defaultValue="0xffffffff"
-            android:persistent="false"
-            android:dependency ="statusbar_battery_charging_color_enable"/>
 
 </PreferenceScreen>

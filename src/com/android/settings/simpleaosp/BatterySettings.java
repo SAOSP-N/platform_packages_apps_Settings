@@ -20,10 +20,13 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
+import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
+import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cyanogenmod.SystemSettingSwitchPreference;
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import com.android.settings.R;
+
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 public class BatterySettings extends SettingsPreferenceFragment
@@ -33,18 +36,14 @@ public class BatterySettings extends SettingsPreferenceFragment
 
     private static final String STATUSBAR_BATTERY_STYLE = "statusbar_battery_style";
     private static final String STATUSBAR_BATTERY_PERCENT = "statusbar_battery_percent";
-    private static final String STATUSBAR_CHARGING_COLOR = "statusbar_battery_charging_color";
     private static final String STATUSBAR_BATTERY_PERCENT_INSIDE = "statusbar_battery_percent_inside";
     private static final String STATUSBAR_BATTERY_SHOW_BOLT = "statusbar_battery_charging_image";
     private static final String STATUSBAR_BATTERY_ENABLE = "statusbar_battery_enable";
-    private static final String STATUSBAR_SHOW_CHARGING = "statusbar_battery_charging_color_enable";
     private static final String STATUSBAR_CATEGORY_CHARGING = "statusbar_category_charging";
 
     private ListPreference mBatteryStyle;
     private ListPreference mBatteryPercent;
-    private ColorPickerPreference mChargingColor;
     private SwitchPreference mPercentInside;
-    private SwitchPreference mChargingShow;
     private SwitchPreference mShowBolt;
     private int mShowPercent;
     private int mBatteryStyleValue;
@@ -52,10 +51,14 @@ public class BatterySettings extends SettingsPreferenceFragment
     private int mShowBattery = 1;
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.battery_settings);
+    }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         ContentResolver resolver = getActivity().getContentResolver();
 
         mBatteryStyle = (ListPreference) findPreference(STATUSBAR_BATTERY_STYLE);
@@ -74,11 +77,7 @@ public class BatterySettings extends SettingsPreferenceFragment
         mBatteryPercent.setSummary(mBatteryPercent.getEntry());
         mBatteryPercent.setOnPreferenceChangeListener(this);
 
-        mChargingColor = (ColorPickerPreference) findPreference(STATUSBAR_CHARGING_COLOR);
-        mChargingColor.setOnPreferenceChangeListener(this);
-
         mPercentInside = (SwitchPreference) findPreference(STATUSBAR_BATTERY_PERCENT_INSIDE);
-        mChargingShow = (SwitchPreference) findPreference(STATUSBAR_SHOW_CHARGING);
         mShowBolt = (SwitchPreference) findPreference(STATUSBAR_BATTERY_SHOW_BOLT);
 
         mBatteryEnable = (ListPreference) findPreference(STATUSBAR_BATTERY_ENABLE);
@@ -116,14 +115,6 @@ public class BatterySettings extends SettingsPreferenceFragment
                     Settings.System.STATUSBAR_BATTERY_PERCENT, mShowPercent);
             updateEnablement();
             return true;
-        } else if (preference == mChargingColor) {
-            String hex = ColorPickerPreference.convertToARGB(Integer
-                    .valueOf(String.valueOf(newValue)));
-            mChargingColor.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(resolver,
-                    Settings.System.STATUSBAR_BATTERY_CHARGING_COLOR, intHex);
-            return true;
         } else if (preference == mBatteryEnable) {
             mShowBattery = Integer.valueOf((String) newValue);
             int index = mBatteryEnable.findIndexOfValue((String) newValue);
@@ -141,8 +132,7 @@ public class BatterySettings extends SettingsPreferenceFragment
         mPercentInside.setEnabled(mShowBattery != 0 && mBatteryStyleValue < 3 && mShowPercent != 0);
         mShowBolt.setEnabled(mBatteryStyleValue < 3);
         mBatteryStyle.setEnabled(mShowBattery != 0);
-        mBatteryPercent.setEnabled(mShowBattery != 0 && mBatteryStyleValue != 3);
-        mChargingShow.setEnabled(mShowBattery != 0);
+        mBatteryPercent.setEnabled(mShowBattery != 0);
         //mChargingCategory.setEnabled(mShowBattery != 0);
     }
 }
