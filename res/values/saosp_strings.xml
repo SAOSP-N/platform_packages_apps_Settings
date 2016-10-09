@@ -313,4 +313,8 @@
     <string name="profile_choose_app">Choose app</string>
     <string name="reset">Reset</string>
 
+    <!-- Lockscreen torch -->
+    <string name="keyguard_torch_title">Lockscreen torch</string>
+    <string name="keyguard_torch_summary">Longpress power button with screen off turns on torch</string>
+
 </resources>
