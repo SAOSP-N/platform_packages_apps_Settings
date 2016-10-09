@@ -245,7 +245,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                         mDevHitSnackbar.dismiss();
                     }
 
-                    final String message = getString(R.string.show_dev_on);
+                    final String message = getString(R.string.show_dev_on_cm);
                     Utils.showSnackbar(message, Snackbar.SnackbarDuration.LENGTH_LONG,
                             label, intent, getActivity());
                     // This is good time to index the Developer Options
@@ -260,7 +260,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                     }
 
                     final String message = getResources().getQuantityString(
-                            R.plurals.show_dev_countdown,
+                            R.plurals.show_dev_countdown_cm,
                             mDevHitCountdown, mDevHitCountdown);
                     Utils.showSnackbar(message, Snackbar.SnackbarDuration.LENGTH_LONG,
                             null, null, getActivity());
@@ -270,7 +270,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                     mDevHitSnackbar.dismiss();
                 }
 
-                final String message = getString(R.string.show_dev_already);
+                final String message = getString(R.string.show_dev_already_cm);
                 Utils.showSnackbar(message, Snackbar.SnackbarDuration.LENGTH_LONG,
                         label, intent, getActivity());
             }
