@@ -8,6 +8,9 @@ import android.support.v7.preference.PreferenceScreen;
 import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
 
+import com.android.settings.Utils;
+import com.android.settings.cyanogenmod.SystemSettingSwitchPreference;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -16,13 +19,20 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 public class LockScreenSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
-		// private variables here
+    private static final String KEYGUARD_TORCH = "keyguard_toggle_torch";
+
+    private SystemSettingSwitchPreference mLsTorch;
 		
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.lock_screen_settings);
+
+        mLsTorch = (SystemSettingSwitchPreference) findPreference(KEYGUARD_TORCH);
+        if (!Utils.deviceSupportsFlashLight(getActivity())) {
+            getPreferenceScreen().removePreference(mLsTorch);
+        }
     }
 
     @Override
