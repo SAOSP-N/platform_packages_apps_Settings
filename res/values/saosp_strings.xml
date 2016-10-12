@@ -37,15 +37,11 @@
 
     <!-- Wakeup options -->
     <string name="pref_volume_wake_title">Volume rocker wake</string>
-    <string name="pref_volume_wake_summary">Pressing the volume rocker up/down will wake the device</string>
-
-    <!-- Advanced sound category -->
-    <string name="advanced_sound_category">Advanced sounds</string>
+    <string name="pref_volume_wake_summary">Overrides playback controls</string>
 
     <!-- Volume rocker music seek options -->
     <string name="volbtn_music_controls_title">Volume rocker music controls</string>
     <string name="volbtn_music_controls_summary">When screen off, long-pressing the volume rockers will seek music tracks</string>
-    <string name="volume_button_toggle_info">Volume rocker wake must be disabled</string>
 
     <!-- Saosp Settings menus -->
     <string name="simpleaosp_settings_title">Build Tweaks</string>
@@ -323,6 +319,9 @@
     <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
     <string name="show_dev_on_cm">You have enabled development settings!</string>
     <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-    <string name="show_dev_already_cm">No need, you have already enabled development settings.</string> 
+    <string name="show_dev_already_cm">No need, you have already enabled development settings.</string>
+
+     <!-- volumerocker fragment -->
+     <string name="volume_rocker_title">Volume rocker</string>
 
 </resources>
