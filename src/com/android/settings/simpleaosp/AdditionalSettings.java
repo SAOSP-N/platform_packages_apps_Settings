@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import com.android.settings.simpleaosp.StatusBarSettings;
 import com.android.settings.simpleaosp.LockScreenSettings;
 import com.android.settings.simpleaosp.NotificationDrawerSettings;
+import com.android.settings.simpleaosp.VolumeRockerSettings;
 import com.android.settings.simpleaosp.PagerSlidingTabStrip;
 import com.android.settings.R;
 import com.android.settings.Utils;
@@ -82,7 +83,8 @@ public class AdditionalSettings extends SettingsPreferenceFragment {
             super(fm);
 	    frags[0] = new StatusBarSettings();
 	    frags[1] = new NotificationDrawerSettings(); 
-            frags[2] = new LockScreenSettings(); 
+            frags[2] = new LockScreenSettings();
+            frags[3] = new VolumeRockerSettings(); 
         }
 
         @Override
@@ -106,7 +108,8 @@ public class AdditionalSettings extends SettingsPreferenceFragment {
         titleString = new String[]{
 		    getString(R.string.status_bar_title),
                     getString(R.string.notification_drawer_title),
-		    getString(R.string.lock_screen_title)};
+		    getString(R.string.lock_screen_title),
+                    getString(R.string.volume_rocker_title)};
         return titleString;
     }
 

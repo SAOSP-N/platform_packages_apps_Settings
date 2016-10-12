@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/volume_rocker_title"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="volume_rocker_wake"
+            android:title="@string/pref_volume_wake_title"
+            android:summary="@string/pref_volume_wake_summary"
+            android:defaultValue="false"
+            android:disableDependentsState="true" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="volume_rocker_music_controls"
+            android:title="@string/volbtn_music_controls_title"
+            android:summary="@string/volbtn_music_controls_summary"
+            android:defaultValue="true"
+            android:dependency="volume_rocker_wake"/>
+
+        <ListPreference
+	    android:dialogTitle="@string/volume_key_cursor_control_title"
+	    android:entries="@array/volume_key_cursor_control_entries"
+	    android:entryValues="@array/volume_key_cursor_control_values"
+	    android:key="volume_key_cursor_control"
+	    android:persistent="false"
+	    android:title="@string/volume_key_cursor_control_title" />  
+       </PreferenceScreen>
+
+
