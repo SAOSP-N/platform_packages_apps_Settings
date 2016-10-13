@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.preference.Preference;
@@ -23,6 +24,7 @@ import com.android.settings.simpleaosp.NotificationDrawerSettings;
 import com.android.settings.simpleaosp.VolumeRockerSettings;
 import com.android.settings.simpleaosp.PagerSlidingTabStrip;
 import com.android.settings.R;
+import com.android.settings.dashboard.SummaryLoader;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -117,5 +119,32 @@ public class AdditionalSettings extends SettingsPreferenceFragment {
     protected int getMetricsCategory() {
         return MetricsEvent.SAOSP_TWEAKS;
     }
+
+    private static class SummaryProvider implements SummaryLoader.SummaryProvider {
+
+        private final Context mContext;
+        private final SummaryLoader mSummaryLoader;
+
+        public SummaryProvider(Context context, SummaryLoader summaryLoader) {
+            mContext = context;
+            mSummaryLoader = summaryLoader;
+        }
+
+        @Override
+        public void setListening(boolean listening) {
+            if (listening) {
+                mSummaryLoader.setSummary(this, mContext.getString(R.string.build_tweaks_summary_title));
+            }
+        }
+    }
+
+    public static final SummaryLoader.SummaryProviderFactory SUMMARY_PROVIDER_FACTORY
+            = new SummaryLoader.SummaryProviderFactory() {
+        @Override
+        public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
+                                                                   SummaryLoader summaryLoader) {
+            return new SummaryProvider(activity, summaryLoader);
+        }
+    };
 }
 
