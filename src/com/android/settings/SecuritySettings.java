@@ -70,6 +70,9 @@ import java.util.List;
 import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
 import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
+import com.android.settings.cyanogenmod.SystemSettingSwitchPreference;
+import com.android.settings.cyanogenmod.SecureSettingSwitchPreference;
+
 /**
  * Gesture lock pattern settings.
  */
@@ -113,6 +116,9 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_TRUST_AGENT = "trust_agent";
     private static final String KEY_SCREEN_PINNING = "screen_pinning_settings";
 
+    private static final String KEY_POWER_MENU_LOCKSCREEN = "lockscreen_enable_power_menu";
+    private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "status_bar_locked_on_secure_keyguard";
+
     // These switch preferences need special handling since they're not all stored in Settings.
     private static final String SWITCH_PREFERENCE_KEYS[] = {
             KEY_SHOW_PASSWORD, KEY_TOGGLE_INSTALL_APPLICATIONS, KEY_UNIFICATION,
@@ -151,6 +157,9 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     private String mCurrentDevicePassword;
     private String mCurrentProfilePassword;
+
+    private SystemSettingSwitchPreference mPowerMenuLockscreen;
+    private SecureSettingSwitchPreference mBlockOnSecureKeyguard;
 
     @Override
     protected int getMetricsCategory() {
@@ -316,6 +325,19 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 Settings.System.LOCK_TO_APP_ENABLED, 0) != 0) {
             root.findPreference(KEY_SCREEN_PINNING).setSummary(
                     getResources().getString(R.string.switch_on_text));
+        }
+
+        final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
+	PreferenceScreen prefSet = getPreferenceScreen();
+        mBlockOnSecureKeyguard = (SecureSettingSwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
+        if (!lockPatternUtils.isSecure(MY_USER_ID) && mBlockOnSecureKeyguard != null) {
+            prefSet.removePreference(mBlockOnSecureKeyguard);
+        }
+
+        mPowerMenuLockscreen = (SystemSettingSwitchPreference) findPreference(KEY_POWER_MENU_LOCKSCREEN);
+	final PreferenceScreen prefScreen = getPreferenceScreen();
+        if (!lockPatternUtils.isSecure(MY_USER_ID) && mPowerMenuLockscreen != null) {
+            prefScreen.removePreference(mPowerMenuLockscreen);
         }
 
         // Show password

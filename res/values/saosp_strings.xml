@@ -146,7 +146,7 @@
     <string name="power_menu_bug_report_title">Bug report</string>
     <string name="power_menu_sound_title">Sound panel</string>
     <string name="power_menu_bug_report_disabled">Bug reporting is disabled in development settings</string> 
-    <string name="lockscreen_enable_power_menu_title">Enable or disable power menu on lock screen</string>
+    <string name="lockscreen_enable_power_menu_title">Power menu on lock screen</string>
     <string name="summary_lockscreen_power_menu_enabled">Power menu on lock screen is enabled</string>
     <string name="summary_lockscreen_power_menu_disabled">Power menu on lock screen is disabled</string>
 
