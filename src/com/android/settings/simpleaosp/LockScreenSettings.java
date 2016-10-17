@@ -3,10 +3,9 @@ package com.android.settings.simpleaosp;
 import android.os.Bundle;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v14.preference.SwitchPreference;
-import android.provider.Settings;
 
 import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.SystemSettingSwitchPreference;
@@ -37,8 +36,6 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-
-		// preference changes here
         return false;
     }
 
