@@ -17,6 +17,12 @@
             android:defaultValue="false" />
 
         <PreferenceScreen
+            android:fragment="com.android.settings.simpleaosp.CarrierLabelSettings"
+            android:key="pure_carrier_label_settings"
+            android:title="@string/carrier_label_settings_title"
+            android:summary="@string/carrier_label_settings_summary" />
+
+        <PreferenceScreen
             android:title="@string/lockscreen_targets_message"
             android:summary="@string/lockscreen_targets_summary">
             <intent
