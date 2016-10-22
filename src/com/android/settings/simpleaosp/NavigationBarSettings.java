@@ -23,6 +23,14 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.navigation_bar_settings);
+
+        // Enable or disable mStatusBarImeSwitcher based on boolean: config_show_cmIMESwitcher
+        boolean showCmImeSwitcher = getResources().getBoolean(
+                com.android.internal.R.bool.config_show_cmIMESwitcher);
+        if (!showCmImeSwitcher) {
+            getPreferenceScreen().removePreference(
+                    findPreference(Settings.System.STATUS_BAR_IME_SWITCHER));
+        }
     }
 
     @Override
