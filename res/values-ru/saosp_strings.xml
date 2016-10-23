@@ -193,10 +193,10 @@
     <string name="battery_percent_always">Всегда</string>
     <string name="battery_percent_expanded">Расширенный</string>
     <string name="statusbar_percent_inside_title">Наложение процентов</string>
-    <string name="statusbar_percent_inside_summary">Показать проценты в верхней части значка батареи</string>
-    <string name="statusbar_charging_image_title">Индикатор зарядки</string>
+    <string name="statusbar_percent_inside_summary">Отображать процент поверх значка батареи</string>
+    <string name="statusbar_charging_image_title">Индикация зарядки</string>
     <string name="statusbar_category_charging_title">Зарядка</string>
-    <string name="statusbar_charging_image_summary">Показать индикатор молнии при зарядке. Скрывает показ процентов батареи</string>
+    <string name="statusbar_charging_image_summary">Отображать молнию вместо процента при зарядке</string>
     <string name="statusbar_battery_charging_color_title">Цвет</string>
     <string name="statusbar_battery_charging_color_enable_title">Цвет при зарядке</string>
     <string name="statusbar_battery_charging_color_enable_summary"></string>
@@ -345,4 +345,11 @@
     <string name="usb_data_auto_unlock_title">Разблокировать доступ по USB</string>
     <string name="usb_data_auto_unlock_summary">Разрешать передачу данных по USB (MTP, PTP)</string>
     <string name="usb_data_auto_unlock_warning_summary">Соединение с ПК будет создавать незащищённые каналы связи. Пароль на экране блокировки отключает эту функцию.\n\nЭто всё ещё экспериментальная функция, используйте с осторожностью.</string>
+
+    <!--Navigation bar category -->
+    <string name="navigation_bar_title">Панель навигации</string>
+
+    <!-- Navigation bar cursor -->
+    <string name="navigation_bar_arrow_keys_title">Перемещение курсора</string>
+    <string name="navigation_bar_arrow_keys_summary">Отображать кнопки перемещения курсора влево или вправо при вводе. Кнопка выбора метода ввода отображаться не будет.</string>
 </resources>
