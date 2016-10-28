@@ -14,9 +14,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <color name="theme_accent">#ff009688</color>
+    <color name="theme_accent">@android:color/white</color>
     <color name="background_tab_pressed">#1AFFFFFF</color>
-    <color name="material_deep_teal_500">@*android:color/material_deep_teal_500</color>
+    <color name="material_pixel_blue_bright">@*android:color/material_pixel_blue_bright</color>
 
     <!-- Expanded desktop -->
     <drawable name="expanded_item_bg_activated">#ffEEEEEE</drawable>
