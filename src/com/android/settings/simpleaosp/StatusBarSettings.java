@@ -16,13 +16,24 @@ import com.android.settings.SettingsPreferenceFragment;
 public class StatusBarSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
-		// private variables here
+    private static final String KEY_HEADS_UP_SETTINGS = "heads_up_settings";
+
+    private PreferenceScreen mHeadsUp;
 		
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.status_bar_settings);
+        PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mHeadsUp = (PreferenceScreen) findPreference(KEY_HEADS_UP_SETTINGS);
+    }
+
+     private boolean getUserHeadsUpState() {
+         return Settings.Global.getInt(getContentResolver(),
+                Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED,
+                Settings.Global.HEADS_UP_ON) != 0;
     }
 
     @Override
@@ -36,5 +47,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     protected int getMetricsCategory() {
         return MetricsEvent.SAOSP_TWEAKS;
     }
-}
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        mHeadsUp.setSummary(getUserHeadsUpState()
+                ? R.string.summary_heads_up_enabled : R.string.summary_heads_up_disabled);
+    }
+}

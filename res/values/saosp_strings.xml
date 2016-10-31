@@ -334,4 +334,10 @@
     <!-- Option to show brightness bar in quick settings -->
     <string name="show_brightness">Show brightness slider</string>
 
+    <!-- Heads up settings -->
+    <string name="headsup_settings_title">Heads up notifications</string>
+    <string name="summary_heads_up_enabled">Heads up notifications are enabled</string>
+    <string name="summary_heads_up_disabled">Heads up notifications are disabled</string>
+    <string name="heads_up_disabled_notice">To allow applications to display interactive notifications in a pop-up window on your screen, enable Heads up.</string>
+
 </resources>
