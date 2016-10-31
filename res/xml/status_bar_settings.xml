@@ -35,7 +35,12 @@
         android:defaultValue="true" />
 
     <PreferenceScreen
-       android:key="network_traffic_state"
+        android:key="heads_up_settings"
+        android:title="@string/headsup_settings_title"
+        android:fragment="com.android.settings.simpleaosp.HeadsUpSettings"/>
+
+    <PreferenceScreen
+        android:key="network_traffic_state"
         android:title="@string/network_traffic_title"
         android:summary="@string/network_traffic_summary"
         android:fragment="com.android.settings.simpleaosp.NetworkTraffic" />
