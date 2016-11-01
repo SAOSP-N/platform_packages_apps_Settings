@@ -346,10 +346,40 @@
     <string name="usb_data_auto_unlock_summary">Разрешать передачу данных по USB (MTP, PTP)</string>
     <string name="usb_data_auto_unlock_warning_summary">Соединение с ПК будет создавать незащищённые каналы связи. Пароль на экране блокировки отключает эту функцию.\n\nЭто всё ещё экспериментальная функция, используйте с осторожностью.</string>
 
-    <!--Navigation bar category -->
-    <string name="navigation_bar_title">Панель навигации</string>
+    <!-- CM Lockscreen shortcuts -->
+    <string name="lockscreen_targets_summary">Настройка ярлыков экрана блокировки</string>
+    <string name="lockscreen_targets_message">Ярлыки экрана блокировки</string>
 
-    <!-- Navigation bar cursor -->
-    <string name="navigation_bar_arrow_keys_title">Перемещение курсора</string>
-    <string name="navigation_bar_arrow_keys_summary">Отображать кнопки перемещения курсора влево или вправо при вводе. Кнопка выбора метода ввода отображаться не будет.</string>
+    <string name="statusbar_items_category">Строка состояния</string>
+
+    <!-- Option to show brightness bar in quick settings -->
+    <string name="show_brightness">Показывать слайдер яркости</string>
+
+    <!-- Heads up settings -->
+    <string name="headsup_settings_title">Всплывающие уведомления</string>
+    <string name="summary_heads_up_enabled">Всплывающие уведомления включены</string>
+    <string name="summary_heads_up_disabled">Всплывающие уведомления выключены</string>
+    <string name="heads_up_disabled_notice">Чтобы разрешить приложениям отображать интерактивные уведомления в виде всплывающего окна на экране, включите Всплывающие уведомления.</string>
+
+    <!-- Heads up timeout -->
+    <string name="heads_up_time_out_title">Тайм-аут</string>
+    <string name="heads_up_time_out_summary">Уведомление будет отображаться <xliff:g id="number">%d</xliff:g> секунд</string>
+    <string name="heads_up_time_out_2sec">2 секунды</string>
+    <string name="heads_up_time_out_4sec">4 секунды</string>
+    <string name="heads_up_time_out_5sec">5 секунд</string>
+    <string name="heads_up_time_out_6sec">6 секунд</string>
+    <string name="heads_up_time_out_8sec">8 секунд</string>
+    <string name="heads_up_time_out_10sec">10 секунд</string>
+
+    <!-- Heads up snooze -->
+    <string name="heads_up_snooze_title">Таймер отсрочки всплыв. уведомлений</string>
+    <string name="heads_up_snooze_summary_one_minute">Проведите вверх на всплывшем уведомлении чтобы отложить всплыв. уведомления от этого приложения на 1 минуту</string>
+    <string name="heads_up_snooze_summary">При жесте вверх на всплывшем уведомлении, всплывающие уведомления будут приостановлены на <xliff:g id="number">%d</xliff:g> минут</string>
+    <string name="heads_up_snooze_disabled_summary">Таймер отключен</string>
+    <string name="heads_up_snooze_1min">1 минута</string>
+    <string name="heads_up_snooze_3min">3 минуты</string>
+    <string name="heads_up_snooze_5min">5 минут</string>
+    <string name="heads_up_snooze_10min">10 минут</string>
+    <string name="heads_up_snooze_15min">15 минут</string>
+    <string name="heads_up_snooze_20min">20 минут</string>
 </resources>
