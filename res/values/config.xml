@@ -53,6 +53,6 @@
     <string name="gesture_double_twist_sensor_vendor" translatable="false"></string>
 
     <!-- When true enable gesture setting. -->
-    <bool name="config_gesture_settings_enabled">false</bool>
+    <bool name="config_gesture_settings_enabled">true</bool>
 
 </resources>
