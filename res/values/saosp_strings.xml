@@ -350,4 +350,7 @@
     <string name="lockscreen_targets_summary">View or change lock screen shortcuts</string>
     <string name="lockscreen_targets_message">Lockscreen shortcuts</string>
 
+    <!-- Option to show brightness bar in quick settings -->
+    <string name="show_brightness">Show brightness slider</string>
+
 </resources>

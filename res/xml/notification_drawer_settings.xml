@@ -22,6 +22,11 @@
         android:title="@string/quicksettings_tiles_category" />
 
     <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="qs_show_brightness"
+        android:title="@string/show_brightness"
+        android:defaultValue="true" />
+
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
         android:key="qs_wifi_easy_toggle"
         android:title="@string/qs_wifi_easy_toggle_title"
         android:summary="@string/qs_wifi_easy_toggle_summary"
