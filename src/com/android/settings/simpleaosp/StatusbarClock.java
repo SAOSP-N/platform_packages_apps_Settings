@@ -54,6 +54,7 @@ public class StatusbarClock extends SettingsPreferenceFragment
     private static final String PREF_CLOCK_DATE_STYLE = "clock_date_style";
     private static final String PREF_CLOCK_DATE_FORMAT = "clock_date_format";
     private static final String STATUS_BAR_CLOCK = "status_bar_show_clock";
+    private static final String STATUS_BAR_CLOCK_SECONDS = "status_bar_clock_seconds";
 
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
@@ -65,6 +66,7 @@ public class StatusbarClock extends SettingsPreferenceFragment
     private ListPreference mClockDateStyle;
     private ListPreference mClockDateFormat;
     private SwitchPreference mStatusBarClock;
+    private SwitchPreference mClockSeconds;
 
     private boolean mCheckPreferences;
 
@@ -134,6 +136,13 @@ public class StatusbarClock extends SettingsPreferenceFragment
 
         parseClockDateFormats();
 
+        mClockSeconds = (SwitchPreference) findPreference(STATUS_BAR_CLOCK_SECONDS);
+        mClockSeconds.setOnPreferenceChangeListener(this);
+        int clockSeconds = Settings.System.getInt(
+            getActivity().getApplicationContext().getContentResolver(),
+            Settings.System.STATUS_BAR_CLOCK_SECONDS, 0);
+        mClockSeconds.setChecked(clockSeconds != 0);
+
         mStatusBarClock = (SwitchPreference) prefSet.findPreference(STATUS_BAR_CLOCK);
         mStatusBarClock.setChecked((Settings.System.getInt(
                 getActivity().getApplicationContext().getContentResolver(),
@@ -170,6 +179,12 @@ public class StatusbarClock extends SettingsPreferenceFragment
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_CLOCK_STYLE, val);
             mClockStyle.setSummary(mClockStyle.getEntries()[index]);
+            return true;
+        } else if (preference == mClockSeconds) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_CLOCK_SECONDS,
+                    value ? 1 : 0);
             return true;
         } else if (preference == mClockDateDisplay) {
             int val = Integer.parseInt((String) newValue);
