@@ -18,7 +18,6 @@
 package com.android.settings.deviceinfo;
 
 import android.app.Activity;
-import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -43,12 +42,9 @@ import com.android.settings.SettingsPreferenceFragment;
 public class AdvancedStorageSettings extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener {
 
-    private static final String USB_DATA_AUTO_UNLOCK_KEY = "usb_data_auto_unlock";
     private static final String USB_CONFIGURATION_KEY = "select_usb_configuration";
 
-    private SystemSettingSwitchPreference mUsbDataAutoUnlock;
     private ListPreference mUsbConfiguration;
-    private KeyguardManager mKeyguardManager;
 
     @Override
     protected int getMetricsCategory() {
@@ -61,9 +57,7 @@ public class AdvancedStorageSettings extends SettingsPreferenceFragment
 
         addPreferencesFromResource(R.xml.storage_advanced_settings);
 
-        mUsbDataAutoUnlock = (SystemSettingSwitchPreference) findPreference(USB_DATA_AUTO_UNLOCK_KEY);
         mUsbConfiguration = (ListPreference) findPreference(USB_CONFIGURATION_KEY);
-        mKeyguardManager = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
     }
 
     @Override
@@ -71,12 +65,9 @@ public class AdvancedStorageSettings extends SettingsPreferenceFragment
             Bundle savedInstanceState) {
         IntentFilter filter = new IntentFilter();
         filter.addAction(UsbManager.ACTION_USB_STATE);
-        boolean keyguardSecure = mKeyguardManager.isKeyguardSecure();
-        mUsbDataAutoUnlock.setEnabled(!keyguardSecure);
-        if (keyguardSecure) {
-            mUsbDataAutoUnlock.setChecked(false);
+        if (getActivity().registerReceiver(mUsbReceiver, filter) == null) {
+            updateUsbConfigurationValues();
         }
-        getActivity().registerReceiver(mUsbReceiver, filter);
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 

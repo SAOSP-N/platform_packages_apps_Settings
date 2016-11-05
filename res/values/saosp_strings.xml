@@ -344,7 +344,7 @@
     <!-- USB data automatic unlock -->
     <string name="usb_data_auto_unlock_title">Unlock USB data</string>
     <string name="usb_data_auto_unlock_summary">Allow unlocked data access to your phone\'s storage through USB (MTP, PTP)</string>
-    <string name="usb_data_auto_unlock_warning_summary">Your device will establish unprotected connections, everytime you connect it to a PC. Secured lockscreens disable this option automatically.\n\nThis is still an experimental feature, use with caution.</string>
+    <string name="usb_data_auto_unlock_warning_summary">Your device will establish unprotected connections, everytime you connect it to a PC.\n\nThis is still an experimental feature, use with caution.</string>
 
     <!-- CM Lockscreen shortcuts -->
     <string name="lockscreen_targets_summary">View or change lock screen shortcuts</string>
