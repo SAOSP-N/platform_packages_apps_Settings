@@ -97,6 +97,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_WALLPAPER = "wallpaper";
     private static final String KEY_VR_DISPLAY_PREF = "vr_display_pref";
     private static final String KEY_WAKEUP_WHEN_PLUGGED_UNPLUGGED = "wakeup_when_plugged_unplugged";
+    private static final String SCREENSHOT_TYPE = "screenshot_type";
     private static final String KEY_ROTATION_CATEGORY = "rotation_category";
     private static final String KEY_ACCELEROMETER = "accelerometer";
     private static final String KEY_ROTATION_ANGLES = "rotation_angles";
@@ -115,6 +116,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private SwitchPreference mWakeUpWhenPluggedOrUnplugged;
 
+    private ListPreference mScreenshotType;
     private ListPreference mNightModePreference;
     private Preference mScreenSaverPreference;
     private SwitchPreference mLiftToWakePreference;
@@ -263,6 +265,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mWakeUpWhenPluggedOrUnplugged.setChecked(Settings.System.getInt(resolver,
                         Settings.System.WAKEUP_WHEN_PLUGGED_UNPLUGGED, 1) == 1);
             mWakeUpWhenPluggedOrUnplugged.setOnPreferenceChangeListener(this);
+
+        mScreenshotType = (ListPreference) findPreference(SCREENSHOT_TYPE);
+        int mScreenshotTypeValue = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.SCREENSHOT_TYPE, 0);
+        mScreenshotType.setValue(String.valueOf(mScreenshotTypeValue));
+        mScreenshotType.setSummary(mScreenshotType.getEntry());
+        mScreenshotType.setOnPreferenceChangeListener(this);
     }
 
     private static boolean isLiftToWakeAvailable(Context context) {
@@ -544,6 +553,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.WAKEUP_WHEN_PLUGGED_UNPLUGGED,
                     (Boolean) objValue ? 1 : 0);
+        }
+        if  (SCREENSHOT_TYPE.equals(key)) {
+            int mScreenshotTypeValue = Integer.parseInt(((String) objValue).toString());
+            mScreenshotType.setSummary(
+                    mScreenshotType.getEntries()[mScreenshotTypeValue]);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.SCREENSHOT_TYPE, mScreenshotTypeValue);
+            mScreenshotType.setValue(String.valueOf(mScreenshotTypeValue));
         }
         if (preference == mAccelerometerPreference) {
             boolean value = (Boolean) objValue;
