@@ -38,7 +38,7 @@ import java.util.List;
 
 public class PowerMenuFragment extends PreferenceFragment {
 
-    private SwitchPreference mRebootPref;
+    private SwitchPreference mRestartPref;
     private SwitchPreference mScreenshotPref;
     private SwitchPreference mScreenRecordPref;
     private SwitchPreference mTorchPref;
@@ -74,8 +74,8 @@ public class PowerMenuFragment extends PreferenceFragment {
                 continue;
             }
 
-            if (action.equals(GLOBAL_ACTION_KEY_REBOOT)) {
-                mRebootPref = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_REBOOT);
+            if (action.equals(GLOBAL_ACTION_KEY_RESTART)) {
+                mRestartPref = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_RESTART);
             } else if (action.equals(GLOBAL_ACTION_KEY_SCREENSHOT)) {
                 mScreenshotPref = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_SCREENSHOT);
             } else if (action.equals(GLOBAL_ACTION_KEY_SCREENRECORD)) {
@@ -110,8 +110,8 @@ public class PowerMenuFragment extends PreferenceFragment {
     public void onStart() {
         super.onStart();
 
-        if (mRebootPref != null) {
-            mRebootPref.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_REBOOT));
+        if (mRestartPref != null) {
+            mRestartPref.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_RESTART));
         }
 
         if (mScreenshotPref != null) {
@@ -185,9 +185,9 @@ public class PowerMenuFragment extends PreferenceFragment {
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean value;
 
-        if (preference == mRebootPref) {
-            value = mRebootPref.isChecked();
-            updateUserConfig(value, GLOBAL_ACTION_KEY_REBOOT);
+        if (preference == mRestartPref) {
+            value = mRestartPref.isChecked();
+            updateUserConfig(value, GLOBAL_ACTION_KEY_RESTART);
 
         } else if (preference == mScreenshotPref) {
             value = mScreenshotPref.isChecked();

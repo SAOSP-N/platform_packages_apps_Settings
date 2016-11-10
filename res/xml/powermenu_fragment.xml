@@ -18,7 +18,7 @@
     xmlns:pure="http://schemas.android.com/apk/res-auto" >
 
     <SwitchPreference
-        android:key="reboot"
+        android:key="restart"
         android:title="@string/power_menu_reboot_title"
         android:defaultValue="true" />
 
