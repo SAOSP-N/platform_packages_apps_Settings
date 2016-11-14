@@ -22,12 +22,12 @@ import android.content.pm.UserInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceScreen;
+import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
 import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.util.simpleaosp.PowerMenuConstants;
 import static com.android.internal.util.simpleaosp.PowerMenuConstants.*;
@@ -36,7 +36,12 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PowerMenuFragment extends PreferenceFragment {
+import com.android.internal.logging.MetricsProto.MetricsEvent;
+
+
+public class PowerMenuFragment extends SettingsPreferenceFragment  {
+    
+    final static String TAG = "PowerMenuFragment";
 
     private SwitchPreference mRestartPref;
     private SwitchPreference mScreenshotPref;
@@ -104,7 +109,10 @@ public class PowerMenuFragment extends PreferenceFragment {
         getUserConfig();
     }
 
-    public PowerMenuFragment(){}
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsEvent.SAOSP_TWEAKS;
+    }
 
     @Override
     public void onStart() {
@@ -182,7 +190,7 @@ public class PowerMenuFragment extends PreferenceFragment {
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+    public boolean onPreferenceTreeClick(Preference preference) {
         boolean value;
 
         if (preference == mRestartPref) {
@@ -234,7 +242,7 @@ public class PowerMenuFragment extends PreferenceFragment {
             updateUserConfig(value, GLOBAL_ACTION_KEY_SILENT);
 
         } else {
-            return super.onPreferenceTreeClick(preferenceScreen, preference);
+            return super.onPreferenceTreeClick(preference);
         }
         return true;
     }
@@ -264,7 +272,7 @@ public class PowerMenuFragment extends PreferenceFragment {
     }
 
     private void updatePreferences() {
-        boolean bugreport = Settings.Secure.getInt(getActivity().getContentResolver(),
+        boolean bugreport = Settings.Secure.getInt(getContentResolver(),
                 Settings.Secure.BUGREPORT_IN_POWER_MENU, 0) != 0;
 
         if (mBugReportPref != null) {
@@ -316,7 +324,7 @@ public class PowerMenuFragment extends PreferenceFragment {
             }
         }
 
-        Settings.Global.putStringForUser(getActivity().getContentResolver(),
+        Settings.Global.putStringForUser(getContentResolver(),
                  Settings.Global.POWER_MENU_ACTIONS, s.toString(), UserHandle.USER_CURRENT);
         updatePowerMenuDialog();
     }
