@@ -636,4 +636,10 @@
     <string name="dashboard_tile_summaries_summary_enabled">Dashboard summaries are enabled</string>
     <string name="dashboard_tile_summaries_summary_disabled">Dashboard summaries are disabled</string>
 
+    <!-- Quick unlock -->
+    <string name="unlock_quick_unlock_control_title">Quick unlock</string>
+    <string name="unlock_quick_unlock_control_summary">Unlock automatically when the correct PIN is entered</string>
+    <string name="unlock_quick_unlock_control_warning_summary">Limit the PIN to a length of 4 digits to avoid lockout, use with caution.</string>
+
+
 </resources>
