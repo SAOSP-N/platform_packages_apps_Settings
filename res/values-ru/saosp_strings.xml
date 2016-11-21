@@ -179,30 +179,7 @@
     <!-- Option to show brightness bar in quick settings -->
     <string name="show_brightness">Cлайдер яркости</string>
      
-    <!-- Quick unlock -->
-    <string name="unlock_quick_unlock_control_title">Быстрая разблокировка</string>
-    <string name="unlock_quick_unlock_control_summary">Разблокировать автоматически, если введён корректный PIN-код</string>
-
-    <!-- Battery styles -->
-    <string name="battery_title">Батарея</string>
-    <string name="status_bar_battery_title">Индикатор батареи</string>
-    <string name="status_bar_battery_summary">Изменить индикатор батареи</string>
-    <string name="battery_style_title">Стиль значка батареи</string>
-    <string name="battery_percent_title">Процент заряда батареи</string>
-    <string name="battery_percent_none">Никогда</string>
-    <string name="battery_percent_always">Всегда</string>
-    <string name="battery_percent_expanded">Расширенный</string>
-    <string name="statusbar_percent_inside_title">Наложение процентов</string>
-    <string name="statusbar_percent_inside_summary">Отображать процент поверх значка батареи</string>
-    <string name="statusbar_charging_image_title">Индикация зарядки</string>
-    <string name="statusbar_category_charging_title">Зарядка</string>
-    <string name="statusbar_charging_image_summary">Отображать молнию вместо процента при зарядке</string>
-    <string name="statusbar_battery_charging_color_title">Цвет</string>
-    <string name="statusbar_battery_charging_color_enable_title">Цвет при зарядке</string>
-    <string name="statusbar_battery_charging_color_enable_summary"></string>
-    <string name="battery_enable_title">Показать значок батареи</string>
-
-   <!-- Statusbar Clock options -->
+    <!-- Statusbar Clock options -->
     <string name="status_bar_title">Строка состояния</string>
     <string name="status_bar_style_title">Стиль часов и даты</string>
     <string name="status_bar_clock">Часы и дата</string>
@@ -219,17 +196,14 @@
     <string name="center_clock">Часы по центру</string>
     <string name="left_clock">Часы слева</string>
     <string name="status_bar_clock_seconds_title">Секунды в часах</string>
-    <string name="status_bar_clock_seconds_summary">Показывать секунды рядом с часами в строке состояния</string>     
+    <string name="status_bar_clock_seconds_summary">Показывать секунды рядом с часами в строке состояния</string>
     <string name="dont_show">Не показывать</string>
     <string name="clock_date_display">Дата</string>
     <string name="clock_date_display_summary">Показывать дату перед часами</string>
     <string name="clock_date_style">Стиль даты</string>
-    <string name="clock_date_position">Расположение даты</string>
     <string name="clock_date_format">Формат даты</string>
     <string name="clock_date_string_edittext_title">Должно быть в формате даты прим. ММ/дд/гг</string>
     <string name="clock_date_string_edittext_summary">Строка ввода</string>
-    <string name="clock_date_right">Справа от часов</string>
-    <string name="clock_date_left">Слева от часов</string>
     <string name="am_pm_clock_normal">Нормальный размер</string>
     <string name="am_pm_clock_small">Маленький размер</string>
     <string name="am_pm_clock_none">Не показывать</string>
@@ -240,7 +214,7 @@
     <string name="clock_date_style_lowercase">Строчный</string>
     <string name="clock_date_style_uppercase">Прописной</string>
     <string name="clock_date_format_custom">Пользовательский формат</string>
-    <string name="default_string">По умолчанию</string>
+    <string name="default_string">По умолчанию</string>   
 
     <!-- LED notifications -->
     <string name="color_picker_dialog_title">Цвет</string>
@@ -385,8 +359,66 @@
     <string name="heads_up_snooze_15min">15 минут</string>
     <string name="heads_up_snooze_20min">20 минут</string>
      
+    <!-- Quick unlock -->
+    <string name="unlock_quick_unlock_control_title">Быстрая разблокировка</string>
+    <string name="unlock_quick_unlock_control_summary">Разблокировать автоматически, если введён корректный PIN-код</string>
+     
+    <!-- Manage applications: show substratum overlays -->
+    <string name="filter_substratum_apps">Оверлеи Substratum</string>
+    <string name="menu_show_substratum">Показывать оверлеи</string>
+    <string name="menu_hide_substratum">Не показывать оверлеи</string>
+     
+    <!--Navigation bar category -->
+    <string name="navigation_bar_title">Панель навигации</string>
+     
+    <!-- Navigation bar cursor -->
+    <string name="navigation_bar_arrow_keys_title">Перемещение курсора</string>
+    <string name="navigation_bar_arrow_keys_summary">Отображать кнопки перемещения курсора влево или вправо при вводе. Кнопка выбора метода ввода отображаться не будет.</string>
+     
     <!-- Optional screenshot type -->
     <string name="screenshot_type_title">Вид снимка экрана</string>
     <string name="screenshot_type_fullscreen">Полноэкранный</string>
     <string name="screenshot_type_partial">Снимок определенной области экрана</string>
+     
+    <!-- Custom carrier label and position -->
+    <string name="carrier_label_settings_title">Название оператора</string>
+    <string name="carrier_label_settings_summary">Выбрать название оператора</string>
+    <string name="custom_carrier_label_title">Свое название оператора</string>
+    <string name="custom_carrier_label_explain">Пожалуйста, введите своё имя оператора. Оставьте поле пустым для отображения по умолчанию.</string>
+    <string name="custom_carrier_label_notset">Пользовательское название не установлено</string>
+    <string name="show_carrier_title">Название оператора</string>
+    <string name="show_carrier_disabled">Выключено</string>
+    <string name="show_carrier_keyguard">Только на экране блокировки</string>
+    <string name="show_carrier_statusbar">Только в строке состояния</string>
+    <string name="show_carrier_enabled">Везде</string>
+     
+    <!-- Status bar - Battery -->
+    <string name="status_bar_battery_title">Индикатор батареи</string>
+    <string name="status_bar_battery_summary">Изменить индикатор батареи</string>
+    <string name="status_bar_battery_style_title">Стиль значка батареи</string>
+    <string name="status_bar_battery_style_icon_portrait">Вертикальный значок</string>
+    <string name="status_bar_battery_style_icon_landscape">Горизонтальный значок</string>
+    <string name="status_bar_battery_style_circle">Круг</string>
+    <string name="status_bar_battery_style_text">Текст</string>
+    <string name="status_bar_battery_style_hidden">Не показывать индикатор</string>
+ 
+    <!-- Status bar - Battery percentage -->
+    <string name="status_bar_battery_percentage_title">Процент заряда батареи</string>
+    <string name="status_bar_battery_percentage_default">Не показывать (по умолч.)</string>
+    <string name="status_bar_battery_percentage_text_inside">Внутри значка</string>
+    <string name="status_bar_battery_percentage_text_next">Рядом со значком</string>
+     
+    <string name="status_bar_battery_style_tile_title">Свой стиль плитки батареи</string>
+    <string name="status_bar_battery_style_tile_summary">Одинаковый стиль значка, выбранный для батареи в строке состояния</string> 
+     
+    <!-- Restart SystemUI -->
+    <string name="restart_systemui">Перезапустить SystemUI</string> 
+     
+    <!-- Advanced bluetooth tile -->
+    <string name="qs_advanced_bluetooth_title">Bluetooth</string>
+    <string name="qs_advanced_bluetooth_summary">Включение или выключение Bluetooth одиночным нажатием на плитку</string>
+     
+    <string name="dashboard_conditions_title">Уведомления в главном меню</string>
+    <string name="summary_dashboard_conditions_enabled">Уведомления в главном меню включены</string>
+    <string name="summary_dashboard_conditions_disabled">Уведомления в главном меню выключены</string>
 </resources>
