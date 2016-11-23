@@ -43,12 +43,15 @@ public class BatteryIcons extends SettingsPreferenceFragment implements
 
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
+    private static final String STATUS_BAR_BATTERY_STYLE_TILE = "status_bar_battery_style_tile";
 
+    private static final int STATUS_BAR_BATTERY_STYLE_PORTRAIT = 0;
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 4;
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 6;
 
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarBatteryShowPercent;
+    private SwitchPreference mQsBatteryTitle;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -56,6 +59,11 @@ public class BatteryIcons extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.battery_icons);
 
         ContentResolver resolver = getActivity().getContentResolver();
+
+        mQsBatteryTitle = (SwitchPreference) findPreference(STATUS_BAR_BATTERY_STYLE_TILE);
+        mQsBatteryTitle.setChecked((Settings.Secure.getInt(resolver,
+                Settings.Secure.STATUS_BAR_BATTERY_STYLE_TILE, 1) == 1));
+        mQsBatteryTitle.setOnPreferenceChangeListener(this);
 
         mStatusBarBattery = (ListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
         int batteryStyle = Settings.Secure.getInt(resolver,
@@ -98,6 +106,11 @@ public class BatteryIcons extends SettingsPreferenceFragment implements
             mStatusBarBatteryShowPercent.setSummary(
                     mStatusBarBatteryShowPercent.getEntries()[index]);
             return true;
+        } else if  (preference == mQsBatteryTitle) {
+            boolean checked = ((SwitchPreference)preference).isChecked();
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.STATUS_BAR_BATTERY_STYLE_TILE, checked ? 1:0);
+            return true;
         }
         return false;
     }
@@ -106,8 +119,12 @@ public class BatteryIcons extends SettingsPreferenceFragment implements
         if (batteryIconStyle == STATUS_BAR_BATTERY_STYLE_HIDDEN ||
                 batteryIconStyle == STATUS_BAR_BATTERY_STYLE_TEXT) {
             mStatusBarBatteryShowPercent.setEnabled(false);
+            mQsBatteryTitle.setEnabled(false);
+        } else if (batteryIconStyle == STATUS_BAR_BATTERY_STYLE_PORTRAIT) {
+            mQsBatteryTitle.setEnabled(false);
         } else {
             mStatusBarBatteryShowPercent.setEnabled(true);
+            mQsBatteryTitle.setEnabled(true);
         }
     }
 
@@ -133,4 +150,3 @@ public class BatteryIcons extends SettingsPreferenceFragment implements
                 }
             };
 }
-
