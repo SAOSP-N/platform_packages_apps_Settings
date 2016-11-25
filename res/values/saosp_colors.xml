@@ -45,4 +45,7 @@
 
     <color name="switchbar_background_color">#ff37474f</color>
 
+    <!-- Gesture settings switchbar background -->
+    <color name="gestures_switchbar_color">@android:color/white</color>
+
 </resources>
