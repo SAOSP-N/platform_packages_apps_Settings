@@ -395,4 +395,8 @@
     <!-- Restart SystemUI -->
     <string name="restart_systemui">Restart SystemUI</string>
 
+    <!-- Advanced bluetooth tile -->
+    <string name="qs_advanced_bluetooth_title">Advanced bluetooth tile</string>
+    <string name="qs_advanced_bluetooth_summary">Enable one tap action to enable or disable bluetooth</string>
+
 </resources>
