@@ -54,6 +54,17 @@ import com.android.settings.users.UserSettings;
 import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
+import com.android.settings.simpleaosp.StatusBarSettings;
+import com.android.settings.simpleaosp.NavigationBarSettings;
+import com.android.settings.simpleaosp.LockScreenSettings;
+import com.android.settings.simpleaosp.NotificationDrawerSettings;
+import com.android.settings.simpleaosp.VolumeRockerSettings;
+import com.android.settings.simpleaosp.BatteryIcons;
+import com.android.settings.simpleaosp.CarrierLabelSettings;
+import com.android.settings.simpleaosp.HeadsUpSettings;
+import com.android.settings.simpleaosp.NetworkTraffic;
+import com.android.settings.simpleaosp.StatusbarClock;
+import com.android.settings.cyanogenmod.PowerMenuFragment;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -318,6 +329,84 @@ public final class SearchIndexableResources {
                         R.xml.zen_mode_visual_interruptions_settings,
                         ZenModeVisualInterruptionSettings.class.getName(),
                         R.drawable.ic_settings_notifications));
+
+        sResMap.put(BatteryIcons.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(BatteryIcons.class.getName()),
+                        NO_DATA_RES_ID,
+                        BatteryIcons.class.getName(),
+                        R.drawable.ic_build_tweak));
+
+        sResMap.put(CarrierLabelSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(CarrierLabelSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        CarrierLabelSettings.class.getName(),
+                        R.drawable.ic_build_tweak));
+
+        sResMap.put(HeadsUpSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(HeadsUpSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        HeadsUpSettings.class.getName(),
+                        R.drawable.ic_build_tweak));
+
+        sResMap.put(LockScreenSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(LockScreenSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        LockScreenSettings.class.getName(),
+                        R.drawable.ic_build_tweak));
+
+        sResMap.put(NavigationBarSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(NavigationBarSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        NavigationBarSettings.class.getName(),
+                        R.drawable.ic_build_tweak));
+
+        sResMap.put(NotificationDrawerSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(NotificationDrawerSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        NotificationDrawerSettings.class.getName(),
+                        R.drawable.ic_build_tweak));
+
+        sResMap.put(NetworkTraffic.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(NetworkTraffic.class.getName()),
+                        NO_DATA_RES_ID,
+                        NetworkTraffic.class.getName(),
+                        R.drawable.ic_build_tweak));
+
+        sResMap.put(PowerMenuFragment.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(PowerMenuFragment.class.getName()),
+                        NO_DATA_RES_ID,
+                        PowerMenuFragment.class.getName(),
+                        R.drawable.ic_build_tweak));
+
+        sResMap.put(StatusBarSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(StatusBarSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        StatusBarSettings.class.getName(),
+                        R.drawable.ic_build_tweak));
+
+        sResMap.put(StatusbarClock.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(StatusbarClock.class.getName()),
+                        NO_DATA_RES_ID,
+                        StatusbarClock.class.getName(),
+                        R.drawable.ic_build_tweak));
+
+        sResMap.put(VolumeRockerSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(VolumeRockerSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        VolumeRockerSettings.class.getName(),
+                        R.drawable.ic_build_tweak));
+
     }
 
     private SearchIndexableResources() {
