@@ -31,6 +31,12 @@
         android:title="@string/qs_wifi_easy_toggle_title"
         android:summary="@string/qs_wifi_easy_toggle_summary"
         android:defaultValue="false" />
+
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="qs_bt_easy_toggle"
+        android:title="@string/qs_advanced_bluetooth_title"
+        android:summary="@string/qs_advanced_bluetooth_summary"
+        android:defaultValue="false" />
   
     <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
         android:key="qs_data_advanced"
