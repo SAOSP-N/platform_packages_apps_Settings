@@ -162,7 +162,7 @@
 
     <!-- Advanced data tile -->
     <string name="quicksettings_tiles_category">Плитки быстрых настроек</string>
-    <string name="qs_advanced_data_title">Мобильные данные</string>
+    <string name="qs_advanced_data_title">Плитка Мобильные данные</string>
     <string name="qs_advanced_data_summary">Включение или выключение мобильных данных одиночным нажатием на плитку</string>
 
     <!-- QuickSettings haptic feedback -->
@@ -170,15 +170,12 @@
     <string name="quick_settings_vibrate_summary">Вибрировать при касании по плитке</string>
 
     <!-- Button settings  -->
-    <string name="qs_wifi_easy_toggle_title">Переключатель WiFi</string>
+    <string name="qs_wifi_easy_toggle_title">Плитка WiFi</string>
     <string name="qs_wifi_easy_toggle_summary">Включение или выключение WiFi одиночным нажатием на плитку</string>
 
     <!-- Name of special SystemUI debug settings -->
     <string name="system_ui_tuner">System UI Tuner</string>
 
-    <!-- Option to show brightness bar in quick settings -->
-    <string name="show_brightness">Cлайдер яркости</string>
-     
     <!-- Statusbar Clock options -->
     <string name="status_bar_title">Строка состояния</string>
     <string name="status_bar_style_title">Стиль часов и даты</string>
@@ -283,8 +280,8 @@
     <string name="reset">Сбросить</string>
 
     <!-- Lockscreen torch -->
-    <string name="keyguard_torch_title">Фонарик на экране блокировки</string>
-    <string name="keyguard_torch_summary">Длительное нажатие при выкл. экране на кнопку питания включит фонарик</string>
+    <string name="keyguard_torch_title">Фонарик</string>
+    <string name="keyguard_torch_summary">Удерживание кнопки питания при выключенном экране включает фонарик</string>
 
 
     <!-- Snackbar action button -->
@@ -415,10 +412,27 @@
     <string name="restart_systemui">Перезапустить SystemUI</string> 
      
     <!-- Advanced bluetooth tile -->
-    <string name="qs_advanced_bluetooth_title">Bluetooth</string>
+    <string name="qs_advanced_bluetooth_title">Плитка Bluetooth</string>
     <string name="qs_advanced_bluetooth_summary">Включение или выключение Bluetooth одиночным нажатием на плитку</string>
      
     <string name="dashboard_conditions_title">Уведомления в главном меню</string>
     <string name="summary_dashboard_conditions_enabled">Уведомления в главном меню включены</string>
     <string name="summary_dashboard_conditions_disabled">Уведомления в главном меню выключены</string>
+     
+    <!-- Kill app long-press back -->
+    <string name="kill_app_longpress_back">Закрытие приложения</string>
+    <string name="kill_app_longpress_back_summary">Завершать работу текущего приложения удерживанием кнопки «Назад»</string>
+    <!--Back to kill timeout -->
+    <string name="long_press_kill_delay">Задержка закрытия</string>
+     
+    <!-- Quick Settings brightness slider -->
+    <string name="qs_brightness_slider_title">Cлайдер яркости</string>
+    <string name="qs_brightness_slider_summary">Показывать слайдер яркости в быстрых настройках</string>
+ 
+    <string name="brightness_icon_title">Значок яркости</string>
+    <string name="brightness_icon_summary">Значок слева от слайдера яркости регулирует автоматическую подстройку яркости</string>
+     
+    <!-- fingerprint authentication vibration -->
+    <string name="fprint_sucess_vib_title">Вибрация при аутентификации</string>
+    <string name="fprint_sucess_vib_summary">Вибрировать при успешном сканировании отпечатков пальцев</string>
 </resources>
