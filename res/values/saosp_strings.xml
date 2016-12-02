@@ -633,4 +633,8 @@
     <!-- Custom dashboard tile category -->
     <string name="saosp_category_title">Personalization</string>
 
+    <!-- Themes -->
+    <string name="themes_title">Themes</string>
+    <string name="themes_dashboard_summary">Manage your themes</string>
+
 </resources>
