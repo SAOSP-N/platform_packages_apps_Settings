@@ -438,4 +438,8 @@
     <string name="fprint_sucess_vib_title">Fingerprint authentication vibration</string>
     <string name="fprint_sucess_vib_summary">Vibrate on successful fingerprint authentication</string>
 
+    <!-- Volume button orientation based on current rotation -->
+    <string name="swap_volume_buttons_title">Swap volume buttons on rotation</string>
+    <string name="swap_volume_buttons_summary">Adjust volume buttons action based on current rotation</string>
+
 </resources>
