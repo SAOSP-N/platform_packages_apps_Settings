@@ -43,4 +43,6 @@
      <!-- Storage Summary Title -->
      <color name="storage_summary_title_color">#ff607d8b</color>
 
+    <color name="switchbar_background_color">#ff37474f</color>
+
 </resources>
