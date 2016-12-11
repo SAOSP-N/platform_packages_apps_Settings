@@ -95,17 +95,6 @@
                 android:summary="@string/tap_to_wake_summary" />
 
         <PreferenceScreen
-                android:key="font_size"
-                android:title="@string/title_font_size"
-                android:fragment="com.android.settings.accessibility.ToggleFontSizePreferenceFragment"
-                settings:keywords="@string/keywords_display_font_size" />
-
-        <com.android.settings.display.ScreenZoomPreference
-                android:key="screen_zoom"
-                android:title="@string/screen_zoom_title"
-                settings:keywords="@string/screen_zoom_keywords" />
-
-        <PreferenceScreen
                 android:key="wifi_display"
                 android:title="@string/wifi_display_settings_title"
                 settings:keywords="@string/keywords_display_cast_screen"
