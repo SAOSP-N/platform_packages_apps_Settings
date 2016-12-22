@@ -628,4 +628,7 @@
     <string name="app_ops_get_accounts">device accounts</string>
     <string name="app_ops_run_in_background">run in background</string>
 
+    <!-- Hotspot idle -->
+    <string name="wifi_hotspot_mode_title">Keep WiFi Hotspot on</string>
+
 </resources>
