@@ -205,9 +205,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private static final String SHOW_ALL_ANRS_KEY = "show_all_anrs";
 
-    private static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
-    private static final String LONG_PRESS_KILL_DELAY = "long_press_kill_delay";
-
     private static final String PACKAGE_MIME_TYPE = "application/vnd.android.package-archive";
 
     private static final String TERMINAL_APP_PACKAGE = "com.android.terminal";
@@ -302,9 +299,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private ColorModePreference mColorModePreference;
 
     private SwitchPreference mForceResizable;
+
     private SwitchPreference mColorTemperaturePreference;
-    private SwitchPreference mKillAppLongpressBack;
-    private AnimationScalePreference mKillAppLongpressDelay;
 
     private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
 
@@ -471,9 +467,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         mAllPrefs.add(mShowAllANRs);
         mResetSwitchPrefs.add(mShowAllANRs);
 
-        mKillAppLongpressBack = findAndInitSwitchPref(KILL_APP_LONGPRESS_BACK);
-        mKillAppLongpressDelay = findAndInitAnimationScalePreference(LONG_PRESS_KILL_DELAY);
-
         Preference hdcpChecking = findPreference(HDCP_CHECKING_KEY);
         if (hdcpChecking != null) {
             mAllPrefs.add(hdcpChecking);
@@ -619,8 +612,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             mColorModePreference.startListening();
             mColorModePreference.updateCurrentAndSupported();
         }
-
-        updateKillAppLongpressBackOptions();
     }
 
     @Override
@@ -723,7 +714,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         writeAnimationScaleOption(0, mWindowAnimationScale, null);
         writeAnimationScaleOption(1, mTransitionAnimationScale, null);
         writeAnimationScaleOption(2, mAnimatorDurationScale, null);
-        writeAnimationScaleOption(3, mKillAppLongpressDelay, null);
         // Only poke the color space setting if we control it.
         if (usingDevelopmentColorSpace()) {
             writeSimulateColorSpace(-1);
@@ -805,17 +795,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             hdcpChecking.setSummary(summaries[index]);
             hdcpChecking.setOnPreferenceChangeListener(this);
         }
-    }
-
-    private void writeKillAppLongpressBackOptions() {
-        Settings.Secure.putInt(getActivity().getContentResolver(),
-                Settings.Secure.KILL_APP_LONGPRESS_BACK,
-                mKillAppLongpressBack.isChecked() ? 1 : 0);
-    }
-
-    private void updateKillAppLongpressBackOptions() {
-        mKillAppLongpressBack.setChecked(Settings.Secure.getInt(
-            getActivity().getContentResolver(), Settings.Secure.KILL_APP_LONGPRESS_BACK, 0) != 0);
     }
 
     private void updatePasswordSummary() {
@@ -1657,46 +1636,29 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private void updateAnimationScaleValue(int which, AnimationScalePreference pref) {
         try {
-            float scale;
-            if (which == 3) {
-                try {
-                    scale = Settings.System.getIntForUser(getContentResolver(),
-                            Settings.System.LONG_PRESS_KILL_DELAY,
-                            UserHandle.USER_CURRENT);
-                    scale = ((float) (scale) / 1000);
-                } catch (Settings.SettingNotFoundException exc) {
-                    scale = 1.0f;
-                }
-            } else {
-                scale = mWindowManager.getAnimationScale(which);
-                if (scale != 1) {
-                    mHaveDebugSettings = true;
-                }
+            float scale = mWindowManager.getAnimationScale(which);
+            if (scale != 1) {
+                mHaveDebugSettings = true;
             }
             pref.setScale(scale);
-        } catch (RemoteException ignored) { /* ignored */ }
+        } catch (RemoteException e) {
+        }
     }
 
     private void updateAnimationScaleOptions() {
         updateAnimationScaleValue(0, mWindowAnimationScale);
         updateAnimationScaleValue(1, mTransitionAnimationScale);
         updateAnimationScaleValue(2, mAnimatorDurationScale);
-        updateAnimationScaleValue(3, mKillAppLongpressDelay);
     }
 
     private void writeAnimationScaleOption(int which, AnimationScalePreference pref,
             Object newValue) {
         try {
             float scale = newValue != null ? Float.parseFloat(newValue.toString()) : 1;
-            if (which == 3) {
-                Settings.System.putIntForUser(getContentResolver(),
-                        Settings.System.LONG_PRESS_KILL_DELAY, ((int) (scale * 1000)),
-                        UserHandle.USER_CURRENT);
-            } else {
-                mWindowManager.setAnimationScale(which, scale);
-            }
+            mWindowManager.setAnimationScale(which, scale);
             updateAnimationScaleValue(which, pref);
-        } catch (RemoteException ignored) { /* ignored */ }
+        } catch (RemoteException e) {
+        }
     }
 
     private void updateOverlayDisplayDevicesOptions() {
@@ -1853,8 +1815,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     public boolean onPreferenceClick(Preference preference) {
         if (preference == mWindowAnimationScale ||
                 preference == mTransitionAnimationScale ||
-                preference == mAnimatorDurationScale ||
-                preference == mKillAppLongpressDelay) {
+                preference == mAnimatorDurationScale) {
             ((AnimationScalePreference) preference).click();
         }
         return false;
@@ -1986,8 +1947,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             writeWebViewMultiprocessOptions();
         } else if (SHORTCUT_MANAGER_RESET_KEY.equals(preference.getKey())) {
             resetShortcutManagerThrottling();
-        } else if (preference == mKillAppLongpressBack) {
-            writeKillAppLongpressBackOptions();
         } else {
             return super.onPreferenceTreeClick(preference);
         }
@@ -2066,9 +2025,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             return true;
         } else if (preference == mSimulateColorSpace) {
             writeSimulateColorSpace(newValue);
-            return true;
-        } else if (preference == mKillAppLongpressDelay) {
-            writeAnimationScaleOption(3, mKillAppLongpressDelay, newValue);
             return true;
         }
         return false;
