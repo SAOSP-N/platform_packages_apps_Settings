@@ -448,4 +448,9 @@
     <string name="navigation_bar_size_42_dp">42 dp</string>
     <string name="navigation_bar_size_0_dp">0 dp (off)</string>
 
+    <!-- Three finger swipe screenshot -->
+   <string name="display_screenshot_category">Screenshot</string>
+    <string name="three_finger_gesture">Three finger screenshot</string>
+    <string name="three_finger_gesture_summary">Swipe three fingers across the screen to screenshot</string>
+
 </resources>
