@@ -507,4 +507,9 @@
     <string name="network_traffic_hidearrow_title">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the traffic monitor activity arrows</string>
 
+   <!-- Settings drawer switch -->
+   <string name="show_settings_drawer_title">Show settings drawer</string>
+   <string name="show_settings_drawer_enabled">Settings drawer enabled</string>
+   <string name="show_settings_drawer_disabled">Settings drawer disabled</string>
+
 </resources>

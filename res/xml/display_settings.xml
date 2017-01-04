@@ -166,6 +166,13 @@
                 android:title="@string/dashboard_category">
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                android:key="show_settings_drawer"
+                android:title="@string/show_settings_drawer_title"
+                android:summaryOn="@string/show_settings_drawer_enabled"
+                android:summaryOff="@string/show_settings_drawer_disabled"
+                android:defaultValue="true" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
                 android:key="enable_conditions"
                 android:title="@string/dashboard_conditions_title"
                 android:summaryOn="@string/summary_dashboard_conditions_enabled"
