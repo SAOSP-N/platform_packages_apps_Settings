@@ -4,6 +4,12 @@
         android:title="@string/status_bar_title" 
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <PreferenceScreen
+        android:fragment="com.android.settings.simpleaosp.BatteryIcons"
+        android:key="battery_style_pref"
+        android:title="@string/status_bar_battery_title"
+    	android:summary="@string/status_bar_battery_summary" />
+
     <Preference
         android:key="statusbarclock"
         android:fragment="com.android.settings.simpleaosp.StatusbarClock"
