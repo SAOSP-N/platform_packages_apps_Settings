@@ -75,6 +75,14 @@
                 android:title="@string/power_menu_expanded_desktop"
                 android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment" />
 
+         <ListPreference
+                android:key="pref_scrollingcache"
+                android:dialogTitle="@string/pref_scrollingcache_title"
+                android:title="@string/pref_scrollingcache_title"
+                android:summary="@string/pref_scrollingcache_summary"
+                android:entries="@array/entries_scrollingcache"
+                android:entryValues="@array/values_scrollingcache" />
+
         <PreferenceScreen
                 android:key="screensaver"
                 android:title="@string/screensaver_settings_title"
