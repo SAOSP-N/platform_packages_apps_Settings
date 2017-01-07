@@ -160,9 +160,7 @@
     <string name="network_traffic_autohide">Auto hide</string>
     <string name="network_traffic_autohide_summary">Hide the traffic monitor when there is no activity</string>
     <string name="network_traffic_autohide_threshold">Inactivity threshold</string>
-    <string name="network_traffic_hidearrow_title">Hide arrows</string>
-    <string name="network_traffic_hidearrow_summary">Hide the traffic monitor activity arrows</string>
-
+ 
     <!-- statusbar brightness control -->
     <string name="status_bar_toggle_brightness">Brightness control</string>
     <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar</string>
@@ -505,5 +503,8 @@
    <string name="filter_substratum_icons">Substratum icon overlays</string>
    <string name="menu_show_substratum_icons">Show icon overlays</string>
    <string name="menu_hide_substratum_icons">Hide icon overlays</string>
+
+    <string name="network_traffic_hidearrow_title">Hide arrows</string>
+    <string name="network_traffic_hidearrow_summary">Hide the traffic monitor activity arrows</string>
 
 </resources>
