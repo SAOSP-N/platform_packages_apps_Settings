@@ -143,11 +143,23 @@
 
         </PreferenceCategory>
 
-         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        <PreferenceCategory
+                android:key="screenshot_category"
+                android:title="@string/display_screenshot_category">
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                android:key="screenshot_crop_and_share"
+                android:title="@string/screenshot_crop_and_share_title"
+                android:summary="@string/screenshot_crop_and_share_summary"
+                android:defaultValue="false" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
                 android:key="three_finger_gesture"
                 android:title="@string/three_finger_gesture"
                 android:summary="@string/three_finger_gesture_summary"
                 android:defaultValue="false" />
+
+        </PreferenceCategory>
 
         <PreferenceCategory
                 android:key="dashboard_category"
