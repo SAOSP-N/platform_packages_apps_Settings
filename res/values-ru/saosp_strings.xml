@@ -368,11 +368,6 @@
     <string name="navigation_bar_arrow_keys_title">Перемещение курсора</string>
     <string name="navigation_bar_arrow_keys_summary">Отображать кнопки перемещения курсора влево или вправо при вводе. Кнопка выбора метода ввода отображаться не будет.</string>
 
-    <!-- Optional screenshot type -->
-    <string name="screenshot_type_title">Вид снимка экрана</string>
-    <string name="screenshot_type_fullscreen">Полноэкранный</string>
-    <string name="screenshot_type_partial">Снимок определенной области экрана</string>
-
     <!-- Custom carrier label and position -->
     <string name="carrier_label_settings_title">Название оператора</string>
     <string name="carrier_label_settings_summary">Выбрать название оператора</string>
@@ -514,4 +509,14 @@
     <string name="show_settings_drawer_title">Боковое меню в настройках</string>
     <string name="show_settings_drawer_enabled">Боковое меню в настройках включено</string>
     <string name="show_settings_drawer_disabled">Боковое меню в настройках отключено</string>
+     
+    <string name="screenshot_type_title">Вид снимка экрана</string>
+    <string name="screenshot_crop_and_share_title">Кадрировать снимок и поделиться</string>
+    <string name="screenshot_crop_and_share_summary">Окно редактора после cоздания снимка экрана, в котором можно кадрировать, сохранить или поделиться изображением</string>
+     
+    <string name="pixel_navbar_anim_title">Анимация панели навигации</string>
+    <string name="pixel_navbar_anim_summary">Включает анимацию кнопки «Домой» как у устройств Google Pixel</string>
+  
+    <!-- Advanced qs tile toggle category -->
+    <string name="qs_tile_advanced_toggle">Настройки плиток</string> 
 </resources>
