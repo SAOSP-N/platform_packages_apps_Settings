@@ -512,4 +512,8 @@
    <!--<string name="screenshot_crop_behavior_title"></string>
    <string name="screenshot_crop_behavior_summary"></string>-->
 
+    <!-- Navbar Animation -->
+    <string name="pixel_navbar_anim_title">Pixel navbar animation</string>
+    <string name="pixel_navbar_anim_summary">Enables the Pixel\'s home button animations</string>
+
 </resources>
