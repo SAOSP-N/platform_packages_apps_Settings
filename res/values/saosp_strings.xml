@@ -519,4 +519,8 @@
     <!-- Advanced qs tile toggle category -->
     <string name="qs_tile_advanced_toggle">Advanced toggle</string>
 
+    <!-- One handed mode -->
+    <string name="one_handed_mode_title">One Handed mode</string>
+    <string name="one_handed_mode_summary">Allows swiping on the navigation bar to enable one handed mode</string>
+
 </resources>
