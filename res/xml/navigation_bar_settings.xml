@@ -14,6 +14,12 @@
             android:title="@string/navbar_enable_bar"
             android:defaultValue="true"/>
 
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="swap_navigation_keys"
+            android:title="@string/swap_navigation_keys_title"
+            android:summary="@string/swap_navigation_keys_summary"
+            android:dependency="navigation_bar_show" />
+
         <PreferenceScreen
             android:fragment="com.android.settings.simpleaosp.NavBarDimensSettings"
             android:key="navbar_dimens"
