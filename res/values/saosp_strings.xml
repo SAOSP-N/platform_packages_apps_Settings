@@ -409,4 +409,8 @@
     <!--Back to kill timeout -->
     <string name="long_press_kill_delay">App kill delay</string>
 
+    <!-- fingerprint authentication vibration -->
+    <string name="fprint_sucess_vib_title">Fingerprint authentication vibration</string>
+    <string name="fprint_sucess_vib_summary">Vibrate on successful fingerprint authentication</string>
+
 </resources>

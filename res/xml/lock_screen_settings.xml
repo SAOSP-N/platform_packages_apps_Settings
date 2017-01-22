@@ -4,6 +4,10 @@
         android:title="@string/lock_screen_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+        <PreferenceCategory
+            android:key="lockscreen_settings_category"
+            android:title="@string/notification_light_general_title" >
+
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="double_tap_sleep_anywhere"
             android:title="@string/double_tap_sleep_anywhere_title"
@@ -15,6 +19,14 @@
             android:title="@string/keyguard_torch_title"
             android:summary="@string/keyguard_torch_summary"
             android:defaultValue="false" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="fingerprint_success_vib"
+            android:title="@string/fprint_sucess_vib_title"
+            android:summary="@string/fprint_sucess_vib_summary"
+            android:defaultValue="true" />
+
+        </PreferenceCategory>
 
         <PreferenceScreen
             android:fragment="com.android.settings.simpleaosp.CarrierLabelSettings"
