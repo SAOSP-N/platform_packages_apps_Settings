@@ -520,4 +520,17 @@
     <string name="double_tap_sleep_nav_bar_title">Double-tap to sleep</string>
     <string name="double_tap_sleep_nav_bar_summary">Double tap on navigation bar to put the device to sleep</string>
 
+    <!-- Recents panel settings -->
+    <string name="recents_panel_category">Recents panel settings</string>
+    <string name="show_clear_all_recents_button_title">Clear all FAB</string>
+    <string name="summary_clear_all_recents_button_enabled">Clear all FAB is enabled.\nOverrides native clear all button</string>
+    <string name="summary_clear_all_recents_button_disabled">Clear all FAB is disabled</string>
+    <string name="recents_clear_all_location_title">Clear all FAB location</string>
+    <string name="recents_clear_all_location_top_right">Top right</string>
+    <string name="recents_clear_all_location_top_left">Top left</string>
+    <string name="recents_clear_all_location_top_center">Top center</string>
+    <string name="recents_clear_all_location_bottom_right">Bottom right</string>
+    <string name="recents_clear_all_location_bottom_left">Bottom left</string>
+    <string name="recents_clear_all_location_bottom_center">Bottom center</string>
+
 </resources>
