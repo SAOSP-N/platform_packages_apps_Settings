@@ -453,4 +453,9 @@
     <string name="three_finger_gesture">Three finger screenshot</string>
     <string name="three_finger_gesture_summary">Swipe three fingers across the screen to screenshot</string>
 
+    <!-- Manage applications: show substratum overlays -->
+    <string name="filter_substratum_apps">Substratum overlays</string>
+    <string name="menu_show_substratum">Show overlays</string>
+    <string name="menu_hide_substratum">Hide overlays</string>
+
 </resources>
