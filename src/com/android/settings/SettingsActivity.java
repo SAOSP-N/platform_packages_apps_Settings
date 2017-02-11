@@ -138,6 +138,7 @@ import com.android.settingslib.drawer.Tile;
 import com.android.settings.simpleaosp.AdditionalSettings;
 import com.android.settings.simpleaosp.OmniJawsSettings;
 import com.nispok.snackbar.SnackbarManager;
+import com.android.settings.simpleaosp.HeadsUpSettings;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -367,7 +368,8 @@ public class SettingsActivity extends SettingsDrawerActivity
             ManageDomainUrls.class.getName(),
             AutomaticStorageManagerSettings.class.getName(),
             AdditionalSettings.class.getName(),
-            OmniJawsSettings.class.getName()
+            OmniJawsSettings.class.getName(),
+            HeadsUpSettings.class.getName()
     };
 
 
