@@ -165,4 +165,5 @@ public class Settings extends SettingsActivity {
     public static class SystemSettings extends SettingsActivity { /* empty */ }
     public static class AdditionalSettings extends SettingsActivity { /* empty */ }
     public static class OmniJawsSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class HeadsUpSettingsActivity extends SettingsActivity { /* empty */ }
 }
