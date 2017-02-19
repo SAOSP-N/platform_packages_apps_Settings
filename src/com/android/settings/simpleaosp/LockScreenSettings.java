@@ -29,10 +29,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
 
     private static final String KEYGUARD_TORCH = "keyguard_toggle_torch";
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
-    private static final String LS_SECURE_CAT = "lockscreen_settings_category";
+    private static final String LS_SECURE_CAT = "fingerprint_category";
+    private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
 
     private SystemSettingSwitchPreference mLsTorch;
     private SystemSettingSwitchPreference mFingerprintVib;
+    private SystemSettingSwitchPreference mFpKeystore;
     private FingerprintManager mFingerprintManager;
 		
     @Override
@@ -45,8 +47,10 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
 
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
         mFingerprintVib = (SystemSettingSwitchPreference) findPreference(FINGERPRINT_VIB);
+        mFpKeystore = (SystemSettingSwitchPreference) findPreference(FP_UNLOCK_KEYSTORE);
         if (!mFingerprintManager.isHardwareDetected()){
             lockscreenCategory.removePreference(mFingerprintVib);
+            lockscreenCategory.removePreference(mFpKeystore);
         }
 
         mLsTorch = (SystemSettingSwitchPreference) findPreference(KEYGUARD_TORCH);
