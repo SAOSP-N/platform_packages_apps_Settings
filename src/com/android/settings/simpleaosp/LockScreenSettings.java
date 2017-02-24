@@ -42,6 +42,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.lock_screen_settings);
+        PreferenceScreen prefScreen = getPreferenceScreen();
 
         PreferenceCategory lockscreenCategory = (PreferenceCategory) findPreference(LS_SECURE_CAT);
 
@@ -49,6 +50,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mFingerprintVib = (SystemSettingSwitchPreference) findPreference(FINGERPRINT_VIB);
         mFpKeystore = (SystemSettingSwitchPreference) findPreference(FP_UNLOCK_KEYSTORE);
         if (!mFingerprintManager.isHardwareDetected()){
+            prefScreen.removePreference(lockscreenCategory);
             lockscreenCategory.removePreference(mFingerprintVib);
             lockscreenCategory.removePreference(mFpKeystore);
         }
