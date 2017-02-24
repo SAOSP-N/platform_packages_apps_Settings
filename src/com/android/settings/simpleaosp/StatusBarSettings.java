@@ -24,8 +24,10 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
     private static final String KEY_HEADS_UP_SETTINGS = "heads_up_settings";
+    private static final String KEY_CLOCK_SETTINGS = "statusbarclock";
 
     private PreferenceScreen mHeadsUp;
+    private PreferenceScreen mClock;
 		
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,12 +37,18 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         PreferenceScreen prefScreen = getPreferenceScreen();
 
         mHeadsUp = (PreferenceScreen) findPreference(KEY_HEADS_UP_SETTINGS);
+        mClock = (PreferenceScreen) findPreference(KEY_CLOCK_SETTINGS);
     }
 
     private boolean getUserHeadsUpState() {
          return Settings.System.getInt(getContentResolver(),
                 Settings.System.HEADS_UP_USER_ENABLED,
                 Settings.System.HEADS_UP_USER_ON) != 0;
+    }
+
+    private boolean getUserClockState() {
+         return Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_CLOCK, 1) == 1;
     }
 
     @Override
@@ -61,6 +69,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
         mHeadsUp.setSummary(getUserHeadsUpState()
                 ? R.string.summary_heads_up_enabled : R.string.summary_heads_up_disabled);
+        mClock.setSummary(getUserClockState()
+                ? R.string.summary_clock_enabled : R.string.summary_clock_disabled);
     }
 
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =

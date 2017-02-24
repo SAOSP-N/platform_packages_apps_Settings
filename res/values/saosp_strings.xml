@@ -55,7 +55,8 @@
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_style_title">Style</string>
     <string name="status_bar_clock">Clock &amp; Date</string>
-    <string name="status_bar_clock_summary">Change various clock &amp; date options</string>
+    <string name="summary_clock_enabled">Clock is enabled</string>
+    <string name="summary_clock_disabled">Clock is disabled</string>
     <string name="clock_disabled_notice">When Clock switch is turned on, you can select additional clock options</string>
     <string name="clock_title_enable">Alignment</string>
     <string name="clock_enabled">Enabled</string>
