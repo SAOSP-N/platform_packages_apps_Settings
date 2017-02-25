@@ -645,4 +645,8 @@
     <string name="dnd_when_call_title">DND mode during calls</string>
     <string name="dnd_when_call_summary">Enable Do not Disturb when call active</string>
 
+   <!-- Force authorize substratum packages -->
+   <string name="force_authorize_substratum_packages_title">Force authorize every theme app</string>
+   <string name="force_authorize_substratum_packages_summary">Allow theme apps from unknown sources</string>
+
 </resources>

@@ -640,4 +640,8 @@
     <string name="unlock_quick_unlock_control_title">Быстрая разблокировка</string>
     <string name="unlock_quick_unlock_control_summary">Разблокировать автоматически, если введён корректный PIN-код</string>
     <string name="unlock_quick_unlock_control_warning_summary">PIN-код должен быть не длиннее 4-х цифр чтобы избежать блокировки. Следует использовать с осторожностью.</string> 
+
+    <!-- DND toggle during call -->
+    <string name="dnd_when_call_title">Режим «Не беспокоить»</string>
+    <string name="dnd_when_call_summary">Включить режим «Не беспокоить» во время звонка</string>
 </resources>
