@@ -547,4 +547,16 @@
     <!-- SuperSU dashboard summary -->
     <string name="su_dashboard_summary">Manage root access</string>
 
+    <!-- Development settings dashboard summary -->
+    <string name="summary_adb_enabled">USB debugging is ON</string>
+    <string name="summary_adb_disabled">USB debugging is OFF</string>
+
+    <!-- Accessibility settings dashboard summary -->
+    <string name="summary_accessibility_enabled">Accessibility shortcut is ON</string>
+    <string name="summary_accessibility_disabled">Accessibility shortcut is OFF</string>
+
+    <!-- Accessibility settings dashboard summary -->
+    <string name="summary_pin_enabled">Screen pinning is ON</string>
+    <string name="summary_pin_disabled">Screen pinning is OFF</string>
+
 </resources>

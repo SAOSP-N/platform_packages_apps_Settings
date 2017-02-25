@@ -53,6 +53,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.settings.dashboard.SummaryLoader;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.TrustAgentUtils.TrustAgentComponentInfo;
 import com.android.settings.fingerprint.FingerprintSettings;
@@ -63,6 +64,8 @@ import com.android.settings.search.SearchIndexableRaw;
 import com.android.settingslib.RestrictedLockUtils;
 import com.android.settingslib.RestrictedPreference;
 import com.android.settingslib.RestrictedSwitchPreference;
+
+import static android.provider.Settings.System.LOCK_TO_APP_ENABLED;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -822,6 +825,39 @@ public class SecuritySettings extends SettingsPreferenceFragment
     protected int getHelpResource() {
         return R.string.help_url_security;
     }
+
+    private static class SummaryProvider implements SummaryLoader.SummaryProvider {
+        private final Context mContext;
+        private final SummaryLoader mLoader;
+
+        private SummaryProvider(Context context, SummaryLoader loader) {
+            mContext = context;
+            mLoader = loader;
+        }
+
+        @Override
+        public void setListening(boolean listening) {
+            if (listening) {
+                updateSummary();
+            }
+        }
+
+        private void updateSummary() {
+            boolean enabled = Settings.System.getInt(mContext.getContentResolver(),
+                    LOCK_TO_APP_ENABLED, 0) == 1;
+            mLoader.setSummary(this, mContext.getString( enabled ? R.string.summary_pin_enabled
+                        : R.string.summary_pin_disabled));
+        }
+    }
+
+    public static final SummaryLoader.SummaryProviderFactory SUMMARY_PROVIDER_FACTORY
+            = new SummaryLoader.SummaryProviderFactory() {
+        @Override
+        public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
+                                                                   SummaryLoader summaryLoader) {
+            return new SummaryProvider(activity, summaryLoader);
+        }
+    };
 
     /**
      * For Search. Please keep it in sync when updating "createPreferenceHierarchy()"

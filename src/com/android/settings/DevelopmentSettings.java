@@ -77,6 +77,7 @@ import android.widget.Toast;
 
 import com.android.internal.app.LocalePicker;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.settings.dashboard.SummaryLoader;
 import com.android.settings.applications.BackgroundCheckSummary;
 import com.android.settings.fuelgauge.InactiveApps;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -87,6 +88,8 @@ import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 import com.android.settingslib.RestrictedSwitchPreference;
 import com.android.settings.simpleaosp.util.Helpers;
 import dalvik.system.VMRuntime;
+
+import static android.provider.Settings.Global.ADB_ENABLED;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -2195,6 +2198,38 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         }
     }
 
+    private static class SummaryProvider implements SummaryLoader.SummaryProvider {
+        private final Context mContext;
+        private final SummaryLoader mLoader;
+
+        private SummaryProvider(Context context, SummaryLoader loader) {
+            mContext = context;
+            mLoader = loader;
+        }
+
+        @Override
+        public void setListening(boolean listening) {
+            if (listening) {
+                updateSummary();
+            }
+        }
+
+        private void updateSummary() {
+            boolean enabled = Settings.Global.getInt(mContext.getContentResolver(),
+                    ADB_ENABLED, 1) == 1;
+            mLoader.setSummary(this, mContext.getString( enabled ? R.string.summary_adb_enabled
+                        : R.string.summary_adb_disabled));
+        }
+    }
+
+    public static final SummaryLoader.SummaryProviderFactory SUMMARY_PROVIDER_FACTORY
+            = new SummaryLoader.SummaryProviderFactory() {
+        @Override
+        public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
+                                                                   SummaryLoader summaryLoader) {
+            return new SummaryProvider(activity, summaryLoader);
+        }
+    };
 
     /**
      * For Search.
