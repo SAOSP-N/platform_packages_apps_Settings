@@ -559,4 +559,8 @@
     <string name="summary_pin_enabled">Screen pinning is ON</string>
     <string name="summary_pin_disabled">Screen pinning is OFF</string>
 
+    <!-- App Ops Settings -->
+    <string name="app_ops_settings">App ops</string>
+    <string name="app_ops_settings_summary">View or change app permissions</string>
+
 </resources>
