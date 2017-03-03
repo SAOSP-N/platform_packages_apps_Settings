@@ -310,7 +310,7 @@
 
     <!-- Disable OS on lockscreen -->
     <string name="block_on_secure_keyguard_title">Disable quick settings on lock screen</string>
-    <string name="block_on_secure_keyguard_summary">Disables quick settings on secure lockscreen</string>
+    <string name="block_on_secure_keyguard_summary">Disables shortcuts and quick settings on secure lockscreen</string>
 
     <string name="build_tweaks_summary_title">Customize your device</string>
 
