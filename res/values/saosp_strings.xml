@@ -641,5 +641,8 @@
     <string name="unlock_quick_unlock_control_summary">Unlock automatically when the correct PIN is entered</string>
     <string name="unlock_quick_unlock_control_warning_summary">Limit the PIN to a length of 4 digits to avoid lockout, use with caution.</string>
 
+    <!-- DND toggle during call -->
+    <string name="dnd_when_call_title">DND mode during calls</string>
+    <string name="dnd_when_call_summary">Enable Do not Disturb when call active</string>
 
 </resources>

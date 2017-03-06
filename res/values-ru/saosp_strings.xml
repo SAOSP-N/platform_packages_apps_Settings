@@ -55,7 +55,8 @@
     <string name="status_bar_title">Строка состояния</string>
     <string name="status_bar_style_title">Стиль часов и даты</string>
     <string name="status_bar_clock">Часы и дата</string>
-    <string name="status_bar_clock_summary">Изменить параметры часов и даты</string>
+    <string name="summary_clock_enabled">Часы включены</string>
+    <string name="summary_clock_disabled">Часы отключены</string>
     <string name="clock_disabled_notice">Когда переключатель часов включен, вы можете настроить дополнительные параметры часов</string>
     <string name="clock_title_enable">Расположение</string>
     <string name="clock_enabled">Включены</string>
@@ -307,7 +308,7 @@
 
     <!-- Disable OS on lockscreen -->
     <string name="block_on_secure_keyguard_title">Отключить быстрые настройки</string>
-    <string name="block_on_secure_keyguard_summary">Отключает быстрые настройки на экране блокировки</string>
+    <string name="block_on_secure_keyguard_summary">Отключает ярлыки и быстрые настройки на экране блокировки</string>
 
     <string name="build_tweaks_summary_title">Персонализируйте свое устройство</string>
 
@@ -357,7 +358,7 @@
 
     <!-- Navigation bar cursor -->
     <string name="navigation_bar_arrow_keys_title">Перемещение курсора</string>
-    <string name="navigation_bar_arrow_keys_summary">Отображать кнопки перемещения курсора влево или вправо при вводе. Кнопка выбора метода ввода отображаться не будет.</string>
+    <string name="navigation_bar_arrow_keys_summary">Отображать кнопки перемещения курсора влево или вправо при вводе</string>
 
     <!-- Custom carrier label and position -->
     <string name="carrier_label_settings_title">Название оператора</string>
@@ -446,12 +447,12 @@
     <string name="status_bar_battery_title">Индикатор батареи</string>
     <string name="status_bar_battery_summary">Изменить индикатор батареи</string>
     <string name="status_bar_battery_style_title">Стиль значка батареи</string>
-    <string name="status_bar_battery_style_icon_portrait">Вертикальный значок</string>
-    <string name="status_bar_battery_style_icon_landscape">Горизонтальный значок</string>
+    <string name="status_bar_battery_style_icon_portrait">Вертикальный</string>
+    <string name="status_bar_battery_style_icon_landscape">Горизонтальный</string>
     <string name="status_bar_battery_style_circle">Круг</string>
     <string name="status_bar_battery_style_circle_full">Полный круг</string> 
     <string name="status_bar_battery_style_text">Текст</string>
-    <string name="status_bar_battery_style_hidden">Не показывать индикатор</string>
+    <string name="status_bar_battery_style_hidden">Не показывать</string>
 
     <!-- Status bar - Battery percentage -->
     <string name="status_bar_battery_percentage_title">Процент заряда батареи</string>
@@ -542,4 +543,101 @@
     <string name="fingerprint_category">Параметры отпечатков</string>
     <string name="fp_unlock_keystore_title">Разблокировка отпечатком</string>
     <string name="fp_unlock_keystore_summary">Разблокировать устройство после перезагрузки без PIN/Пароля/Граф. ключа\nПрим.: Используйте на свой страх и риск!</string> 
+
+    <!-- SuperSU dashboard summary -->
+    <string name="su_dashboard_summary">Управление правами суперпользователя</string>
+
+    <!-- Development settings dashboard summary -->
+    <string name="summary_adb_enabled">USB отладка включена</string>
+    <string name="summary_adb_disabled">USB отладка выключена</string>
+
+    <!-- Accessibility settings dashboard summary -->
+    <string name="summary_accessibility_enabled">Ярлык спец. возможностей включен</string>
+    <string name="summary_accessibility_disabled">Ярлык спец. возможностей выключен</string>
+
+    <!-- Accessibility settings dashboard summary -->
+    <string name="summary_pin_enabled">Блокировка в приложении включена</string>
+    <string name="summary_pin_disabled">Блокировка в приложении выключена</string>
+
+    <!-- App Ops Settings -->
+    <string name="app_ops_settings">Операции в приложениях</string>
+    <string name="app_ops_settings_summary">Настройка разрешений приложений</string>
+    <string name="app_ops_cat_location">Местоположение</string>
+    <string name="app_ops_cat_personal">Личные</string>
+    <string name="app_ops_cat_messaging">Сообщения</string>
+    <string name="app_ops_cat_media">Медиа</string>
+    <string name="app_ops_cat_device">Устройство</string>
+    <string name="app_ops_access_camera">камера</string>
+    <string name="app_ops_access_location">местоположение</string>
+    <string name="app_ops_access_notifications">уведомления</string>
+    <string name="app_ops_activate_vpn">VPN</string>
+    <string name="app_ops_auto_start">автозапуск</string>
+    <string name="app_ops_delete_call_log">удалить журнал звонков</string>
+    <string name="app_ops_delete_contacts">удалить контакты</string>
+    <string name="app_ops_delete_mms">удалить MMS</string>
+    <string name="app_ops_delete_sms">удалить SMS</string>
+    <string name="app_ops_draw_on_top">отображать поверх</string>
+    <string name="app_ops_get_usage_stats">статистика использования</string>
+    <string name="app_ops_keep_device_awake">не выключать</string>
+    <string name="app_ops_make_phone_call">звонить</string>
+    <string name="app_ops_modify_calendar">изменять календарь</string>
+    <string name="app_ops_modify_call_log">изменять журнал звонков</string>
+    <string name="app_ops_modify_clipboard">изменять буфер обмена</string>
+    <string name="app_ops_modify_contacts">изменять контакты</string>
+    <string name="app_ops_modify_settings">изменять настройки</string>
+    <string name="app_ops_mute_unmute_microphone">выкл/вкл микрофон</string>
+    <string name="app_ops_play_audio">играть аудио</string>
+    <string name="app_ops_post_notification">показывать уведомление</string>
+    <string name="app_ops_project_media">выполнить трансляцию</string>
+    <string name="app_ops_read_calendar">считать календарь</string>
+    <string name="app_ops_read_call_log">считать журнал вызовов</string>
+    <string name="app_ops_read_clipboard">считать буфер обмена</string>
+    <string name="app_ops_read_contacts">считать контакты</string>
+    <string name="app_ops_read_mms">считать MMS</string>
+    <string name="app_ops_read_sms">считать SMS</string>
+    <string name="app_ops_receive_sms">получить SMS</string>
+    <string name="app_ops_record_audio">запись аудио</string>
+    <string name="app_ops_send_mms">отправить MMS</string>
+    <string name="app_ops_send_sms">отправить SMS</string>
+    <string name="app_ops_toast_window">всплывающие уведомления</string>
+    <string name="app_ops_use_alarm_volume">изменять громкость будильника</string>
+    <string name="app_ops_use_audio_focus">изменять аудиофокус</string>
+    <string name="app_ops_use_bluetooth_volume">изменять громкость Bluetooth-устройств</string>
+    <string name="app_ops_use_master_volume">изменять общую громкость</string>
+    <string name="app_ops_use_media_buttons">испол. кнопки мультимедиа</string>
+    <string name="app_ops_use_media_volume">изменять громкость мультимедиа</string>
+    <string name="app_ops_use_notification_volume">изменять громкость уведомлений</string>
+    <string name="app_ops_use_ring_volume">изменять громкость звонка</string>
+    <string name="app_ops_use_vibrate">виброотклик</string>
+    <string name="app_ops_use_voice_volume">изменять громкость разговора</string>
+    <string name="app_ops_write_mms">создать MMS</string>
+    <string name="app_ops_write_sms">создать SMS</string>
+    <string name="app_ops_use_fingerprint">использовать отпечатки</string>
+    <string name="app_ops_add_voicemail">голосовая почта</string>
+    <string name="app_ops_read_phone_state">состояние телефона</string>
+    <string name="app_ops_scan_wifi">сканирование WiFi сетей</string>
+    <string name="app_ops_change_wallpaper">изменение обоев</string>
+    <string name="app_ops_assist_structure">вспомогательный скриншот</string>
+    <string name="app_ops_assist_screenshot">делать скриншот</string>
+    <string name="app_ops_use_body_sensors">нательные сенсоры</string>
+    <string name="app_ops_read_cell_broadcasts">оповещение населения</string>
+    <string name="app_ops_mock_location">фиктивное местоположение</string>
+    <string name="app_ops_read_external_storage">считать с внеш. носителя</string>
+    <string name="app_ops_write_external_storage">записать на внеш. носитель</string>
+    <string name="app_ops_turn_on_screen">включить экран</string>
+    <string name="app_ops_get_accounts">получить аккаунт</string>
+    <string name="app_ops_run_in_background">запуск в фоновом режиме</string>
+
+    <!-- Hotspot idle -->
+    <string name="wifi_hotspot_mode_title">Оставить раздачу Wi-Fi включенной</string>
+     
+    <!-- Dashboard tile summaries -->
+    <string name="dashboard_tile_summaries_title">Информация под пунктом меню</string>
+    <string name="dashboard_tile_summaries_summary_enabled">Показывать информацию под пунктом главного меню</string>
+    <string name="dashboard_tile_summaries_summary_disabled">Не показывать информацию под пунктом главного меню</string>
+     
+    <!-- Quick unlock -->
+    <string name="unlock_quick_unlock_control_title">Быстрая разблокировка</string>
+    <string name="unlock_quick_unlock_control_summary">Разблокировать автоматически, если введён корректный PIN-код</string>
+    <string name="unlock_quick_unlock_control_warning_summary">PIN-код должен быть не длиннее 4-х цифр чтобы избежать блокировки. Следует использовать с осторожностью.</string> 
 </resources>
