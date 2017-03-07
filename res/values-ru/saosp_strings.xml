@@ -644,4 +644,8 @@
     <!-- DND toggle during call -->
     <string name="dnd_when_call_title">Режим «Не беспокоить»</string>
     <string name="dnd_when_call_summary">Включить режим «Не беспокоить» во время звонка</string>
+     
+    <!-- Force authorize substratum packages -->
+    <string name="force_authorize_substratum_packages_title">Принудительная авторизация тем</string>
+    <string name="force_authorize_substratum_packages_summary">Разрешить авторизацию тем из неизвестных источников</string> 
 </resources>
