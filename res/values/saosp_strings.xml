@@ -63,7 +63,7 @@
     <string name="clock_disabled">Disabled</string>
     <string name="status_bar_show_clock_title">Show clock &amp; date</string>
     <string name="status_bar_am_pm_title">AM/PM</string>
-    <string name="status_bar_am_pm_info">24-hour clock is enabled</string>
+    <string name="status_bar_am_pm_info">24 hour clock is enabled</string>
     <string name="enable_clock_weekday">Day of the week</string>
     <string name="enable_clock_weekday_summary">Abbreviated day of the week before the time</string>
     <string name="right_clock">Right clock</string>
@@ -103,8 +103,8 @@
     <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
 
     <!-- Double tap-to-sleep -->
-    <string name="double_tap_to_sleep_title">Double-tap to sleep</string>
-    <string name="double_tap_to_sleep_summary">Double-tap on the status bar or top third and bottom shortcut area of the lock screen to turn off the display</string>
+    <string name="double_tap_to_sleep_title">Double tap to sleep</string>
+    <string name="double_tap_to_sleep_summary">Double tap on the status bar or top third and bottom shortcut area of the lock screen to turn off the display</string>
 
     <!-- Display : Rotation -->
     <string name="display_rotation_title">Rotation angles</string>
@@ -140,8 +140,8 @@
     <string name="supersu_title">SuperSU</string>
 
     <!-- Double tap gesture anywhere on the lock screen put device to sleep -->
-    <string name="double_tap_sleep_anywhere_title">Double-tap to sleep anywhere</string>
-    <string name="double_tap_sleep_anywhere_summary">Double tap anywhere on the lockscreen to put the device to sleep</string>
+    <string name="double_tap_sleep_anywhere_title">Double tap to sleep anywhere</string>
+    <string name="double_tap_sleep_anywhere_summary">Double tap anywhere on the lock screen to put the device to sleep</string>
 
     <!-- Network traffic -->
     <string name="network_traffic_title">Network traffic</string>
@@ -173,8 +173,8 @@
     <!-- Quick pull down-->
     <string name="notification_panel_title">Notification panel</string>
     <string name="quick_pulldown_title">Quick pulldown</string>
-    <string name="quick_pulldown_summary">%1$s edge of the status bar pulls down Quick Settings</string>
-    <string name="quick_pulldown_summary_always">Always show Quick Settings on status bar pulldown</string>
+    <string name="quick_pulldown_summary">%1$s edge of the status bar pulls down quick settings</string>
+    <string name="quick_pulldown_summary_always">Always show quick settings on status bar pulldown</string>
     <string name="quick_pulldown_off">Off</string>
     <string name="quick_pulldown_left">Left</string>
     <string name="quick_pulldown_right">Right</string>
@@ -188,7 +188,7 @@
     <string name="quick_settings_vibrate_summary">Vibrate when touching QS tiles</string>
 
     <!-- Color Picker -->
-    <string name="dialog_color_picker">Color Picker</string>
+    <string name="dialog_color_picker">Color picker</string>
     <string name="press_color_to_apply">Press on color below to apply</string>
     <string name="arrow_right">→</string>
     <string name="arrow_down">↓</string>
@@ -284,9 +284,9 @@
     <string name="profile_choose_app">Choose app</string>
     <string name="reset">Reset</string>
 
-    <!-- Lockscreen torch -->
-    <string name="keyguard_torch_title">Lockscreen torch</string>
-    <string name="keyguard_torch_summary">Longpress power button with screen off turns on torch</string>
+    <!-- Lock screen torch -->
+    <string name="keyguard_torch_title">Lock screen torch</string>
+    <string name="keyguard_torch_summary">Long press power button with screen off turns on torch</string>
 
     <!-- Snackbar action button -->
     <string name="dev_settings_action_button">Settings</string>
@@ -308,9 +308,9 @@
     <string name="volume_keys_control_media_stream_title">Controls media volume</string>
     <string name="volume_keys_control_media_stream_summary">Force the volume keys to always control media stream</string>
 
-    <!-- Disable OS on lockscreen -->
+    <!-- Disable OS on lock screen -->
     <string name="block_on_secure_keyguard_title">Disable quick settings on lock screen</string>
-    <string name="block_on_secure_keyguard_summary">Disables shortcuts and quick settings on secure lockscreen</string>
+    <string name="block_on_secure_keyguard_summary">Disables quick settings on secure lock screen</string>
 
     <string name="build_tweaks_summary_title">Customize your device</string>
 
@@ -323,15 +323,15 @@
     <string name="usb_data_auto_unlock_summary">Allow unlocked data access to your phone\'s storage through USB (MTP, PTP)</string>
     <string name="usb_data_auto_unlock_warning_summary">Your device will establish unprotected connections, everytime you connect it to a PC.\n\nThis is still an experimental feature, use with caution.</string>
 
-    <!-- CM Lockscreen shortcuts -->
+    <!-- CM Lock screen shortcuts -->
     <string name="lockscreen_targets_summary">View or change lock screen shortcuts</string>
-    <string name="lockscreen_targets_message">Lockscreen shortcuts</string>
+    <string name="lockscreen_targets_message">Lock screen shortcuts</string>
 
     <!-- Heads up settings -->
     <string name="headsup_settings_title">Heads up notifications</string>
     <string name="summary_heads_up_enabled">Heads up notifications are enabled</string>
     <string name="summary_heads_up_disabled">Heads up notifications are disabled</string>
-    <string name="heads_up_disabled_notice">To allow applications to display interactive notifications in a pop-up window on your screen, enable Heads up.</string>
+    <string name="heads_up_disabled_notice">To allow applications to display interactive notifications in a pop up window on your screen, enable Heads up.</string>
 
     <!-- Heads up timeout -->
     <string name="heads_up_time_out_title">Time out</string>
@@ -363,16 +363,16 @@
     <string name="navigation_bar_arrow_keys_summary">Display left and right cursor buttons while typing. Overrides IME switcher.</string>
 
     <!-- Custom carrier label and position -->
-    <string name="carrier_label_settings_title">Carrier Label</string>
+    <string name="carrier_label_settings_title">Carrier label</string>
     <string name="carrier_label_settings_summary">Customize the carrier label</string>
     <string name="custom_carrier_label_title">Custom carrier label</string>
     <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
     <string name="show_carrier_title">Carrier label</string>
     <string name="show_carrier_disabled">Disabled</string>
-    <string name="show_carrier_keyguard">Lockscreen only</string>
-    <string name="show_carrier_statusbar">Statusbar only</string>
-    <string name="show_carrier_enabled">Lockscreen &amp; statusbar</string>
+    <string name="show_carrier_keyguard">Lock screen only</string>
+    <string name="show_carrier_statusbar">Status bar only</string>
+    <string name="show_carrier_enabled">Lock screen &amp; status bar</string>
 
     <!-- Restart SystemUI -->
     <string name="restart_systemui">Restart SystemUI</string>
@@ -383,7 +383,7 @@
 
     <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">Kill app back button</string>
-    <string name="kill_app_longpress_back_summary">Kill the foreground app by long-pressing the back button</string>
+    <string name="kill_app_longpress_back_summary">Kill the foreground app by long pressing the back button</string>
     <!--Back to kill timeout -->
     <string name="long_press_kill_delay">App kill delay</string>
 
@@ -397,7 +397,7 @@
 
     <!-- Media art -->
     <string name="media_art_title">Media cover art</string>
-    <string name="media_art_summary">Enable media cover art on the lockscreen</string>
+    <string name="media_art_summary">Enable media cover art on the lock screen</string>
 
     <!-- Gesture Settings -->
     <!-- Summary text for double twist for camera mode  [CHAR LIMIT=160]-->
@@ -411,7 +411,7 @@
     <string name="navigation_bar_cus">Navbar customization</string>
     <string name="navbar_enable_bar">Enable</string>
     <!-- Navbar Dimensions -->
-    <string name="navbar_dimensions_title">Navbar Dimensions</string>
+    <string name="navbar_dimensions_title">Navbar dimensions</string>
     <string name="navigation_bar_height_title">Navigation bar height</string>
     <string name="navigation_bar_height_landscape_title">Navigation bar height landscape</string>
     <string name="navigation_bar_width_title">Navigation bar width</string>
@@ -440,8 +440,8 @@
     <string name="status_bar_battery_title">Battery icons</string>
     <string name="status_bar_battery_summary">Change battery icons</string>
     <string name="status_bar_battery_style_title">Battery status style</string>
-    <string name="status_bar_battery_style_icon_portrait">Icon portrait</string>
-    <string name="status_bar_battery_style_icon_landscape">Icon landscape</string>
+    <string name="status_bar_battery_style_icon_portrait">Portrait</string>
+    <string name="status_bar_battery_style_icon_landscape">Landscape</string>
     <string name="status_bar_battery_style_circle">Circle</string>
     <string name="status_bar_battery_style_circle_full">Full Circle</string>
     <string name="status_bar_battery_style_text">Text</string>
@@ -502,11 +502,11 @@
     <string name="pixel_navbar_anim_summary">Enables the Pixel\'s home button animations</string>
 
     <!-- One handed mode -->
-    <string name="one_handed_mode_title">One Handed mode</string>
+    <string name="one_handed_mode_title">One handed mode</string>
     <string name="one_handed_mode_summary">Allows swiping on the navigation bar to enable one handed mode</string>
 
     <!-- QS easy toggles -->
-    <string name="qs_easy_toggle_title">Advanced QS Easy Toggle</string>
+    <string name="qs_easy_toggle_title">Advanced quick setting Easy Toggle</string>
     <string name="qs_easy_toggle_summary">Enable one tap action to enable or disable mobile data, Wi-Fi, and Bluetooth</string>
 
     <!-- Quick Settings brightness slider -->
@@ -519,7 +519,7 @@
     <string name="changelog_error">Unable to load changelog</string>
 
     <!-- Double Tap Navbar to Sleep -->
-    <string name="double_tap_sleep_nav_bar_title">Double-tap to sleep</string>
+    <string name="double_tap_sleep_nav_bar_title">Double tap to sleep</string>
     <string name="double_tap_sleep_nav_bar_summary">Double tap on navigation bar to put the device to sleep</string>
 
     <!-- Recents panel settings -->
@@ -541,7 +541,7 @@
 
     <!-- Fingerprint unlock keystore -->
     <string name="fingerprint_category">Fingerprint settings</string>
-    <string name="fp_unlock_keystore_title">FP unlock</string>
+    <string name="fp_unlock_keystore_title">Fingerprint unlock</string>
     <string name="fp_unlock_keystore_summary">Unlock device with fingerprint after reboot without PIN/Password/Pattern\nNote: at your own risk!</string>
 
     <!-- SuperSU dashboard summary -->
@@ -643,7 +643,7 @@
 
     <!-- DND toggle during call -->
     <string name="dnd_when_call_title">DND mode during calls</string>
-    <string name="dnd_when_call_summary">Enable Do not Disturb when call active</string>
+    <string name="dnd_when_call_summary">Enable Do not disturb mode when call active</string>
 
    <!-- Force authorize substratum packages -->
    <string name="force_authorize_substratum_packages_title">Force authorize every theme app</string>
