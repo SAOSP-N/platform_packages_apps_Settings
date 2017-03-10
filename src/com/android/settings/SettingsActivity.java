@@ -136,6 +136,7 @@ import com.android.settingslib.drawer.SettingsDrawerActivity;
 import com.android.settingslib.drawer.Tile;
 
 import com.android.settings.simpleaosp.AdditionalSettings;
+import com.android.settings.simpleaosp.OmniJawsSettings;
 import com.nispok.snackbar.SnackbarManager;
 
 import java.net.URISyntaxException;
@@ -365,7 +366,8 @@ public class SettingsActivity extends SettingsDrawerActivity
             NightDisplaySettings.class.getName(),
             ManageDomainUrls.class.getName(),
             AutomaticStorageManagerSettings.class.getName(),
-            AdditionalSettings.class.getName()
+            AdditionalSettings.class.getName(),
+            OmniJawsSettings.class.getName()
     };
 
 

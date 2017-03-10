@@ -3154,5 +3154,15 @@
             </intent-filter>
         </service>
 
+        <activity android:name="Settings$OmniJawsSettingsActivity"
+                  android:label="@string/weather_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.simpleaosp.OmniJawsSettings" />
+            </activity>
+
     </application>
 </manifest>

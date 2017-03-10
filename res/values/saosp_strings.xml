@@ -649,4 +649,10 @@
    <string name="force_authorize_substratum_packages_title">Force authorize every theme app</string>
    <string name="force_authorize_substratum_packages_summary">Allow theme apps from unknown sources</string>
 
+    <!-- OmniJaws -->
+    <string name="weather_title">Weather</string>
+    <string name="weather_config_title">Weather settings</string>
+    <string name="weather_config_summary"></string>
+    <string name="weather_icon_pack_title">Condition icon pack</string>
+
 </resources>
