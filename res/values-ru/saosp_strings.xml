@@ -216,72 +216,6 @@
     <string name="summary_lockscreen_power_menu_enabled">Меню питания на экране блокировки включено</string>
     <string name="summary_lockscreen_power_menu_disabled">Меню питания на экране блокировки отключено</string>
 
-    <!-- LED notifications -->
-    <string name="color_picker_dialog_title">Цвет</string>
-    <string name="omni_battery_light_settings">Индикация батареи</string>
-    <string name="omni_notification_light_settings">Индикатор событий</string>
-    <string name="omni_leds">Световой индикатор</string>
-    <string name="batterylight_title">Настройки индикации батареи</string>
-    <string name="battery_light_enable">Включить</string>
-    <string name="battery_low_pulse_title">Мигать при низком уровне заряда</string>
-    <string name="battery_light_list_title">Цвета</string>
-    <string name="battery_light_low_color_title">Батарея разряжена</string>
-    <string name="battery_light_medium_color_title">Заряжается</string>
-    <string name="battery_light_full_color_title">Заряжается (90%)</string>
-    <string name="battery_light_really_full_color_title">Заряжена (100%)</string>
-    <string name="edit_battery_settings">Редактировать настройки батареи</string>
-    <string name="notification_light_general_title">Основные</string>
-    <string name="led_color_green">Зеленый</string>
-    <string name="led_color_red">Красный</string>
-    <string name="led_color_blue">Синий</string>
-    <string name="ok">OK</string>
-    <string name="advanced">Дополнительно</string>
-    <string name="profiles_add">Добавить...</string>
-    <!-- Notification light dialogs -->
-    <string name="edit_light_settings">Изменение настроек индикатора</string>
-    <string name="pulse_speed_title">Длительность и скорость мигания</string>
-    <string name="default_time">Средне</string>
-    <string name="custom_time">Не задано</string>
-    <string name="dialog_delete_title">Удалить</string>
-    <string name="dialog_delete_message">Удалить выбранный элемент?</string>
-    <!-- Values for the notification light pulse spinners -->
-    <string name="pulse_length_always_on">Вкл. постоянно</string>
-    <string name="pulse_length_very_short">Очень коротко</string>
-    <string name="pulse_length_short">Коротко</string>
-    <string name="pulse_length_normal">Средне</string>
-    <string name="pulse_length_long">Долго</string>
-    <string name="pulse_length_very_long">Очень долго</string>
-    <string name="pulse_speed_very_fast">Очень быстро</string>
-    <string name="pulse_speed_fast">Быстро</string>
-    <string name="pulse_speed_normal">Средне</string>
-    <string name="pulse_speed_slow">Медленно</string>
-    <string name="pulse_speed_very_slow">Очень медленно</string>
-    <!-- Lights settings screen, notification light settings -->
-    <string name="notification_light_title">Индикатор событий</string>
-    <string name="notificationlight_title">Настройка индикатора событий</string>
-    <string name="notification_light_general_title">Общие</string>
-    <string name="notification_light_applist_title">Приложения</string>
-    <string name="notification_light_phonelist_title">Телефон</string>
-    <string name="notification_light_use_custom">Собственные значения</string>
-    <string name="notification_light_default_value">По умолчанию</string>
-    <string name="notification_light_missed_call_title">Пропущенный вызов</string>
-    <string name="notification_light_voicemail_title">Голосовая почта</string>
-    <string name="notification_light_screen_on">Использ. индикатор при вкл. экране</string>
-    <string name="notification_light_zen_mode">Вкл. индикатор в режиме «Не беспокоить»</string>
-    <string name="notification_light_use_multiple_leds">Несколько светодиодов</string>
-    <string name="keywords_lights_brightness_level">уменьшить яркость светодиода</string>
-    <string name="notification_light_automagic">Подбирать цвета автоматически</string>
-    <!-- Lights settings, LED notification -->
-    <string name="led_notification_title">Индикатор событий</string>
-    <string name="led_notification_text">Светодиод включен в настройках</string>
-    <string name="notification_light_no_apps_summary">Чтобы разрешить управление приложениями, включите \'%1$s\' и нажмите \'\u002b\' в строке меню.</string>
-    <string name="notification_light_automagic">Автоподбор</string>
-    <string name="notification_light_automagic_summary">Подбирать цвета автоматически, если пользователем не выбрано свое значение</string>
-    <string name="font_sample_text">11:57</string>
-    <!-- Add application dialog box title -->
-    <string name="profile_choose_app">Выбрать приложение</string>
-    <string name="reset">Сбросить</string>
-
     <!-- Lockscreen torch -->
     <string name="keyguard_torch_title">Фонарик</string>
     <string name="keyguard_torch_summary">Удерживание кнопки питания при выключенном экране включает фонарик</string>
@@ -647,5 +581,52 @@
      
     <!-- Force authorize substratum packages -->
     <string name="force_authorize_substratum_packages_title">Принудительная авторизация тем</string>
-    <string name="force_authorize_substratum_packages_summary">Разрешить авторизацию тем из неизвестных источников</string> 
+    <string name="force_authorize_substratum_packages_summary">Разрешить авторизацию тем из неизвестных источников</string>
+     
+    <!-- OmniJaws -->
+    <string name="weather_title">Погода</string>
+    <string name="weather_config_title">Настройки показа погоды</string>
+    <string name="weather_config_summary"></string>
+    <string name="weather_icon_pack_title">Значки состояния погоды</string> 
+     
+    <!-- Notification/Battery lights -->
+    <string name="add">Добавить</string>
+    <string name="reset">Сбросить</string>
+    <string name="choose_app">Выбрать приложение</string>
+    <string name="led_category">Настройки индикатора</string>
+    <string name="edit_light_settings">Настройка индикации</string>
+    <string name="pulse_speed_title">Длина и скорость мигания</string>
+    <string name="default_time">Средне</string>
+    <string name="custom_time">Свое значение</string>
+    <string name="dialog_delete_title">Удалить</string>
+    <string name="dialog_delete_message">Удалить выбранный элемент?</string>
+    <string name="pulse_length_always_on">Всегда вкл.</string>
+    <string name="pulse_length_very_short">Очень коротко</string>
+    <string name="pulse_length_short">Коротко</string>
+    <string name="pulse_length_normal">Средне</string>
+    <string name="pulse_length_long">Долго</string>
+    <string name="pulse_length_very_long">Очень долго</string>
+    <string name="pulse_speed_very_fast">Очень быстро</string>
+    <string name="pulse_speed_fast">Быстро</string>
+    <string name="pulse_speed_normal">Средне</string>
+    <string name="pulse_speed_slow">Медленно</string>
+    <string name="pulse_speed_very_slow">Очень медленно</string>
+    <string name="battery_light_title">Индикация батареи</string>
+    <string name="battery_low_pulse_title">Мигать при низком уровне заряда</string>
+    <string name="battery_light_list_title">Цвета</string>
+    <string name="battery_light_low_color_title">Батарея разряжена</string>
+    <string name="battery_light_medium_color_title">Заряжается</string>
+    <string name="battery_light_full_color_title">Заряжена (90%)</string>
+    <string name="battery_light_really_full_color_title">Полностью заряжена</string>
+    <string name="notification_light_title">Индикатор событий</string>
+    <string name="notification_light_general_title">Общие</string>
+    <string name="notification_light_applist_title">Приложения</string>
+    <string name="advanced">Дополнительно</string>
+    <string name="notification_light_use_custom">Собственные значения</string>
+    <string name="notification_light_default_value">По умолчанию</string>
+    <string name="notification_light_no_apps_summary">Чтобы разрешить управление приложениями, включите «%1$s» и нажмите «\u002b» в строке меню</string>
+    <string name="allow_lights_title">Вкл. индикатор в режиме «Не беспокоить»</string>
+    <string name="notification_light_screen_on">Использ. индикатор при вкл. экране</string>
+    <string name="notification_light_automagic">Автоподбор</string>
+    <string name="notification_light_automagic_summary">Подбирать цвета автоматически, если пользователем не выбрано свое значение</string> 
 </resources>
