@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.batterylight;
+package com.android.settings.notificationlight;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -46,34 +46,28 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import com.android.settings.R;
-import com.android.settings.preferences.ColorPanelView;
-import com.android.settings.preferences.ColorPickerView;
-import com.android.settings.preferences.ColorPickerView.OnColorChangedListener;
+import com.android.settings.notificationlight.ColorPickerView.OnColorChangedListener;
 
 import java.util.ArrayList;
+import java.util.IllegalFormatException;
 import java.util.Locale;
 
-public class NotificationLightDialog extends AlertDialog implements
+public class LightSettingsDialog extends AlertDialog implements
         ColorPickerView.OnColorChangedListener, TextWatcher, OnFocusChangeListener {
 
-    private static final String TAG = "NotificationLightDialog";
-    private final static String STATE_KEY_COLOR = "NotificationLightDialog:color";
+    private final static String STATE_KEY_COLOR = "LightSettingsDialog:color";
+    // Minimum delay between LED notification updates
     private final static long LED_UPDATE_DELAY_MS = 250;
 
     private ColorPickerView mColorPicker;
+    private LinearLayout mColorPanel;
     private View mLightsDialogDivider;
+
     private EditText mHexColorInput;
-    private Spinner mColorList;
     private ColorPanelView mNewColor;
-    private boolean mMultiColor = true;
-    private LinearLayout mColorListView;
     private Spinner mPulseSpeedOn;
     private Spinner mPulseSpeedOff;
     private LayoutInflater mInflater;
-    private LinearLayout mColorPanelView;
-    private ColorPanelView mNewListColor;
-    private LedColorAdapter mLedColorAdapter;
-    private boolean mWithAlpha;
 
     private OnColorChangedListener mListener;
 
@@ -84,18 +78,16 @@ public class NotificationLightDialog extends AlertDialog implements
     private int mLedLastSpeedOn;
     private int mLedLastSpeedOff;
 
-
     /**
      * @param context
      * @param initialColor
      * @param initialSpeedOn
      * @param initialSpeedOff
      */
-    protected NotificationLightDialog(Context context, int initialColor, int initialSpeedOn,
+    protected LightSettingsDialog(Context context, int initialColor, int initialSpeedOn,
             int initialSpeedOff) {
         super(context);
 
-	mMultiColor = getContext().getResources().getBoolean(R.bool.config_has_multi_color_led);
         init(context, initialColor, initialSpeedOn, initialSpeedOff, true);
     }
 
@@ -106,7 +98,7 @@ public class NotificationLightDialog extends AlertDialog implements
      * @param initialSpeedOff
      * @param onOffChangeable
      */
-    protected NotificationLightDialog(Context context, int initialColor, int initialSpeedOn,
+    protected LightSettingsDialog(Context context, int initialColor, int initialSpeedOn,
             int initialSpeedOff, boolean onOffChangeable) {
         super(context);
 
@@ -137,33 +129,20 @@ public class NotificationLightDialog extends AlertDialog implements
     private void setUp(int color, int speedOn, int speedOff, boolean onOffChangeable) {
         mInflater = (LayoutInflater) getContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View layout = mInflater.inflate(R.layout.dialog_notification_settings, null);
+        View layout = mInflater.inflate(R.layout.dialog_light_settings, null);
 
         mColorPicker = (ColorPickerView) layout.findViewById(R.id.color_picker_view);
+        mColorPanel = (LinearLayout) layout.findViewById(R.id.color_panel_view);
         mHexColorInput = (EditText) layout.findViewById(R.id.hex_color_input);
         mNewColor = (ColorPanelView) layout.findViewById(R.id.color_panel);
-        mColorPanelView = (LinearLayout) layout.findViewById(R.id.color_panel_view);
-
-	mColorListView = (LinearLayout) layout.findViewById(R.id.color_list_view);
-        mColorList = (Spinner) layout.findViewById(R.id.color_list_spinner);
-        mNewListColor = (ColorPanelView) layout.findViewById(R.id.color_list_panel);
-
-        mColorPicker.setOnColorChangedListener(this);
-        mHexColorInput.setOnFocusChangeListener(this);
-        setAlphaSliderVisible(mWithAlpha);
-        mColorPicker.setColor(color, true);
-
-	mColorList = (Spinner) layout.findViewById(R.id.color_list_spinner);
-        mLedColorAdapter = new LedColorAdapter(
-                R.array.entries_led_colors,
-                R.array.values_led_colors);
-        mColorList.setAdapter(mLedColorAdapter);
-        mColorList.setSelection(mLedColorAdapter.getColorPosition(color));
-        mColorList.setOnItemSelectedListener(mColorListListener);
-
         mLightsDialogDivider = (View) layout.findViewById(R.id.lights_dialog_divider);
         mPulseSpeedOn = (Spinner) layout.findViewById(R.id.on_spinner);
         mPulseSpeedOff = (Spinner) layout.findViewById(R.id.off_spinner);
+
+        mColorPicker.setOnColorChangedListener(this);
+        mColorPicker.setColor(color, true);
+
+        mHexColorInput.setOnFocusChangeListener(this);
 
         if (onOffChangeable) {
             PulseSpeedAdapter pulseSpeedAdapter = new PulseSpeedAdapter(
@@ -189,36 +168,18 @@ public class NotificationLightDialog extends AlertDialog implements
         mPulseSpeedOff.setEnabled((speedOn != 1) && onOffChangeable);
 
         setView(layout);
+        setTitle(R.string.edit_light_settings);
 
-	if (mMultiColor){
-            mColorListView.setVisibility(View.GONE);
-            mColorPicker.setVisibility(View.VISIBLE);
-            mColorPanelView.setVisibility(View.VISIBLE);
-	    mLightsDialogDivider.setVisibility(View.VISIBLE);
-        } else {
-            mColorListView.setVisibility(View.VISIBLE);
+        if (!getContext().getResources().getBoolean(
+                com.android.internal.R.bool.config_multiColorNotificationLed)) {
             mColorPicker.setVisibility(View.GONE);
-            mColorPanelView.setVisibility(View.GONE);
-	    mLightsDialogDivider.setVisibility(View.GONE);
+            mColorPanel.setVisibility(View.GONE);
+            mLightsDialogDivider.setVisibility(View.GONE);
         }
 
         mReadyForLed = true;
         updateLed();
-
     }
-
-    private AdapterView.OnItemSelectedListener mColorListListener = new AdapterView.OnItemSelectedListener() {
-
-        @Override
-        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            int color = mLedColorAdapter.getColor(position);
-            mNewListColor.setColor(color);
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> parent) {
-        }
-    };
 
     private AdapterView.OnItemSelectedListener mPulseSelectionListener =
             new AdapterView.OnItemSelectedListener() {
@@ -234,7 +195,6 @@ public class NotificationLightDialog extends AlertDialog implements
         public void onNothingSelected(AdapterView<?> parent) {
         }
     };
-
 
     @Override
     public Bundle onSaveInstanceState() {
@@ -283,82 +243,7 @@ public class NotificationLightDialog extends AlertDialog implements
     }
 
     public int getColor() {
-        if (mMultiColor){
-            return mColorPicker.getColor();
-        } else {
-            return mNewListColor.getColor();
-        }
-    }
-
-    class LedColorAdapter extends BaseAdapter implements SpinnerAdapter {
-        private ArrayList<Pair<String, Integer>> mColors;
-
-        public LedColorAdapter(int ledColorResource, int ledValueResource) {
-            mColors = new ArrayList<Pair<String, Integer>>();
-
-            String[] color_names = getContext().getResources().getStringArray(ledColorResource);
-            String[] color_values = getContext().getResources().getStringArray(ledValueResource);
-
-            for(int i = 0; i < color_values.length; ++i) {
-                try {
-                    int color = Color.parseColor(color_values[i]);
-                    mColors.add(new Pair<String, Integer>(color_names[i], color));
-                } catch (IllegalArgumentException ex) {
-                    // Number format is incorrect, ignore entry
-                }
-            }
-        }
-
-        /**
-         * Will return the position of the spinner entry with the specified
-         * color. Returns 0 if there is no such entry.
-         */
-        public int getColorPosition(int color) {
-            for (int position = 0; position < getCount(); ++position) {
-                if (getItem(position).second.equals(color)) {
-                    return position;
-                }
-            }
-
-            return 0;
-        }
-
-        public int getColor(int position) {
-            Pair<String, Integer> item = getItem(position);
-            if (item != null){
-                return item.second;
-            }
-
-            // -1 is white
-            return -1;
-        }
-
-        @Override
-        public int getCount() {
-            return mColors.size();
-        }
-
-        @Override
-        public Pair<String, Integer> getItem(int position) {
-            return mColors.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View view, ViewGroup parent) {
-            if (view == null) {
-                view = mInflater.inflate(R.layout.led_color_item, null);
-            }
-
-            Pair<String, Integer> entry = getItem(position);
-            ((TextView) view.findViewById(R.id.textViewName)).setText(entry.first);
-
-            return view;
-        }
+        return mColorPicker.getColor();
     }
 
     @SuppressWarnings("unchecked")
@@ -550,7 +435,4 @@ public class NotificationLightDialog extends AlertDialog implements
             mHexColorInput.addTextChangedListener(this);
         }
     }
-
-
-
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.preferences;
+package com.android.settings.notificationlight;
 
 import android.content.Context;
 import android.content.Intent;
@@ -39,7 +39,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeSet;
 
-public class AppSelectListPreference extends BaseAdapter implements Runnable {
+public class PackageListAdapter extends BaseAdapter implements Runnable {
     private PackageManager mPm;
     private LayoutInflater mInflater;
     private List<PackageItem> mInstalledPackages = new LinkedList<PackageItem>();
@@ -84,7 +84,7 @@ public class AppSelectListPreference extends BaseAdapter implements Runnable {
         }
     }
 
-    public AppSelectListPreference(Context context) {
+    public PackageListAdapter(Context context) {
         mPm = context.getPackageManager();
         mInflater = LayoutInflater.from(context);
         reloadList();

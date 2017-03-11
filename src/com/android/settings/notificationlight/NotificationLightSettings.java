@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.batterylight;
+package com.android.settings.notificationlight;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -26,13 +26,12 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceGroup;
 import android.support.v7.preference.PreferenceScreen;
-import android.support.v14.preference.PreferenceFragment;
-import android.provider.SearchIndexableResource;
-import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -44,14 +43,12 @@ import android.widget.ListView;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.util.simpleaosp.ColorUtils;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.search.Indexable;
-
+import com.android.settings.notificationlight.PackageListAdapter;
+import com.android.settings.notificationlight.PackageListAdapter.PackageItem;
 import com.android.settings.cyanogenmod.SystemSettingSwitchPreference;
-import com.android.settings.preferences.AppSelectListPreference;
-import com.android.settings.preferences.AppSelectListPreference.PackageItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -59,38 +56,34 @@ import java.util.List;
 import java.util.Map;
 
 public class NotificationLightSettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener, NotificationLightPreference.ItemLongClickListener, Indexable {
+        Preference.OnPreferenceChangeListener, ApplicationLightPreference.ItemLongClickListener {
     private static final String TAG = "NotificationLightSettings";
 
     private static final String NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR = "notification_light_pulse_default_color";
     private static final String NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_ON = "notification_light_pulse_default_led_on";
     private static final String NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_OFF = "notification_light_pulse_default_led_off";
     private static final String DEFAULT_PREF = "default";
+    private static final String KEY_ALLOW_LIGHTS = "allow_lights";
     public static final int ACTION_TEST = 0;
     public static final int ACTION_DELETE = 1;
     private static final int MENU_ADD = 0;
     private static final int DIALOG_APPS = 0;
 
+    private boolean mMultiColorNotificationLed;
     private int mDefaultColor;
     private int mDefaultLedOn;
     private int mDefaultLedOff;
     private PackageManager mPackageManager;
     private PreferenceGroup mApplicationPrefList;
     private SystemSettingSwitchPreference mEnabledPref;
-    private SystemSettingSwitchPreference mScreenOnLightsPref;
     private SystemSettingSwitchPreference mCustomEnabledPref;
+    private SystemSettingSwitchPreference mScreenOnLightsPref;
     private SystemSettingSwitchPreference mAutoGenerateColors;
-    private NotificationLightPreference mDefaultPref;
+    private ApplicationLightPreference mDefaultPref;
     private Menu mMenu;
-    private AppSelectListPreference mPackageAdapter;
+    private PackageListAdapter mPackageAdapter;
     private String mPackageList;
     private Map<String, Package> mPackages;
-    private boolean mMultiColorLed;
-
-    @Override
-    protected int getMetricsCategory() {
-        return MetricsEvent.SAOSP_TWEAKS;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -102,9 +95,18 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
 
         PreferenceGroup mAdvancedPrefs = (PreferenceGroup) prefSet.findPreference("advanced_section");
 
+        mMultiColorNotificationLed = resources.getBoolean(
+                com.android.internal.R.bool.config_multiColorNotificationLed);
+
+        // Remove of the "Allow notification light" setting if an led is not supported
+            if (!getResources().getBoolean(
+                    com.android.internal.R.bool.config_intrusiveNotificationLed)) {
+                prefSet.removePreference(findPreference(KEY_ALLOW_LIGHTS));
+            }
+
         // Get the system defined default notification color
         mDefaultColor =
-                resources.getColor(com.android.internal.R.color.config_defaultNotificationColor, null);
+                resources.getColor(com.android.internal.R.color.config_defaultNotificationColor);
 
         mDefaultLedOn = resources.getInteger(
                 com.android.internal.R.integer.config_defaultNotificationLedOn);
@@ -115,8 +117,12 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
                 findPreference(Settings.System.NOTIFICATION_LIGHT_PULSE);
         mEnabledPref.setOnPreferenceChangeListener(this);
 
-        mDefaultPref = (NotificationLightPreference) findPreference(DEFAULT_PREF);
+        mDefaultPref = (ApplicationLightPreference) findPreference(DEFAULT_PREF);
         mDefaultPref.setOnPreferenceChangeListener(this);
+
+        mCustomEnabledPref = (SystemSettingSwitchPreference)
+                findPreference(Settings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE);
+        mCustomEnabledPref.setOnPreferenceChangeListener(this);
 
         mScreenOnLightsPref = (SystemSettingSwitchPreference)
                 findPreference(Settings.System.NOTIFICATION_LIGHT_SCREEN_ON);
@@ -125,29 +131,28 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         mAutoGenerateColors = (SystemSettingSwitchPreference)
                 findPreference(Settings.System.NOTIFICATION_LIGHT_COLOR_AUTO);
 
-        // Advanced light settings
-        mCustomEnabledPref = (SystemSettingSwitchPreference)
-                findPreference(Settings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE);
-        mCustomEnabledPref.setOnPreferenceChangeListener(this);
-
         mApplicationPrefList = (PreferenceGroup) findPreference("applications_list");
         mApplicationPrefList.setOrderingAsAdded(false);
 
         // Get launch-able applications
         mPackageManager = getPackageManager();
-        mPackageAdapter = new AppSelectListPreference(getActivity());
+        mPackageAdapter = new PackageListAdapter(getActivity());
 
         mPackages = new HashMap<String, Package>();
         setHasOptionsMenu(true);
 
-        mMultiColorLed = resources.getBoolean(com.android.internal.R.bool.config_multiColorNotificationLed);
-        if (!mMultiColorLed) {
-            resetColors();
-            PreferenceGroup mGeneralPrefs = (PreferenceGroup) prefSet.findPreference("general_section");
-            mGeneralPrefs.removePreference(mAutoGenerateColors);
-        } else {
+        if (mMultiColorNotificationLed) {
             mAutoGenerateColors.setOnPreferenceChangeListener(this);
+        } else {
+            mAdvancedPrefs.removePreference(mCustomEnabledPref);
+            prefSet.removePreference(mApplicationPrefList);
+            resetColors();
         }
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsEvent.SAOSP_TWEAKS;
     }
 
     @Override
@@ -161,16 +166,18 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     private void refreshDefault() {
         ContentResolver resolver = getContentResolver();
         int color = Settings.System.getInt(resolver,
-                Settings.System.NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR, mDefaultColor);
+                NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR, mDefaultColor);
         int timeOn = Settings.System.getInt(resolver,
-                Settings.System.NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_ON, mDefaultLedOn);
+                NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_ON, mDefaultLedOn);
         int timeOff = Settings.System.getInt(resolver,
-                Settings.System.NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_OFF, mDefaultLedOff);
+                NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_OFF, mDefaultLedOff);
 
         mDefaultPref.setAllValues(color, timeOn, timeOff);
 
-        mApplicationPrefList = (PreferenceGroup) findPreference("applications_list");
-        mApplicationPrefList.setOrderingAsAdded(false);
+        if (mMultiColorNotificationLed) {
+            mApplicationPrefList = (PreferenceGroup) findPreference("applications_list");
+            mApplicationPrefList.setOrderingAsAdded(false);
+        }
     }
 
     private void refreshCustomApplicationPrefs() {
@@ -188,8 +195,8 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
                 try {
                     PackageInfo info = mPackageManager.getPackageInfo(pkg.name,
                             PackageManager.GET_META_DATA);
-                    NotificationLightPreference pref =
-                            new NotificationLightPreference(context, pkg.color, pkg.timeon, pkg.timeoff);
+                    ApplicationLightPreference pref =
+                            new ApplicationLightPreference(context, pkg.color, pkg.timeon, pkg.timeoff);
 
                     pref.setKey(pkg.name);
                     pref.setTitle(info.applicationInfo.loadLabel(mPackageManager));
@@ -219,7 +226,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
 
     private int getInitialColorForPackage(String packageName) {
         boolean autoColor = Settings.System.getInt(getContentResolver(),
-                Settings.System.NOTIFICATION_LIGHT_COLOR_AUTO, mMultiColorLed ? 1 : 0) == 1;;
+                Settings.System.NOTIFICATION_LIGHT_COLOR_AUTO, mMultiColorNotificationLed ? 1 : 0) == 1;;
         int color = mDefaultColor;
         if (autoColor) {
             try {
@@ -236,7 +243,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         Package pkg = mPackages.get(packageName);
         if (pkg == null) {
             int color = getInitialColorForPackage(packageName);
-            pkg = new Package(packageName, color, mDefaultLedOn, mDefaultLedOff);
+            pkg = new Package(packageName, mDefaultColor, mDefaultLedOn, mDefaultLedOff);
             mPackages.put(packageName, pkg);
             savePackageList(false);
             refreshCustomApplicationPrefs();
@@ -302,9 +309,9 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         ContentResolver resolver = getContentResolver();
 
         if (packageName.equals(DEFAULT_PREF)) {
-            Settings.System.putInt(resolver, Settings.System.NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR, color);
-            Settings.System.putInt(resolver, Settings.System.NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_ON, timeon);
-            Settings.System.putInt(resolver, Settings.System.NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_OFF, timeoff);
+            Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR, color);
+            Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_ON, timeon);
+            Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_OFF, timeoff);
             refreshDefault();
             return;
         }
@@ -323,14 +330,14 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         ContentResolver resolver = getContentResolver();
 
         // Reset to the framework default colors
-        Settings.System.putInt(resolver, Settings.System.NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR, mDefaultColor);
+        Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR, mDefaultColor);
 
         refreshDefault();
     }
 
     public boolean onItemLongClick(final String key) {
-        final NotificationLightPreference pref =
-                (NotificationLightPreference) getPreferenceScreen().findPreference(key);
+        final ApplicationLightPreference pref =
+                (ApplicationLightPreference) getPreferenceScreen().findPreference(key);
 
         if (mApplicationPrefList.findPreference(key) == null) {
             return false;
@@ -355,11 +362,11 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mEnabledPref || preference == mCustomEnabledPref ||
-            preference == mScreenOnLightsPref ||
-            preference == mAutoGenerateColors) {
+                preference == mScreenOnLightsPref ||
+                preference == mAutoGenerateColors ) {
             getActivity().invalidateOptionsMenu();
         } else {
-            NotificationLightPreference lightPref = (NotificationLightPreference) preference;
+            ApplicationLightPreference lightPref = (ApplicationLightPreference) preference;
             updateValues(lightPref.getKey(), lightPref.getColor(),
                     lightPref.getOnValue(), lightPref.getOffValue());
         }
@@ -370,7 +377,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         mMenu = menu;
-        mMenu.add(0, MENU_ADD, 0, R.string.profiles_add)
+        mMenu.add(0, MENU_ADD, 0, R.string.add)
                 .setIcon(R.drawable.ic_menu_add_white)
                 .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
     }
@@ -403,7 +410,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
                 final ListView list = new ListView(getActivity());
                 list.setAdapter(mPackageAdapter);
 
-                builder.setTitle(R.string.profile_choose_app);
+                builder.setTitle(R.string.choose_app);
                 builder.setView(list);
                 dialog = builder.create();
 

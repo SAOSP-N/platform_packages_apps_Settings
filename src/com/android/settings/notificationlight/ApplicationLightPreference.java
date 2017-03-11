@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-package com.android.settings.batterylight;
+package com.android.settings.notificationlight;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -33,10 +32,10 @@ import android.widget.TextView;
 
 import com.android.settings.R;
 
-public class NotificationLightPreference extends Preference implements DialogInterface.OnDismissListener,
+public class ApplicationLightPreference extends Preference implements DialogInterface.OnDismissListener,
             View.OnLongClickListener {
 
-    private static String TAG = "NotificationLightPreference";
+    private static String TAG = "AppLightPreference";
     public static final int DEFAULT_TIME = 1000;
     public static final int DEFAULT_COLOR = 0xFFFFFF; //White
 
@@ -61,7 +60,7 @@ public class NotificationLightPreference extends Preference implements DialogInt
      * @param context
      * @param attrs
      */
-    public NotificationLightPreference(Context context, AttributeSet attrs) {
+    public ApplicationLightPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         mColorValue = DEFAULT_COLOR;
         mOnValue = DEFAULT_TIME;
@@ -77,7 +76,7 @@ public class NotificationLightPreference extends Preference implements DialogInt
      * @param onValue
      * @param offValue
      */
-    public NotificationLightPreference(Context context, int color, int onValue, int offValue) {
+    public ApplicationLightPreference(Context context, int color, int onValue, int offValue) {
         super(context, null);
         mColorValue = color;
         mOnValue = onValue;
@@ -93,7 +92,7 @@ public class NotificationLightPreference extends Preference implements DialogInt
      * @param onValue
      * @param offValue
      */
-    public NotificationLightPreference(Context context, int color, int onValue, int offValue, boolean onOffChangeable) {
+    public ApplicationLightPreference(Context context, int color, int onValue, int offValue, boolean onOffChangeable) {
         super(context, null);
         mColorValue = color;
         mOnValue = onValue;
@@ -103,28 +102,19 @@ public class NotificationLightPreference extends Preference implements DialogInt
     }
 
     private void init() {
-        setLayoutResource(R.layout.preference_notification_light);
+        setLayoutResource(R.layout.preference_application_light);
         mResources = getContext().getResources();
     }
 
-    public void setColor(int color) {
-        mColorValue = color;
-        updatePreferenceViews();
-    }
-
-    public int getColor() {
-        return mColorValue;
-    }
-
     public void onStart() {
-        NotificationLightDialog d = (NotificationLightDialog) getDialog();
+        LightSettingsDialog d = (LightSettingsDialog) getDialog();
         if (d != null) {
             d.onStart();
         }
     }
 
     public void onStop() {
-        NotificationLightDialog d = (NotificationLightDialog) getDialog();
+        LightSettingsDialog d = (LightSettingsDialog) getDialog();
         if (d != null) {
             d.onStop();
         }
@@ -155,7 +145,7 @@ public class NotificationLightPreference extends Preference implements DialogInt
         TextView tView = (TextView) holder.findViewById(android.R.id.summary);
         tView.setVisibility(View.GONE);
 
-        if (!getContext().getResources().getBoolean(com.android.internal.R.bool.config_multiColorNotificationLed)) {
+        if (!mResources.getBoolean(com.android.internal.R.bool.config_multiColorNotificationLed)) {
             mLightColorView.setVisibility(View.GONE);
         }
 
@@ -164,7 +154,7 @@ public class NotificationLightPreference extends Preference implements DialogInt
     }
 
     private void updatePreferenceViews() {
-        final int size = (int) getContext().getResources().getDimension(R.dimen.oval_notification_size);
+        final int size = (int) mResources.getDimension(R.dimen.oval_notification_size);
 
         if (mLightColorView != null) {
             mLightColorView.setEnabled(true);
@@ -194,10 +184,10 @@ public class NotificationLightPreference extends Preference implements DialogInt
     }
 
     public Dialog getDialog() {
-        final NotificationLightDialog d = new NotificationLightDialog(getContext(),
+        final LightSettingsDialog d = new LightSettingsDialog(getContext(),
                 0xFF000000 + mColorValue, mOnValue, mOffValue, mOnOffChangeable); 
 
-        d.setButton(AlertDialog.BUTTON_POSITIVE, mResources.getString(R.string.ok),
+        d.setButton(AlertDialog.BUTTON_POSITIVE, mResources.getString(R.string.dlg_ok),
                 new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -218,23 +208,21 @@ public class NotificationLightPreference extends Preference implements DialogInt
         return d;
     }
 
-    private static ShapeDrawable createOvalShape(int size, int color) {
-        ShapeDrawable shape = new ShapeDrawable(new OvalShape());
-        shape.setIntrinsicHeight(size);
-        shape.setIntrinsicWidth(size);
-        shape.getPaint().setColor(color);
-        return shape;
-    }
-
     @Override
     public void onDismiss(DialogInterface dialog) {
         mDialog = null;
     }
 
-    public void setAllValues(int color, int onValue, int offValue) {
+    /**
+     * Getters and Setters
+     */
+
+    public int getColor() {
+        return mColorValue;
+    }
+
+    public void setColor(int color) {
         mColorValue = color;
-        mOnValue = onValue;
-        mOffValue = offValue;
         updatePreferenceViews();
     }
 
@@ -256,16 +244,52 @@ public class NotificationLightPreference extends Preference implements DialogInt
         return mOffValue;
     }
 
+    public void setAllValues(int color, int onValue, int offValue) {
+        mColorValue = color;
+        mOnValue = onValue;
+        mOffValue = offValue;
+        updatePreferenceViews();
+    }
+
+    public void setAllValues(int color, int onValue, int offValue, boolean onOffChangeable) {
+        mColorValue = color;
+        mOnValue = onValue;
+        mOffValue = offValue;
+        mOnOffChangeable = onOffChangeable;
+        updatePreferenceViews();
+    }
+
+    public void setOnOffValue(int onValue, int offValue) {
+        mOnValue = onValue;
+        mOffValue = offValue;
+        updatePreferenceViews();
+    }
+
+    public void setOnOffChangeable(boolean value) {
+        mOnOffChangeable = value;
+    }
+
+    /**
+     * Utility methods
+     */
+    private static ShapeDrawable createOvalShape(int size, int color) {
+        ShapeDrawable shape = new ShapeDrawable(new OvalShape());
+        shape.setIntrinsicHeight(size);
+        shape.setIntrinsicWidth(size);
+        shape.getPaint().setColor(color);
+        return shape;
+    }
+
     private String mapLengthValue(Integer time) {
         if (!mOnOffChangeable) {
-            return getContext().getResources().getString(R.string.pulse_length_always_on);
+            return getContext().getString(R.string.pulse_length_always_on);
         }
         if (time == DEFAULT_TIME) {
-            return getContext().getResources().getString(R.string.default_time);
+            return getContext().getString(R.string.default_time);
         }
 
-        String[] timeNames = getContext().getResources().getStringArray(R.array.notification_pulse_length_entries);
-        String[] timeValues = getContext().getResources().getStringArray(R.array.notification_pulse_length_values);
+        String[] timeNames = mResources.getStringArray(R.array.notification_pulse_length_entries);
+        String[] timeValues = mResources.getStringArray(R.array.notification_pulse_length_values);
 
         for (int i = 0; i < timeValues.length; i++) {
             if (Integer.decode(timeValues[i]).equals(time)) {
@@ -273,16 +297,16 @@ public class NotificationLightPreference extends Preference implements DialogInt
             }
         }
 
-        return getContext().getResources().getString(R.string.custom_time);
+        return getContext().getString(R.string.custom_time);
     }
 
     private String mapSpeedValue(Integer time) {
         if (time == DEFAULT_TIME) {
-            return getContext().getResources().getString(R.string.default_time);
+            return getContext().getString(R.string.default_time);
         }
 
-        String[] timeNames = getContext().getResources().getStringArray(R.array.notification_pulse_speed_entries);
-        String[] timeValues = getContext().getResources().getStringArray(R.array.notification_pulse_speed_values);
+        String[] timeNames = mResources.getStringArray(R.array.notification_pulse_speed_entries);
+        String[] timeValues = mResources.getStringArray(R.array.notification_pulse_speed_values);
 
         for (int i = 0; i < timeValues.length; i++) {
             if (Integer.decode(timeValues[i]).equals(time)) {
@@ -290,7 +314,6 @@ public class NotificationLightPreference extends Preference implements DialogInt
             }
         }
 
-        return getContext().getResources().getString(R.string.custom_time);
+        return getContext().getString(R.string.custom_time);
     }
-
 }

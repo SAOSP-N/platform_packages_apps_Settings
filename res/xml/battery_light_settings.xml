@@ -17,20 +17,20 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="battery_light_enabled"
-        android:title="@string/battery_light_enable"
-        android:persistent="false"/>
-
     <PreferenceCategory
         android:key="general_section"
         android:title="@string/notification_light_general_title">
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="battery_light_enabled"
+            android:title="@string/battery_light_title"
+            android:defaultValue="@bool/def_battery_light_enabled" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="battery_light_pulse"
             android:title="@string/battery_low_pulse_title"
-            android:dependency="battery_light_enabled"
-            android:persistent="false" />
+            android:defaultValue="@bool/def_battery_light_pulse"
+            android:dependency="battery_light_enabled" />
 
     </PreferenceCategory>
 
@@ -39,22 +39,22 @@
         android:title="@string/battery_light_list_title"
         android:dependency="battery_light_enabled" >
 
-        <com.android.settings.batterylight.BatteryLightPreference
+        <com.android.settings.notificationlight.ApplicationLightPreference
             android:key="low_color"
             android:title="@string/battery_light_low_color_title"
             android:persistent="false" />
 
-        <com.android.settings.batterylight.BatteryLightPreference
+        <com.android.settings.notificationlight.ApplicationLightPreference
             android:key="medium_color"
             android:title="@string/battery_light_medium_color_title"
             android:persistent="false" />
 
-        <com.android.settings.batterylight.BatteryLightPreference
+        <com.android.settings.notificationlight.ApplicationLightPreference
             android:key="full_color"
             android:title="@string/battery_light_full_color_title"
             android:persistent="false" />
 
-        <com.android.settings.batterylight.BatteryLightPreference
+        <com.android.settings.notificationlight.ApplicationLightPreference
             android:key="really_full_color"
             android:title="@string/battery_light_really_full_color_title"
             android:persistent="false" />

@@ -97,6 +97,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_WALLPAPER = "wallpaper";
     private static final String KEY_VR_DISPLAY_PREF = "vr_display_pref";
     private static final String KEY_WAKEUP_WHEN_PLUGGED_UNPLUGGED = "wakeup_when_plugged_unplugged";
+    private static final String KEY_NOTIFICATION_LIGHT = "notification_light";
+    private static final String KEY_BATTERY_LIGHT = "battery_light";
+    private static final String CATEGORY_LEDS = "leds";
     private static final String KEY_ROTATION_CATEGORY = "rotation_category";
     private static final String KEY_ACCELEROMETER = "accelerometer";
     private static final String KEY_ROTATION_ANGLES = "rotation_angles";
@@ -119,6 +122,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private TimeoutListPreference mScreenTimeoutPreference;
 
     private SwitchPreference mWakeUpWhenPluggedOrUnplugged;
+
+    private Preference mNotifLedFrag;
+    private Preference mBattLedFrag;
 
     private ListPreference mNightModePreference;
     private Preference mScreenSaverPreference;
@@ -273,6 +279,30 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
                 SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
         mScrollingCachePref.setOnPreferenceChangeListener(this);
+
+        final PreferenceCategory leds = (PreferenceCategory) findPreference(CATEGORY_LEDS);
+
+        mNotifLedFrag = findPreference(KEY_NOTIFICATION_LIGHT);
+        //remove notification led settings if device doesnt support it
+        if (!getResources().getBoolean(
+                com.android.internal.R.bool.config_intrusiveNotificationLed)) {
+            leds.removePreference(findPreference(KEY_NOTIFICATION_LIGHT));
+        }
+
+        mBattLedFrag = findPreference(KEY_BATTERY_LIGHT);
+        //remove battery led settings if device doesnt support it
+        if (!getResources().getBoolean(
+                com.android.internal.R.bool.config_intrusiveBatteryLed)) {
+            leds.removePreference(findPreference(KEY_BATTERY_LIGHT));
+        }
+
+        //remove led category if device doesnt support notification or battery
+        if (!getResources().getBoolean(
+                com.android.internal.R.bool.config_intrusiveNotificationLed)
+                && !getResources().getBoolean(
+                com.android.internal.R.bool.config_intrusiveBatteryLed)) {
+            prefSet.removePreference(findPreference(CATEGORY_LEDS));
+        }
     }
 
     private static boolean isLiftToWakeAvailable(Context context) {
@@ -690,4 +720,3 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 }
             };
 }
-

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.preferences;
+package com.android.settings.notificationlight;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

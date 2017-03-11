@@ -18,10 +18,6 @@
         Setting to false will disable Volume Rocker Wake support -->
     <bool name="config_show_volumeRockerWake">true</bool>
 
-    <!-- does the device have multi color led support or only
-         a fixed set of led colors -->
-    <bool name="config_has_multi_color_led">true</bool>
-
     <integer name="config_qs_num_rows_landscape_default">2</integer>
     <integer name="config_qs_num_columns_landscape_default">5</integer>
 
