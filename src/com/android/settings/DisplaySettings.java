@@ -111,11 +111,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final int ROTATION_90_MODE = 2;
     private static final int ROTATION_180_MODE = 4;
     private static final int ROTATION_270_MODE = 8;
-    private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
-    private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
-    private static final String SCROLLINGCACHE_DEFAULT = "1";
-
-    private ListPreference mScrollingCachePref;
 
     private Preference mFontSizePref;
 
@@ -274,11 +269,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mWakeUpWhenPluggedOrUnplugged.setChecked(Settings.System.getInt(resolver,
                         Settings.System.WAKEUP_WHEN_PLUGGED_UNPLUGGED, 1) == 1);
             mWakeUpWhenPluggedOrUnplugged.setOnPreferenceChangeListener(this);
-
-        mScrollingCachePref = (ListPreference) findPreference(SCROLLINGCACHE_PREF);
-        mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
-                SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
-        mScrollingCachePref.setOnPreferenceChangeListener(this);
 
         final PreferenceCategory leds = (PreferenceCategory) findPreference(CATEGORY_LEDS);
 
@@ -600,11 +590,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.ACCELEROMETER_ROTATION_ANGLES, mode);
             updateRotationPreferencesState();
-        }
-        if (preference == mScrollingCachePref) {
-            if (objValue != null) {
-                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String)objValue);
-            }
         }
         return true;
     }
