@@ -420,11 +420,6 @@
     <string name="menu_show_substratum_icons">Показать иконпаки</string>
     <string name="menu_hide_substratum_icons">Скрыть иконпаки</string>
 
-    <!-- Settings drawer switch -->
-    <string name="show_settings_drawer_title">Боковое меню в настройках</string>
-    <string name="show_settings_drawer_enabled">Боковое меню в настройках включено</string>
-    <string name="show_settings_drawer_disabled">Боковое меню в настройках отключено</string>
-     
     <string name="screenshot_type_title">Вид снимка экрана</string>
     <string name="screenshot_crop_and_share_title">Кадрировать снимок и поделиться</string>
     <string name="screenshot_crop_and_share_summary">Окно редактора после cоздания снимка экрана, в котором можно кадрировать, сохранить или поделиться изображением</string>
@@ -441,7 +436,7 @@
 
     <!-- QS easy toggles -->
     <string name="qs_easy_toggle_title">Легкое переключение для плиток</string>
-    <string name="qs_easy_toggle_summary">Включение или отключение мобильных данных, Wi-Fi и Bluetooth одиночным нажатием на плитку</string> 
+    <string name="qs_easy_toggle_summary">Включение или отключение мобильных данных, Wi-Fi, Bluetooth и режима местоположения одиночным нажатием на плитку</string> 
 
     <!-- Quick Settings brightness slider -->
     <string name="qs_brightness_slider_title">Cлайдер яркости</string>
@@ -629,4 +624,10 @@
     <string name="notification_light_screen_on">Использ. индикатор при вкл. экране</string>
     <string name="notification_light_automagic">Автоподбор</string>
     <string name="notification_light_automagic_summary">Подбирать цвета автоматически, если пользователем не выбрано свое значение</string> 
+
+    <string name="misc_settings">Другое</string>
+     
+    <!-- Status bar notification ticker -->
+    <string name="ticker_title">Тикер</string>
+    <string name="ticker_summary">Включить тикер уведомления в строке состония. Не следует использовать в сочетании со всплывающим уведомлением.</string> 
 </resources>
