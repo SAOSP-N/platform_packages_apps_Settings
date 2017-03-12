@@ -25,9 +25,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_HEADS_UP_SETTINGS = "heads_up_settings";
     private static final String KEY_CLOCK_SETTINGS = "statusbarclock";
+    private static final String STATUS_BAR_SHOW_TICKER = "status_bar_show_ticker";
 
     private PreferenceScreen mHeadsUp;
     private PreferenceScreen mClock;
+    private SwitchPreference mShowTicker;
 		
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
         mHeadsUp = (PreferenceScreen) findPreference(KEY_HEADS_UP_SETTINGS);
         mClock = (PreferenceScreen) findPreference(KEY_CLOCK_SETTINGS);
+
+        mShowTicker = (SwitchPreference) findPreference(STATUS_BAR_SHOW_TICKER);
+        mShowTicker.setOnPreferenceChangeListener(this);
+        int ShowTicker = Settings.System.getInt(getContentResolver(),
+                STATUS_BAR_SHOW_TICKER, 0);
+        mShowTicker.setChecked(ShowTicker != 0);
     }
 
     private boolean getUserHeadsUpState() {
@@ -53,8 +61,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-
-		// preference changes here
+		if (preference == mShowTicker) {
+            boolean value = (Boolean) objValue;
+            Settings.Global.putInt(getContentResolver(), STATUS_BAR_SHOW_TICKER,
+                    value ? 1 : 0);
+            return true;
+        }
         return false;
     }
 

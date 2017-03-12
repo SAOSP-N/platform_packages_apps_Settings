@@ -626,4 +626,8 @@
 
     <string name="misc_settings">Miscellaneous</string>
 
+    <!-- Status bar notification ticker -->
+    <string name="ticker_title">Ticker</string>
+    <string name="ticker_summary">Enable the old status bar notification ticker. Do not use in conjunction with Heads Up.</string>
+
 </resources>
