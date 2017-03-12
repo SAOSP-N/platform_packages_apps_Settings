@@ -439,8 +439,8 @@
     <string name="one_handed_mode_summary">Allows swiping on the navigation bar to enable one handed mode</string>
 
     <!-- QS easy toggles -->
-    <string name="qs_easy_toggle_title">Advanced quick setting Easy Toggle</string>
-    <string name="qs_easy_toggle_summary">Enable one tap action to enable or disable mobile data, Wi-Fi, and Bluetooth</string>
+    <string name="qs_easy_toggle_title">Quick setting easy toggle</string>
+    <string name="qs_easy_toggle_summary">Enable one tap action to enable or disable mobile data, Wi-Fi, Bluetooth and location</string>
 
     <!-- Quick Settings brightness slider -->
     <string name="qs_brightness_slider_title">Brightness slider</string>
