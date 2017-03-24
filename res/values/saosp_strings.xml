@@ -630,4 +630,7 @@
     <string name="ticker_title">Ticker</string>
     <string name="ticker_summary">Enable the old status bar notification ticker. Do not use in conjunction with Heads Up.</string>
 
+    <!-- Custom dashboard tile category -->
+    <string name="saosp_category_title">Personalization</string>
+
 </resources>
