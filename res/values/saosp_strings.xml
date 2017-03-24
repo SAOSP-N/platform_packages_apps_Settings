@@ -136,8 +136,9 @@
     <string name="expanded_desktop_style_description">Choose a default expanded desktop style</string>
     <string name="expanded_desktop_title">Expanded desktop options</string>
 
-    <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
-    <string name="supersu_title">SuperSU</string>
+    <!-- Root management -->
+    <string name="rootmanagement_title">Root management</string>
+    <string name="rootmanagement_dashboard_summary">Manage root access</string>
 
     <!-- Double tap gesture anywhere on the lock screen put device to sleep -->
     <string name="double_tap_sleep_anywhere_title">Double tap to sleep anywhere</string>
@@ -471,9 +472,6 @@
     <string name="fingerprint_category">Fingerprint settings</string>
     <string name="fp_unlock_keystore_title">Fingerprint unlock</string>
     <string name="fp_unlock_keystore_summary">Unlock device with fingerprint after reboot without PIN/Password/Pattern\nNote: at your own risk!</string>
-
-    <!-- SuperSU dashboard summary -->
-    <string name="su_dashboard_summary">Manage root access</string>
 
     <!-- Development settings dashboard summary -->
     <string name="summary_adb_enabled">USB debugging is ON</string>
