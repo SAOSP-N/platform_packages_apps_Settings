@@ -1198,6 +1198,12 @@ public class SettingsActivity extends SettingsDrawerActivity
             rootClassName = "eu.chainfire.supersu.MainActivity";
         } catch (PackageManager.NameNotFoundException e) {
         }
+        try {
+            rootSupported = (getPackageManager().getPackageInfo("com.topjohnwu.magisk", 0).versionCode > 0);
+            rootPackageName = "com.topjohnwu.magisk";
+            rootClassName = "com.topjohnwu.magisk.SplashActivity";
+        } catch (PackageManager.NameNotFoundException e) {
+        }
         if (!rootSupported) {
             try {
                 rootSupported = (getPackageManager().getPackageInfo("me.phh.superuser", 0).versionCode > 0);
