@@ -135,6 +135,10 @@
     <string name="expanded_desktop_style">Стиль расширенного экрана</string>
     <string name="expanded_desktop_style_description">Выбрать режим расширенного экрана по умолчанию</string>
     <string name="expanded_desktop_title">Настройки расширенного экрана</string>
+     
+    <!-- Root management -->
+    <string name="rootmanagement_title">Суперпользователь</string>
+    <string name="rootmanagement_dashboard_summary">Управление правами суперпользователя</string> 
 
     <!-- Double tap gesture anywhere on the lock screen put device to sleep -->
     <string name="double_tap_sleep_anywhere_title">Спящий режим</string>
@@ -473,9 +477,6 @@
     <string name="fp_unlock_keystore_title">Разблокировка отпечатком</string>
     <string name="fp_unlock_keystore_summary">Разблокировать устройство после перезагрузки без PIN/Пароля/Граф. ключа\nПрим.: Используйте на свой страх и риск!</string> 
 
-    <!-- SuperSU dashboard summary -->
-    <string name="su_dashboard_summary">Управление правами суперпользователя</string>
-
     <!-- Development settings dashboard summary -->
     <string name="summary_adb_enabled">USB отладка включена</string>
     <string name="summary_adb_disabled">USB отладка выключена</string>
@@ -630,4 +631,15 @@
     <!-- Status bar notification ticker -->
     <string name="ticker_title">Тикер</string>
     <string name="ticker_summary">Включить тикер уведомления в строке состония. Не следует использовать в сочетании со всплывающим уведомлением.</string> 
+
+    <!-- Custom dashboard tile category -->
+    <string name="saosp_category_title">Персонализация</string>
+     
+    <!-- Themes -->
+    <string name="themes_title">Темы</string>
+    <string name="themes_dashboard_summary">Управление темами</string> 
+
+    <!-- Battery Tile style -->
+    <string name="status_bar_battery_style_tile_title">Стиль плитки батареи</string>
+    <string name="status_bar_battery_style_tile_summary">Использовать одинаковый стиль, выбранный для батареи в строке состояния</string>
 </resources>
