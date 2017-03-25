@@ -21,4 +21,6 @@
     <integer name="config_qs_num_rows_landscape_default">2</integer>
     <integer name="config_qs_num_columns_landscape_default">5</integer>
 
+    <bool name="config_show_screenrecord">true</bool>
+
 </resources>

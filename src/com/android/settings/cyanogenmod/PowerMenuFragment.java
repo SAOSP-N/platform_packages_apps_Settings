@@ -88,6 +88,10 @@ public class PowerMenuFragment extends SettingsPreferenceFragment implements Ind
                 mScreenshotPref = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_SCREENSHOT);
             } else if (action.equals(GLOBAL_ACTION_KEY_SCREENRECORD)) {
                 mScreenRecordPref = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_SCREENRECORD);
+              if (mScreenRecordPref != null
+                && getResources().getBoolean(R.bool.config_show_screenrecord) == false) {
+            getPreferenceScreen().removePreference(mScreenRecordPref);
+                }
             } else if (action.equals(GLOBAL_ACTION_KEY_TORCH)) {
                 mTorchPref = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_TORCH);
             } else if (action.equals(GLOBAL_ACTION_KEY_AIRPLANE)) {
