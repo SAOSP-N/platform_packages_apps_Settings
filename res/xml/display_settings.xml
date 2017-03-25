@@ -134,6 +134,18 @@
                 android:persistent="false" />
         </PreferenceCategory>
 
+        <PreferenceCategory
+                android:key="category_wakeup_options"
+                android:title="@string/display_category_wakeup_options_title" >
+
+            <SwitchPreference
+                android:key="wakeup_when_plugged_unplugged"
+                android:title="@string/wakeup_when_plugged_unplugged_title"
+                android:summary="@string/wakeup_when_plugged_unplugged_summary"
+                android:defaultValue="true"
+                android:persistent="false" />
+         </PreferenceCategory>
+
         <!-- Pulse notification light -->
         <PreferenceCategory
                 android:key="leds"
@@ -148,18 +160,6 @@
                 android:key="battery_light"
                 android:title="@string/battery_light_title"
                 android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
-    </PreferenceCategory>
-
-	<PreferenceCategory
-             android:key="category_wakeup_options"
-             android:title="@string/display_category_wakeup_options_title" >
-
-            <SwitchPreference
-                android:key="wakeup_when_plugged_unplugged"
-                android:title="@string/wakeup_when_plugged_unplugged_title"
-                android:summary="@string/wakeup_when_plugged_unplugged_summary"
-                android:defaultValue="true"
-                android:persistent="false" />
-         </PreferenceCategory>
+        </PreferenceCategory>
 
 </PreferenceScreen>
