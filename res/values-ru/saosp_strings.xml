@@ -250,15 +250,6 @@
 
     <string name="build_tweaks_summary_title">Персонализируйте свое устройство</string>
 
-    <!-- Advanced storage settings -->
-    <string name="storage_advanced_titlebar">Дополнительные настройки</string>
-    <string name="storage_menu_advanced">Дополнительно</string>
-
-    <!-- USB data automatic unlock -->
-    <string name="usb_data_auto_unlock_title">Разблокировать доступ по USB</string>
-    <string name="usb_data_auto_unlock_summary">Разрешать передачу данных по USB (MTP, PTP)</string>
-    <string name="usb_data_auto_unlock_warning_summary">Соединение с ПК будет создавать незащищённые каналы связи.\n\nЭто всё ещё экспериментальная функция, используйте с осторожностью.</string>
-
     <!-- CM Lockscreen shortcuts -->
     <string name="lockscreen_targets_summary">Настройка ярлыков экрана блокировки</string>
     <string name="lockscreen_targets_message">Ярлыки экрана блокировки</string>
