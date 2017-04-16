@@ -44,6 +44,13 @@
            android:summary="@string/fp_unlock_keystore_summary"
            android:defaultValue="true" />
 
+        <ListPreference
+            android:key="fp_max_failed_attempts"
+            android:title="@string/fp_max_failed_attempts"
+            android:entries="@array/fp_max_failed_attempts_entries"
+            android:entryValues="@array/fp_max_failed_attempts_values"
+            android:defaultValue="5" />
+
         </PreferenceCategory>
 
         <PreferenceScreen

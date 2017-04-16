@@ -3,12 +3,14 @@ package com.android.settings.simpleaosp;
 import android.content.Context;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v14.preference.SwitchPreference;
+import android.provider.Settings;
 import android.provider.SearchIndexableResource;
 
 import com.android.settings.Utils;
@@ -31,6 +33,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
     private static final String LS_SECURE_CAT = "fingerprint_category";
     private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
+    private static final String FP_MAX_FAILED_ATTEMPTS = "fp_max_failed_attempts";
+    private ListPreference maxFailedAttempts;
 
     private SystemSettingSwitchPreference mLsTorch;
     private SystemSettingSwitchPreference mFingerprintVib;
@@ -59,10 +63,26 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         if (!Utils.deviceSupportsFlashLight(getActivity())) {
             getPreferenceScreen().removePreference(mLsTorch);
         }
+
+        // fp max failed attempts
+        maxFailedAttempts = (ListPreference) findPreference(FP_MAX_FAILED_ATTEMPTS);
+        int set = Settings.System.getIntForUser(resolver,
+                Settings.System.FP_MAX_FAILED_ATTEMPTS, 5, UserHandle.USER_CURRENT);
+        maxFailedAttempts.setValue(String.valueOf(set));
+        maxFailedAttempts.setSummary(maxFailedAttempts.getEntry());
+        maxFailedAttempts.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+         if (preference == maxFailedAttempts) {
+            int set = Integer.valueOf((String) objValue);
+            int index = maxFailedAttempts.findIndexOfValue((String) objValue);
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.FP_MAX_FAILED_ATTEMPTS, set, UserHandle.USER_CURRENT);
+            maxFailedAttempts.setSummary(maxFailedAttempts.getEntries()[index]);
+            return true;
+        }
         return false;
     }
 
