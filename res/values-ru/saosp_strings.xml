@@ -466,7 +466,7 @@
     <!-- Fingerprint unlock keystore -->
     <string name="fingerprint_category">Параметры отпечатков</string>
     <string name="fp_unlock_keystore_title">Разблокировка отпечатком</string>
-    <string name="fp_unlock_keystore_summary">Разблокировать устройство после перезагрузки без PIN/Пароля/Граф. ключа\nПрим.: Используйте на свой страх и риск!</string> 
+    <string name="fp_unlock_keystore_summary">Разблокировка устройства отпечатком пальца даже после перезагрузки</string> 
 
     <!-- Development settings dashboard summary -->
     <string name="summary_adb_enabled">USB отладка включена</string>
