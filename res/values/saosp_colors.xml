@@ -94,4 +94,9 @@
     <color name="text_color_white">@android:color/white</color>
     <color name="background_color_white">@android:color/white</color>
 
+    <!-- Build Tweaks -->
+    <color name="dt_tab_color">@*android:color/accent_device_default_light</color>
+    <color name="dt_tab_text_color">@*android:color/notification_text_default_color</color>
+    <color name="dt_tab_background_color">@android:color/transparent</color>
+
 </resources>
