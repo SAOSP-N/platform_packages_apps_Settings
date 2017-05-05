@@ -412,11 +412,6 @@
     <string name="network_traffic_hidearrow_title">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the traffic monitor activity arrows</string>
 
-   <string name="screenshot_crop_and_share_title">Screenshot crop &amp; share</string>
-   <string name="screenshot_crop_and_share_summary">Show an editor window after taking a screenshot in order to do some operations like cropping, saving or sharing it</string>
-   <!--<string name="screenshot_crop_behavior_title"></string>
-   <string name="screenshot_crop_behavior_summary"></string>-->
-
     <!-- Navbar Animation -->
     <string name="pixel_navbar_anim_title">Pixel navbar animation</string>
     <string name="pixel_navbar_anim_summary">Enables the Pixel\'s home button animations</string>
