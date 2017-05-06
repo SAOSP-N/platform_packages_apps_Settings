@@ -288,6 +288,10 @@
     <!-- Navigation bar cursor -->
     <string name="navigation_bar_arrow_keys_title">Перемещение курсора</string>
     <string name="navigation_bar_arrow_keys_summary">Отображать кнопки перемещения курсора влево или вправо при вводе</string>
+     
+    <string name="screenshot_type_title">Вид снимка экрана</string>
+    <string name="screenshot_type_fullscreen">Полноэкранный</string>
+    <string name="screenshot_type_partial">Снимок определенной области экрана</string> 
 
     <!-- Custom carrier label and position -->
     <string name="carrier_label_settings_title">Название оператора</string>
@@ -415,10 +419,6 @@
     <string name="menu_show_substratum_icons">Показать иконпаки</string>
     <string name="menu_hide_substratum_icons">Скрыть иконпаки</string>
 
-    <string name="screenshot_type_title">Вид снимка экрана</string>
-    <string name="screenshot_crop_and_share_title">Кадрировать снимок и поделиться</string>
-    <string name="screenshot_crop_and_share_summary">Окно редактора после cоздания снимка экрана, в котором можно кадрировать, сохранить или поделиться изображением</string>
-     
     <string name="pixel_navbar_anim_title">Анимация панели навигации</string>
     <string name="pixel_navbar_anim_summary">Включает анимацию кнопки «Домой» как у устройств Google Pixel</string>
   
@@ -621,7 +621,7 @@
      
     <!-- Status bar notification ticker -->
     <string name="ticker_title">Тикер</string>
-    <string name="ticker_summary">Включить тикер уведомления в строке состония. Не следует использовать в сочетании со всплывающим уведомлением.</string> 
+    <string name="ticker_summary">Включить тикер уведомления в строке состояния. Не использовать в сочетании со всплывающим уведомлением.</string> 
 
     <!-- Custom dashboard tile category -->
     <string name="saosp_category_title">Персонализация</string>
@@ -633,4 +633,12 @@
     <!-- Battery Tile style -->
     <string name="status_bar_battery_style_tile_title">Стиль плитки батареи</string>
     <string name="status_bar_battery_style_tile_summary">Использовать одинаковый стиль, выбранный для батареи в строке состояния</string>
+     
+    <!-- QS footer warnings -->
+    <string name="qs_footer_warnings_title">Предупреждения в быстрых настройках</string>
+    <string name="qs_footer_warnings_summary">Показывать предупреждение внизу панели быстрых настроек, если ваша сеть контролируется внешними приложениями или VPN</string> 
+
+    <!-- Data disabled icon -->
+    <string name="data_disabled_icon_title">Значок отключенных моб. данных</string>
+    <string name="data_disabled_icon_summary">Показывать перекрестие рядом с индикатором сигнала, когда моб. данные отключены</string>
 </resources>
