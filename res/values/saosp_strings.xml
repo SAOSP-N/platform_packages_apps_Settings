@@ -630,4 +630,8 @@
     <string name="status_bar_battery_style_tile_title">Battery tile style</string>
     <string name="status_bar_battery_style_tile_summary">Sync the same icon style chosen for the statusbar battery</string>
 
+    <!-- QS footer warnings -->
+    <string name="qs_footer_warnings_title">QS footer warnings</string>
+    <string name="qs_footer_warnings_summary">Display a warning at bottom of the QS panel while your network is monitored by external apps or a VPN</string>
+
 </resources>
