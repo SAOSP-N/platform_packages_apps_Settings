@@ -7,6 +7,7 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
  import android.support.v7.preference.PreferenceScreen;
 import android.support.v14.preference.SwitchPreference;
+import android.telephony.SubscriptionManager;
 import android.provider.Settings;
 import android.provider.SearchIndexableResource;
 
@@ -26,10 +27,14 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     private static final String KEY_HEADS_UP_SETTINGS = "heads_up_settings";
     private static final String KEY_CLOCK_SETTINGS = "statusbarclock";
     private static final String STATUS_BAR_SHOW_TICKER = "status_bar_show_ticker";
+    private static final String DATA_DISABLED_PREF = "data_disabled_icon";
 
     private PreferenceScreen mHeadsUp;
     private PreferenceScreen mClock;
     private SwitchPreference mShowTicker;
+    private SwitchPreference mNoData;
+
+    private SubscriptionManager mSm;
 		
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         int ShowTicker = Settings.System.getInt(getContentResolver(),
                 STATUS_BAR_SHOW_TICKER, 0);
         mShowTicker.setChecked(ShowTicker != 0);
+
+        mSm = (SubscriptionManager) getSystemService(getContext().TELEPHONY_SUBSCRIPTION_SERVICE);
+
+        if (mSm.getActiveSubscriptionInfoCount() <= 0) {
+                getPreferenceScreen().removePreference(mNoData);
+        }
     }
 
     private boolean getUserHeadsUpState() {
