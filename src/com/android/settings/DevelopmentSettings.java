@@ -1952,7 +1952,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             }
 
         } else if (preference == mRestartSystemUI) {
-            Helpers.restartSystemUI(); 
+            Helpers.showSystemUIrestartDialog(getActivity());
         } else if (preference == mClearAdbKeys) {
             if (mAdbKeysDialog != null) dismissDialogs();
             mAdbKeysDialog = new AlertDialog.Builder(getActivity())
