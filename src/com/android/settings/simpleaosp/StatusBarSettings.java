@@ -1,5 +1,6 @@
 package com.android.settings.simpleaosp;
 
+import android.telephony.TelephonyManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.preference.ListPreference;
@@ -51,6 +52,13 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         int ShowTicker = Settings.System.getInt(getContentResolver(),
                 STATUS_BAR_SHOW_TICKER, 0);
         mShowTicker.setChecked(ShowTicker != 0);
+	
+		TelephonyManager telMgr = (TelephonyManager) getSystemService(getContext().TELEPHONY_SERVICE);
+        int simState = telMgr.getSimState();
+
+       	if (simState == TelephonyManager.SIM_STATE_UNKNOWN || simState ==  TelephonyManager.SIM_STATE_ABSENT) {
+            return;
+            }
 
         mSm = (SubscriptionManager) getSystemService(getContext().TELEPHONY_SUBSCRIPTION_SERVICE);
 
