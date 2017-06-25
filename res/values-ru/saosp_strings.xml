@@ -641,4 +641,10 @@
     <!-- Data disabled icon -->
     <string name="data_disabled_icon_title">Значок отключенных моб. данных</string>
     <string name="data_disabled_icon_summary">Показывать перекрестие рядом с индикатором сигнала, когда моб. данные отключены</string>
+     
+    <!-- SystemUI restart prompt -->
+    <string name="systemui_restart_title">ВНИМАНИЕ</string>
+    <string name="systemui_restart_message">SystemUI будет перезапущен, чтобы выбранная опция была применена корректно.</string>
+    <string name="restarting_ui">Перезапуск UI\u2026</string>
+    <string name="print_restart">Перезагрузка</string> 
 </resources>
